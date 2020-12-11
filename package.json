@@ -1,0 +1,48 @@
+{
+  "name": "@seniorsistemas/tecnologia-webcomponents",
+  "description": "A webcomponents library for Senior Sistemas - Suite BPM products.",
+  "author": {
+    "name": "Senior Sistemas S/A",
+    "email": "aplicativos-arquitetura@senior.com.br",
+    "url": "https://senior.com.br/solucoes/performance-corporativa/bpm"
+  },
+  "version": "0.0.1",
+  "main": "dist/index.cjs.js",
+  "module": "dist/custom-elements/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/tecnologia-webcomponents/tecnologia-webcomponents.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.0.1"
+  },
+  "devDependencies": {
+    "@stencil/sass": "^1.4.1"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SeniorSA/tecnologia-webcomponents/issues"
+  },
+  "repository": {
+    "url": "git+https://github.com/SeniorSA/tecnologia-webcomponents.git"
+  },
+  "keywords": [
+    "Webcomponents",
+    "Senior Sistemas",
+    "Tecnologia Aplicativos",
+    "StencilJS"
+  ]
+}
