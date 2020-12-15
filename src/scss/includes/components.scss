@@ -1,0 +1,14 @@
+@import '../mixins/variables/theme/dark.scss';
+@import '../mixins/variables/theme/light.scss';
+
+:host([hidden]) {
+  display: none;
+}
+
+:host([theme='light']) {
+  @include componentLightThemeVars();
+}
+
+:host([theme='dark']) {
+  @include componentDarkThemeVars();
+}
