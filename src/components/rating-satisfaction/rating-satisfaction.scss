@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+
+  .grade {
+    display: flex;
+    width: 25px;
+    color: transparent;
+    width: 20px;
+    height: 15px;
+
+    &.one {
+      background-color: #90bef2;
+      border-radius: 50px 0 0 50px;
+    }
+    &.two {
+      background-color: #7fb3ee;
+    }
+    &.three {
+      background-color: #69a4e8;
+    }
+    &.four {
+      background-color: #548dce;
+    }
+    &.five {
+      background-color: #3273bc;
+      border-radius: 0 50px 50px 0;
+    }
+  }
+
+  .icon {
+    color: #ffca29;
+    width: 20px;
+    height: 15px;
+  }
+}

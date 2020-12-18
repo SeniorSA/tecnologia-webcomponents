@@ -6,56 +6,36 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface RatingSatisfaction {
+        "iconPrefix": string;
+        "rate": number;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLRatingSatisfactionElement extends Components.RatingSatisfaction, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLRatingSatisfactionElement: {
+        prototype: HTMLRatingSatisfactionElement;
+        new (): HTMLRatingSatisfactionElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "rating-satisfaction": HTMLRatingSatisfactionElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface RatingSatisfaction {
+        "iconPrefix"?: string;
+        "rate"?: number;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "rating-satisfaction": RatingSatisfaction;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "rating-satisfaction": LocalJSX.RatingSatisfaction & JSXBase.HTMLAttributes<HTMLRatingSatisfactionElement>;
         }
     }
 }

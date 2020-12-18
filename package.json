@@ -30,7 +30,8 @@
     "@stencil/core": "^2.0.1"
   },
   "devDependencies": {
-    "@stencil/sass": "^1.4.1"
+    "@stencil/sass": "^1.4.1",
+    "@types/jest": "^26.0.19"
   },
   "license": "MIT",
   "bugs": {
