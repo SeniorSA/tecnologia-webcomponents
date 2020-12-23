@@ -15,6 +15,20 @@
         "test",
         "ideas"
       ]
+    },
+    {
+      "login": "tiagoboeing",
+      "name": "Tiago Boeing",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3449932?v=4",
+      "profile": "http://linkedin.com/in/tiagoboeing/",
+      "contributions": [
+        "code",
+        "test",
+        "design",
+        "review",
+        "projectManagement",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
