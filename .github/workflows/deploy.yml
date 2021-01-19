@@ -1,0 +1,78 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master, develop]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+
+    steps:
+      # - name: Configure Puppeteer
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y gconf-service libasound2 libatk1.0-0 libatk-bridge2.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+      #     sudo apt-get install -y libgbm-dev
+
+      - uses: actions/checkout@v2
+      - name: Log environments
+        run: |
+          echo "Logging GitHub environments"
+          echo "Branch" ${GITHUB_REF##*/}
+          echo "GITHUB_REPOSITORY_NAME_SLUG" ${GITHUB_REPOSITORY_NAME_SLUG}
+          echo "GITHUB_REF" ${GITHUB_REF}
+          echo "GITHUB_REF_NAME" ${GITHUB_REF_NAME}
+          echo "GITHUB_REF_NAME_SLUG" ${GITHUB_REF_NAME_SLUG}
+          echo "GITHUB_REF_SLUG" ${GITHUB_REF_SLUG}
+
+      - name: npm install, build and test
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.1.x"
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+      - run: sh ./scripts/check-file.sh
+        env:
+          CI: true
+          FILE: ./dist/tecnologia-webcomponents/tecnologia-webcomponents.js
+
+      # NPM PUBLISH
+      - name: Publish to NPM if version has been updated
+        uses: pascalgn/npm-publish-action@06e0830ea83eea10ed4a62654eeaedafb8bf50fc
+        continue-on-error: true
+        with:
+          tag_name: "v%s"
+          tag_message: "v%s"
+          commit_pattern: "^[Rr]elease (\\S+)"
+          workspace: "."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # automatically generated
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Configure AWS credentials for CDN account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy CDN
+        run: sh ./scripts/deploy.sh
+        env:
+          AWS_CLOUDFRONT_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_DIST_ID }}
+
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          git fetch --prune --unshallow --tags
+          git status
+          git tag
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.1.x"

@@ -14,8 +14,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
+  "typeRoots": [
+    "node_modules/@types",
+    "./typings.d.ts"
+  ],
   "include": [
     "src"
   ],

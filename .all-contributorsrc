@@ -1,0 +1,40 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "lucasreichert3",
+      "name": "Lucas Reichert",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/39280222?v=4",
+      "profile": "https://github.com/lucasreichert3",
+      "contributions": [
+        "code",
+        "test",
+        "ideas"
+      ]
+    },
+    {
+      "login": "tiagoboeing",
+      "name": "Tiago Boeing",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3449932?v=4",
+      "profile": "http://linkedin.com/in/tiagoboeing/",
+      "contributions": [
+        "code",
+        "test",
+        "design",
+        "review",
+        "projectManagement",
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "tecnologia-webcomponents",
+  "projectOwner": "SeniorSA",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
