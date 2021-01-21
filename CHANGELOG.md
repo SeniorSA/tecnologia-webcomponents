@@ -1,5 +1,5 @@
-# {version}
-[{date}]
+# Unreleased
 
 ### Features
+
 * Support to Font Awesome icons
