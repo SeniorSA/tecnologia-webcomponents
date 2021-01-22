@@ -1,9 +1,12 @@
 # Release notes (tecnologia-web-components)
 
-## Features
+## Unreleased
 
-- Added `style-dictionary@next` for use style tokens.
+### Features
 
-## Fixes
+- Added `style-dictionary@next` for create design tokens.
+- Create styles initial archicture to work with multiples themes.
+
+### Fixes
 
 - Updated: `browserslist@latest`

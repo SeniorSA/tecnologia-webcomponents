@@ -2,7 +2,7 @@
   "color": {
     "primary": {
       "light": { "value": "{color.base.blue.500.value}" },
-      "dark": { "value": "{color.base.blue.500.value}" }
+      "dark": { "value": "{color.base.blue.900.value}" }
     },
     "secondary": {
       "light": { "value": "{color.base.gray.500.value}" },

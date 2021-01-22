@@ -1,0 +1,7 @@
+@mixin componentDarkThemeVars() {
+  --tecnologia-color-primary: #{$color-primary-dark};
+  --tecnologia-color-secondary: #{$color-secondary-dark};
+  --tecnologia-color-danger: #{$color-danger-dark};
+  --tecnologia-color-success: #{$color-success-dark};
+  --tecnologia-color-warning: #{$color-warning-dark};
+}

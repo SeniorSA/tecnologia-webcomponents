@@ -1,6 +1,6 @@
-@import '../injected.scss';
-
-@import '../mixins/themes/light';
+:host {
+  @include baseTokens();
+}
 
 :host([hidden]) {
   display: none;
@@ -8,4 +8,8 @@
 
 :host([theme='light']) {
   @include componentLightThemeVars();
+}
+
+:host([theme='dark']) {
+  @include componentDarkThemeVars();
 }
