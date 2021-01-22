@@ -1,2 +1,9 @@
-// @import './mixins/variables/theme/light.scss';
-// @import './mixins/variables/theme/dark.scss';
+/*
+  This file is injected on all components
+*/
+
+@import './placeholders/host';
+@import './mixins/utilities';
+
+/* themes */
+@import './mixins/themes/light';

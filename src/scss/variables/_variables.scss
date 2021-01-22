@@ -1,40 +1,70 @@
 
-/*
-  Do not edit directly
-  Generated on Wed, 20 Jan 2021 22:44:46 GMT
-*/
+// Do not edit directly
+// Generated on Fri, 22 Jan 2021 12:34:08 GMT
 
-$my-tokens: (
-  'tec-color-base-primary-light': #3c9bec,
-  'tec-color-base-primary-dark': #3c9bec,
-  'tec-color-base-secondary-light': #b9bec2,
-  'tec-color-base-secondary-dark': #b9bec2,
-  'tec-color-base-danger-light': #ec3c43,
-  'tec-color-base-danger-dark': #ec3c43,
-  'tec-color-base-success-light': #00c99a,
-  'tec-color-base-success-dark': #00c99a,
-  'tec-color-base-warning-light': #ec8d3c,
-  'tec-color-base-warning-dark': #ec8d3c,
-  'tec-color-blue-light': #3c9bec,
-  'tec-color-blue-dark': #3c9bec,
-  'tec-color-gray-light': #b9bec2,
-  'tec-color-gray-dark': #b9bec2,
-  'tec-color-red-light': #ec3c43,
-  'tec-color-red-dark': #ec3c43,
-  'tec-color-green-light': #00c99a,
-  'tec-color-green-dark': #00c99a,
-  'tec-color-orange-light': #ec8d3c,
-  'tec-color-orange-dark': #ec8d3c,
-  'tec-color-font-base-light': #777777,
-  'tec-color-font-base-dark': #ffffff,
-  'tec-color-font-secondary': #00c99a,
-  'tec-color-font-tertiary': #b9bec2,
-  // the small size of the font
-  'tec-size-font-small': 0.75rem,
-  // the medium size of the font
-  'tec-size-font-medium': 1rem,
-  // the large size of the font
-  'tec-size-font-large': 2rem,
-  // the base size of the font
-  'tec-size-font-base': 1rem
-);
+$color-primary-light: #3c9bec;
+$color-primary-dark: #3c9bec;
+$color-secondary-light: #b9bec2;
+$color-secondary-dark: #b9bec2;
+$color-danger-light: #ec3c43;
+$color-danger-dark: #e57176;
+$color-success-light: #00c99a;
+$color-success-dark: #00af86;
+$color-warning-light: #ec8d3c;
+$color-warning-dark: #f97e15;
+$color-base-blue-50: #eaf5fe;
+$color-base-blue-100: #d2e7f8;
+$color-base-blue-200: #9dc7ea;
+$color-base-blue-300: #71b0e5;
+$color-base-blue-400: #55a4e7;
+$color-base-blue-500: #3c9bec;
+$color-base-blue-600: #1590f9;
+$color-base-blue-700: #0088fb;
+$color-base-blue-800: #007de7;
+$color-base-blue-900: #0271d0;
+$color-base-gray-50: #fcfcfc;
+$color-base-gray-100: #f5f5f5;
+$color-base-gray-200: #ededed;
+$color-base-gray-300: #d5d5d5;
+$color-base-gray-400: #c8c8c8;
+$color-base-gray-500: #b9bec2;
+$color-base-gray-600: #a1b2c0;
+$color-base-gray-700: #8baac3;
+$color-base-gray-800: #80a0bb;
+$color-base-gray-900: #7995ab;
+$color-base-red-50: #feeaeb;
+$color-base-red-100: #f8d2d4;
+$color-base-red-200: #ea9da0;
+$color-base-red-300: #e57176;
+$color-base-red-400: #e7555b;
+$color-base-red-500: #ec3c43;
+$color-base-red-600: #f9151e;
+$color-base-red-700: #fb000a;
+$color-base-red-800: #e70009;
+$color-base-red-900: #d0020a;
+$color-base-green-50: #8affe4;
+$color-base-green-100: #74f7d9;
+$color-base-green-200: #3cedc3;
+$color-base-green-300: #10e7b5;
+$color-base-green-400: #07d7a6;
+$color-base-green-500: #00c99a;
+$color-base-green-600: #00af86;
+$color-base-green-700: #009c78;
+$color-base-green-800: #008868;
+$color-base-green-900: #007258;
+$color-base-orange-50: #fef3ea;
+$color-base-orange-100: #f8e4d2;
+$color-base-orange-200: #eac19d;
+$color-base-orange-300: #e5a771;
+$color-base-orange-400: #e79955;
+$color-base-orange-500: #ec8d3c;
+$color-base-orange-600: #f97e15;
+$color-base-orange-700: #fb7400;
+$color-base-orange-800: #e76a00;
+$color-base-orange-900: #d06002;
+$color-font-base-light: #777777;
+$color-font-base-dark: #ffffff;
+$size-font-small: 0.75rem; // the small size of the font
+$size-font-medium: 1rem; // the medium size of the font
+$size-font-large: 2rem; // the large size of the font
+$size-font-base: 1rem; // the base size of the font

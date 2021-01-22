@@ -4,9 +4,7 @@
       "base": {
         "light": { "value": "#777777" },
         "dark": { "value": "#FFFFFF" }
-      },
-      "secondary": { "value": "{color.green.light.value}" },
-      "tertiary": { "value": "{color.gray.light.value}" }
+      }
     }
   }
 }

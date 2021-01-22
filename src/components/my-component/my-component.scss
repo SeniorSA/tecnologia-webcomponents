@@ -1,0 +1,7 @@
+@import '../../scss/includes/components';
+
+:host {
+  @extend %component-host;
+
+  display: block;
+}

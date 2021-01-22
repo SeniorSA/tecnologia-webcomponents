@@ -1,0 +1,11 @@
+@import '../injected.scss';
+
+@import '../mixins/themes/light';
+
+:host([hidden]) {
+  display: none;
+}
+
+:host([theme='light']) {
+  @include componentLightThemeVars();
+}
