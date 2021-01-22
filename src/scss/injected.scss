@@ -1,0 +1,15 @@
+/*
+  This file is injected on all components by stencil.config.ts
+*/
+
+/* design tokens */
+@import './variables/variables';
+
+/* shared properties */
+@import './mixins/base/base';
+@import './placeholders/host';
+@import './mixins/utilities';
+
+/* themes */
+@import './mixins/themes/light';
+@import './mixins/themes/dark';
