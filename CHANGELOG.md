@@ -1,4 +1,4 @@
-# Release notes (tecnologia-web-components)
+# Release notes
 
 ## Unreleased
 
@@ -6,6 +6,7 @@
 
 - Added `style-dictionary@next` for create design tokens.
 - Created styles architecture to work with multiple themes.
+- Support to FontAwesome icons
 
 ### Fixes
 
