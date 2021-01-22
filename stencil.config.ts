@@ -21,8 +21,7 @@ export const config: Config = {
         {
           src: 'styles.css'
         },
-        { src: 'assets/fontawesome/webfonts', dest: 'webfonts' },
-        { src: 'assets/material/fonts/*', dest: 'webfonts' }
+        { src: 'assets/fontawesome/webfonts', dest: 'webfonts' }
       ],
     },
   ],
