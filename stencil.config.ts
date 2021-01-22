@@ -31,8 +31,9 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
       copy: [
         {
-          src: 'styles.css',
+          src: 'styles.css'
         },
+        { src: 'assets/fontawesome/webfonts', dest: 'webfonts' }
       ],
     },
   ],
