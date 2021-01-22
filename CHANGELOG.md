@@ -5,7 +5,7 @@
 ### Features
 
 - Added `style-dictionary@next` for create design tokens.
-- Create styles initial archicture to work with multiples themes.
+- Created styles architecture to work with multiple themes.
 
 ### Fixes
 
