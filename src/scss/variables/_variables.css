@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 25 Jan 2021 20:28:57 GMT
+ * Generated on Mon, 25 Jan 2021 21:04:08 GMT
  */
 
 :root {
@@ -156,4 +156,14 @@
   --size-font-medium: 1rem; /* the medium size of the font */
   --size-font-large: 2rem; /* the large size of the font */
   --size-font-base: 1rem; /* the base size of the font */
+  --status-primary-color-light: #3c9bec;
+  --status-primary-color-dark: #3c9bec;
+  --status-secondary-color-light: #cbd0d8;
+  --status-secondary-color-dark: #cbd0d8;
+  --status-danger-color-light: #8d2428;
+  --status-danger-color-dark: #8d2428;
+  --status-success-color-light: #00c99a;
+  --status-success-color-dark: #00c99a;
+  --status-warning-color-light: #ff9800;
+  --status-warning-color-dark: #ff9800;
 }

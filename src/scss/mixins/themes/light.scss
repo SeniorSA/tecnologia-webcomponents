@@ -1,7 +1,7 @@
 @mixin componentLightThemeVars() {
-  --tecnologia-color-primary: #{$color-primary-light};
-  --tecnologia-color-secondary: #{$color-secondary-light};
-  --tecnologia-color-danger: #{$color-danger-light};
-  --tecnologia-color-success: #{$color-success-light};
-  --tecnologia-color-warning: #{$color-warning-light};
+  --tecnologia-color-primary: #{$status-primary-color-light};
+  --tecnologia-color-secondary: #{$status-secondary-color-light};
+  --tecnologia-color-danger: #{$status-danger-color-light};
+  --tecnologia-color-success: #{$status-success-color-light};
+  --tecnologia-color-warning: #{$status-warning-color-light};
 }
