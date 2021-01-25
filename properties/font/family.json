@@ -3,33 +3,29 @@
       "family": {
         "sans-serif": {
           "font1": {
-            "family": { "value": "Raleway" },
+            "family": { "value": "Inter" },
             "weight": { "value": "500" }
           },
           "font2": {
-            "family": { "value": "Merriweather Sans" },
-            "weight": { "value": "400" }
-          },
-          "font3": {
-            "family": { "value": "Noto Sans" },
+            "family": { "value": "Almarai" },
             "weight": { "value": "500" }
           },
-          "font4": {
+          "font3": {
             "family": { "value": "Roboto" },
             "weight": { "value": "500" }
           },
-          "font5": {
+          "font4": {
             "family": { "value": "Arial" },
             "weight": { "value": "500" }
           },
           "base": {
-            "value": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Raleway\", \"Merriweather Sans\", \"Noto Sans\", \"Roboto\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "value": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Inter\", \"Almarai\", \"Roboto\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
             "comment": "default font-family full string"
           }
         },
         "serif": {
           "font1": {
-            "family": { "value": "Merriweather" },
+            "family": { "value": "Volkhov" },
             "weight": { "value": "500" }
           },
           "font2": {
@@ -41,7 +37,7 @@
             "weight": { "value": "500" }
           },
           "base": {
-            "value": "ui-serif, \"Merriweather\", \"Libre Baskerville\", Georgia, serif",
+            "value": "ui-serif, \"Volkhov\", \"Libre Baskerville\", Georgia, serif",
             "comment": "default font-family full string"
           }
         },
