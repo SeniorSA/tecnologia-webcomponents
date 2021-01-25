@@ -1,26 +1,17 @@
 {
   "color": {
-    "primary": {
-      "light": { "value": "{color.base.blue.500.value}" },
-      "dark": { "value": "{color.base.blue.900.value}" }
-    },
-    "secondary": {
-      "light": { "value": "{color.base.gray.500.value}" },
-      "dark": { "value": "{color.base.gray.500.value}" }
-    },
-    "danger": {
-      "light": { "value": "{color.base.red.500.value}" },
-      "dark": { "value": "{color.base.red.300.value}" }
-    },
-    "success": {
-      "light": { "value": "{color.base.green.500.value}" },
-      "dark": { "value": "{color.base.green.600.value}" }
-    },
-    "warning": {
-      "light": { "value": "{color.base.orange.500.value}" },
-      "dark": { "value": "{color.base.orange.600.value}" }
-    },
     "base": {
+      "gray": {
+        "100": { "value": "#F6F6F6" },
+        "200": { "value": "#E4E4E4" },
+        "300": { "value": "#D3D3D3" },
+        "400": { "value": "#C1C1C1" },
+        "500": { "value": "#A7A7A7" },
+        "600": { "value": "#858585" },
+        "700": { "value": "#646464" },
+        "800": { "value": "#424242" },
+        "900": { "value": "#212121" }
+      },
       "blue": {
         "50": { "value": "#eaf5fe" },
         "100": { "value": "#d2e7f8" },
@@ -32,18 +23,6 @@
         "700": { "value": "#0088fb" },
         "800": { "value": "#007de7" },
         "900": { "value": "#0271d0" }
-      },
-      "gray": {
-        "50": { "value": "#FCFCFC" },
-        "100": { "value": "#F5F5F5" },
-        "200": { "value": "#ededed" },
-        "300": { "value": "#d5d5d5" },
-        "400": { "value": "#c8c8c8" },
-        "500": { "value": "#B9BEC2" },
-        "600": { "value": "#a1b2c0" },
-        "700": { "value": "#8baac3" },
-        "800": { "value": "#80a0bb" },
-        "900": { "value": "#7995ab" }
       },
       "red": {
         "50": { "value": "#feeaeb" },
