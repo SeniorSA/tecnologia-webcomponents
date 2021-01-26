@@ -15,7 +15,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run build:sass && style-dictionary build",
+    "build": "style-dictionary build && npm run build:sass",
     "style-dictionary": "style-dictionary build",
     "build:sass": "sass --style expanded --source-map --embed-sources --no-error-css web/scss/:dist/web/scss/",
     "sass:watch": "sass --style expanded --source-map --embed-sources --no-error-css web/scss/:dist/web/css/ --watch",
