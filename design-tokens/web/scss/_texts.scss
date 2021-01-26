@@ -1,0 +1,17 @@
+/**
+  text properties
+  eg.: font-size, line-height
+*/
+$font-properties: map-get($tokens, font);
+
+$font-sizes: map-get($font-properties, size);
+$line-height: map-get($font-properties, line-height);
+
+$keys: map-keys($font-sizes);
+
+@each $key in $keys {
+  .text-#{$key} {
+    font-size: map-get($font-sizes, $key);
+    line-height: map-get($line-height, $key);
+  }
+}

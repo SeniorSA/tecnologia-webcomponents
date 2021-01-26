@@ -3,11 +3,11 @@
   "platforms": {
     "scss": {
       "transformGroup": "scss",
-      "buildPath": "tokens/",
+      "buildPath": "dist/tokens/",
       "files": [
         {
           "destination": "scss/_variables.scss",
-          "format": "scss/variables"
+          "format": "scss/map-deep"
         },
         {
           "destination": "css/_variables.css",

@@ -9,14 +9,16 @@
     "url": "https://senior.com.br/solucoes/performance-corporativa/bpm"
   },
   "files": [
-    "tokens/"
+    "dist/"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "build": "npm run build:sass && style-dictionary build",
-    "build:sass": "sass helpers/_styles.scss build/helpers/_styles.css",
+    "style-dictionary": "style-dictionary build",
+    "build:sass": "sass --style expanded --source-map --embed-sources --no-error-css web/scss/:dist/web/scss/",
+    "sass:watch": "sass --style expanded --source-map --embed-sources --no-error-css web/scss/:dist/web/css/ --watch",
     "build:watch": "chokidar \"./properties/**/*.json\" -c \"npm run build\""
   },
   "dependencies": {},
