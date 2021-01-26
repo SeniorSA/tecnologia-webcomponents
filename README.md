@@ -21,6 +21,12 @@ And import `tecnologia-webcomponents.esm.js`:
 <script src="@seniorsistemas/tecnologia-webcomponents/dist/tecnologia-webcomponents/tecnologia-webcomponents.esm.js" type="module"></script>
 ```
 
+For legacy projects import `tecnologia-webcomponents.js`:
+
+```js
+<script src="@seniorsistemas/tecnologia-webcomponents/dist/tecnologia-webcomponents/tecnologia-webcomponents.js" type="text/javascript"></script>
+```
+
 For use in frameworks, [see the Stencil page](https://stenciljs.com/docs/overview).
 
 ### Via CDN (release candidate)
@@ -30,9 +36,24 @@ Now you can test components in a HTML page importing via script from CDN.
 #### Stable
 
 ```html
-<script src="https://cdn.tecnologia.senior.com.br/platform/tecnologia-webcomponents/master/tecnologia-webcomponents/tecnologia-webcomponents.js"></script>
-<tec-button label="Primary" mode="square" color="outline" status="success"></tec-button>
+<script src="https://cdn.tecnologia.senior.com.br/platform/tecnologia-webcomponents/master/tecnologia-webcomponents/tecnologia-webcomponents.esm.js" type="module"></script>
 ```
+
+For legacy projects use: 
+```html
+<script src="https://cdn.tecnologia.senior.com.br/platform/tecnologia-webcomponents/master/tecnologia-webcomponents/tecnologia-webcomponents.js" type="text/javascript"></script>
+```
+
+#### Release candidate (develop branch)
+
+**(ATTENTION!! Not use for production!)**
+
+```html
+<script src="https://cdn.tecnologia.senior.com.br/platform/tecnologia-webcomponents/develop/tecnologia-webcomponents/tecnologia-webcomponents.js"></script>
+```
+
+> Other alternative is use UNPKG, for this, overwrite with the following URL: `@seniorsistemas/tecnologia-webcomponents/dist/tecnologia-webcomponents/tecnologia-webcomponents.js`
+
 ### Angular applications
 
 ```bash
