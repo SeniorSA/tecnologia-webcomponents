@@ -42,7 +42,7 @@ npm i @seniorsistemas/tecnologia-webcomponents
 In your `app.module.ts` declare `CUSTOM_ELEMENTS_SCHEMA`:
 
 ```ts
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';  // <-- import from here
 
 @NgModule({
   declarations: [
