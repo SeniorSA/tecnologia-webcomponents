@@ -6,6 +6,17 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+This is a Work in Progress Web components library made by [BPM Suite](https://www.senior.com.br/senior-x/bpm/) team.
+
+## Browser Support
+
+| Chrome | New Edge (Chromium) | Safari | Firefox | Older Edge        | IE                |
+| ------ | ------------------- | ------ | ------- | ----------------- | ----------------- |
+| 60+    | 79+                 | 10.1+  | 63+     | 16-18 (polyfills) | >= 11 (polyfills) |
+
+> [See complete docs](https://stenciljs.com/docs/browser-support)
+
+
 ## How to install
 
 ### NPM
@@ -112,7 +123,7 @@ applyPolyfills().then(() => {
   defineCustomElements()
 })
 ```
-## I want contribute
+## I want to contribute
 
 View [contribution guide](CONTRIBUTING.md).
 
