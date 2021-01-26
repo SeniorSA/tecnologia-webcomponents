@@ -5,79 +5,94 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-# Stencil Component Starter
+## How to install
 
-This is a starter project for building a standalone Web Component using Stencil.
+### NPM
 
-Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
-
-# Stencil
-
-Stencil is a compiler for building fast web apps using Web Components.
-
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
-
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
-
-## Getting Started
-
-To start building a new web component using Stencil, clone this repo to a new directory:
+Install dependency:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
-cd my-component
-git remote rm origin
+npm i @seniorsistemas/tecnologia-webcomponents
 ```
 
-and run:
+And import `tecnologia-webcomponents.esm.js`:
+
+```js
+<script src="@seniorsistemas/tecnologia-webcomponents/dist/tecnologia-webcomponents/tecnologia-webcomponents.esm.js" type="module"></script>
+```
+
+For use in frameworks, [see the Stencil page](https://stenciljs.com/docs/overview).
+
+### Via CDN (release candidate)
+
+Now you can test components in a HTML page importing via script from CDN.
+
+#### Stable
+
+```html
+<script src="https://cdn.tecnologia.senior.com.br/platform/tecnologia-webcomponents/master/tecnologia-webcomponents/tecnologia-webcomponents.js"></script>
+<tec-button label="Primary" mode="square" color="outline" status="success"></tec-button>
+```
+### Angular applications
 
 ```bash
-npm install
-npm start
+npm i @seniorsistemas/tecnologia-webcomponents
 ```
 
-To build the component for production, run:
+In your `app.module.ts` declare `CUSTOM_ELEMENTS_SCHEMA`:
+
+```ts
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]   // <-- declare this
+})
+export class AppModule { }
+```
+
+And in `main.ts` end of file, add following imports:
+
+```ts
+import { applyPolyfills, defineCustomElements } from '@seniorsistemas/tecnologia-webcomponents/loader';
+
+defineCustomElements();
+
+// for IE support (optional)
+applyPolyfills().then(() => {
+  defineCustomElements()
+})
+```
+
+### React applications
 
 ```bash
-npm run build
+yarn add @seniorsistemas/tecnologia-webcomponents
 ```
 
-To run the unit tests for the components, run:
+In your `src/index.js` or `src/index.tsx` (typescript project) file, add following imports preferably before of the React Render:
 
-```bash
-npm test
+```js
+import { applyPolyfills, defineCustomElements } from '@seniorsistemas/tecnologia-webcomponents/loader';
+
+defineCustomElements();
+
+// for IE support (optional)
+applyPolyfills().then(() => {
+  defineCustomElements()
+})
 ```
+## I want contribute
 
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
-
-
-## Naming Components
-
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
-
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
-
-
-## Using this component
-
-There are three strategies we recommend for using web components built with Stencil.
-
-The first step for all three of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
-
-### Script tag
-
-- Put a script tag similar to this `<script src='https://unpkg.com/my-component@0.0.1/dist/mycomponent.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
-
-### Node Modules
-- Run `npm install my-component --save`
-- Put a script tag similar to this `<script src='node_modules/my-component/dist/mycomponent.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
-
-### In a stencil-starter app
-- Run `npm install my-component --save`
-- Add an import to the npm packages `import my-component;`
-- Then you can use the element anywhere in your template, JSX, html etc
+View [contribution guide](CONTRIBUTING.md).
 
 ## Contributors ✨
 
