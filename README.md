@@ -88,13 +88,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/lucasreichert3"><img src="https://avatars2.githubusercontent.com/u/39280222?v=4" width="100px;" alt=""/><br /><sub><b>Lucas Reichert</b></sub></a><br /><a href="https://github.com/SeniorSA/tecnologia-webcomponents/commits?author=lucasreichert3" title="Code">💻</a> <a href="https://github.com/SeniorSA/tecnologia-webcomponents/commits?author=lucasreichert3" title="Tests">⚠️</a> <a href="#ideas-lucasreichert3" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://linkedin.com/in/tiagoboeing/"><img src="https://avatars2.githubusercontent.com/u/3449932?v=4" width="100px;" alt=""/><br /><sub><b>Tiago Boeing</b></sub></a><br /><a href="https://github.com/SeniorSA/tecnologia-webcomponents/commits?author=tiagoboeing" title="Code">💻</a> <a href="https://github.com/SeniorSA/tecnologia-webcomponents/commits?author=tiagoboeing" title="Tests">⚠️</a> <a href="#design-tiagoboeing" title="Design">🎨</a> <a href="https://github.com/SeniorSA/tecnologia-webcomponents/pulls?q=is%3Apr+reviewed-by%3Atiagoboeing" title="Reviewed Pull Requests">👀</a> <a href="#projectManagement-tiagoboeing" title="Project Management">📆</a> <a href="#ideas-tiagoboeing" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/lucasreichert3"><img src="https://avatars2.githubusercontent.com/u/39280222?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Reichert</b></sub></a><br /><a href="https://github.com/SeniorSA/tecnologia-webcomponents/commits?author=lucasreichert3" title="Code">💻</a> <a href="https://github.com/SeniorSA/tecnologia-webcomponents/commits?author=lucasreichert3" title="Tests">⚠️</a> <a href="#ideas-lucasreichert3" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/SeniorSA/tecnologia-webcomponents/commits?author=lucasreichert3" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://linkedin.com/in/tiagoboeing/"><img src="https://avatars2.githubusercontent.com/u/3449932?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tiago Boeing</b></sub></a><br /><a href="https://github.com/SeniorSA/tecnologia-webcomponents/commits?author=tiagoboeing" title="Code">💻</a> <a href="https://github.com/SeniorSA/tecnologia-webcomponents/commits?author=tiagoboeing" title="Tests">⚠️</a> <a href="#design-tiagoboeing" title="Design">🎨</a> <a href="https://github.com/SeniorSA/tecnologia-webcomponents/pulls?q=is%3Apr+reviewed-by%3Atiagoboeing" title="Reviewed Pull Requests">👀</a> <a href="#projectManagement-tiagoboeing" title="Project Management">📆</a> <a href="#ideas-tiagoboeing" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
