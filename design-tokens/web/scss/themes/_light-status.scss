@@ -1,0 +1,14 @@
+/**
+  light status properties
+*/
+
+$status: map-get($tokens, status);
+$keys: map-keys($status);
+
+@each $key in $keys {
+  $color: map-get($status, $key);
+  $status-color: map-get($color, color);
+  .tec-bg-#{$key} {
+    background-color: map-get($status-color, light);
+  }
+}

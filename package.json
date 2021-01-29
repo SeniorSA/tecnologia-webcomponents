@@ -25,7 +25,7 @@
   "scripts": {
     "build": "stencil build --docs",
     "build:watch": "stencil build --docs --watch",
-    "start": "npm run dev-server:prepare",
+    "start": "npm run dev-server",
     "dev-server": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e --coverage --verbose --json --outputFile=.jest-test-results.json",
     "test:watch": "stencil test --spec --e2e --coverage --watchAll --verbose --json --outputFile=.jest-test-results.json",

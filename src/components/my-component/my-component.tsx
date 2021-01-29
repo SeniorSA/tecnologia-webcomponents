@@ -31,6 +31,6 @@ export class MyComponent {
   }
 
   render() {
-    return <div>Hello, World! I'm {this.getText()}</div>;
+    return <div class="tec-bg-primary tec-text-sans">Hello, World! I'm {this.getText()}</div>;
   }
 }

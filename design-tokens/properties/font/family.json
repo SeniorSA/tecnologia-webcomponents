@@ -3,7 +3,7 @@
     "family": {
       "sans-serif": {
         "font1": {
-          "family": { "value": "Inter" },
+          "family": { "value": "Roboto" },
           "weight": { "value": "500" }
         },
         "font2": {
@@ -11,7 +11,7 @@
           "weight": { "value": "500" }
         },
         "font3": {
-          "family": { "value": "Roboto" },
+          "family": { "value": "Inter" },
           "weight": { "value": "500" }
         },
         "font4": {
@@ -19,7 +19,7 @@
           "weight": { "value": "500" }
         },
         "base": {
-          "value": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Inter\", \"Almarai\", \"Roboto\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+          "value": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Roboto\", \"Almarai\", \"Inter\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
           "comment": "default font-family full string"
         }
       },

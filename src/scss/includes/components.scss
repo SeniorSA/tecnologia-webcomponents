@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 :host {
   @include baseTokens();
 }
@@ -8,8 +10,10 @@
 
 :host([theme='light']) {
   @include componentLightThemeVars();
+  @include meta.load-css("../../../design-tokens/web/scss/themes/light");
 }
 
 :host([theme='dark']) {
   @include componentDarkThemeVars();
+  @include meta.load-css("../../../design-tokens/web/scss/themes/dark");
 }

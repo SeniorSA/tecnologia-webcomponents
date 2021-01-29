@@ -3,7 +3,8 @@
 */
 
 /* design tokens */
-@import '../../design-tokens/build/tokens/scss/variables';
+@import '../../design-tokens/dist/tokens/scss/variables';
+@import '../../design-tokens/dist/web/scss/styles';
 
 /* shared properties */
 @import './mixins/base/base';

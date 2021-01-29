@@ -11,8 +11,11 @@
 - Created styles architecture to work with multiple themes.
 - Support to FontAwesome icons
 - Add style tokens for colors and fonts.
+- Create auxiliary classes for layout
+  - Suport multi theme
 
 ### Fixes
 
 - Moved `style-dictionary` to new package
 - Updated: `browserslist@latest`
+- Fix `font-family`
