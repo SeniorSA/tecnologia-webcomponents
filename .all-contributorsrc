@@ -13,7 +13,8 @@
       "contributions": [
         "code",
         "test",
-        "ideas"
+        "ideas",
+        "doc"
       ]
     },
     {
@@ -27,7 +28,8 @@
         "design",
         "review",
         "projectManagement",
-        "ideas"
+        "ideas",
+        "doc"
       ]
     }
   ],

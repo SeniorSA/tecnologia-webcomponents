@@ -1,0 +1,10 @@
+{
+  "color": {
+    "font": {
+      "base": {
+        "light": { "value": "#777777" },
+        "dark": { "value": "#FFFFFF" }
+      }
+    }
+  }
+}

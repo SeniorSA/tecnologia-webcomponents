@@ -1,0 +1,68 @@
+{
+    "font": {
+      "family": {
+        "sans-serif": {
+          "font1": {
+            "family": { "value": "Inter" },
+            "weight": { "value": "500" }
+          },
+          "font2": {
+            "family": { "value": "Almarai" },
+            "weight": { "value": "500" }
+          },
+          "font3": {
+            "family": { "value": "Roboto" },
+            "weight": { "value": "500" }
+          },
+          "font4": {
+            "family": { "value": "Arial" },
+            "weight": { "value": "500" }
+          },
+          "base": {
+            "value": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Inter\", \"Almarai\", \"Roboto\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "comment": "default font-family full string"
+          }
+        },
+        "serif": {
+          "font1": {
+            "family": { "value": "Volkhov" },
+            "weight": { "value": "500" }
+          },
+          "font2": {
+            "family": { "value": "Libre Baskerville" },
+            "weight": { "value": "500" }
+          },
+          "font3": {
+            "family": { "value": "Georgia" },
+            "weight": { "value": "500" }
+          },
+          "base": {
+            "value": "ui-serif, \"Volkhov\", \"Libre Baskerville\", Georgia, serif",
+            "comment": "default font-family full string"
+          }
+        },
+        "mono": {
+          "font1": {
+            "family": { "value": "Fira Mono" },
+            "weight": { "value": "500" }
+          },
+          "font2": {
+            "family": { "value": "Roboto Mono" },
+            "weight": { "value": "600" }
+          },
+          "font3": {
+            "family": { "value": "Oxygen Mono" },
+            "weight": { "value": "500" }
+          },
+          "font4": {
+            "family": { "value": "Consolas" },
+            "weight": { "value": "500" }
+          },
+          "base": {
+            "value": "ui-monospace, \"Fira Mono\", \"Roboto Mono\", \"Oxygen Mono\", Consolas, monospace",
+            "comment": "default font-family full string"
+          }
+        }
+      }
+    }
+  }

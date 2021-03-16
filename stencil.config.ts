@@ -33,6 +33,7 @@ export const config: Config = {
         {
           src: 'styles.css',
         },
+        { src: 'assets/fontawesome/webfonts', dest: 'webfonts' },
       ],
     },
   ],
