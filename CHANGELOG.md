@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Dependencies
+
+- Update to `@stencil/core: ^2.4.0`
+
 ## 0.1.0-0
 
 ### Features
