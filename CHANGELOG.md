@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Features
+
+- Created `product-header` component.
+
 ## 0.1.0-0
 
 ### Features
