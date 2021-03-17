@@ -10,8 +10,8 @@
 | Property             | Attribute              | Description                                        | Type      | Default     |
 | -------------------- | ---------------------- | -------------------------------------------------- | --------- | ----------- |
 | `sticky`             | `sticky`               | Use to make a bar fixed on top                     | `boolean` | `true`      |
-| `title`              | `title`                | The product name                                   | `string`  | `undefined` |
 | `titleCursorPointer` | `title-cursor-pointer` | Set `false` to remove `cursor: pointer` from title | `boolean` | `true`      |
+| `titleProduct`       | `title-product`        | The product name                                   | `string`  | `undefined` |
 
 
 ## Events

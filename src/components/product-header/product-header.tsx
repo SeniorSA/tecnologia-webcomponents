@@ -10,7 +10,7 @@ export class ProductHeader {
    * The product name
    */
   @Prop({ mutable: false })
-  title: string;
+  titleProduct: string;
 
   /**
    * Set `false` to remove `cursor: pointer` from title
@@ -38,7 +38,7 @@ export class ProductHeader {
       <Host>
         <header class={this.sticky && 'sticky'}>
           <div class="title" style={{ cursor: this.titleCursorPointer && 'pointer' }} onClick={() => this.titleClicked.emit()}>
-            {this.title}
+            {this.titleProduct}
           </div>
 
           <div class="content">

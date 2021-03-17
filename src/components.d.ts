@@ -29,14 +29,14 @@ export namespace Components {
          */
         "sticky": boolean;
         /**
-          * The product name
-         */
-        "title": string;
-        /**
           * Set `false` to remove `cursor: pointer` from title
           * @default true
          */
         "titleCursorPointer": boolean;
+        /**
+          * The product name
+         */
+        "titleProduct": string;
     }
 }
 declare global {
@@ -85,14 +85,14 @@ declare namespace LocalJSX {
          */
         "sticky"?: boolean;
         /**
-          * The product name
-         */
-        "title"?: string;
-        /**
           * Set `false` to remove `cursor: pointer` from title
           * @default true
          */
         "titleCursorPointer"?: boolean;
+        /**
+          * The product name
+         */
+        "titleProduct"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

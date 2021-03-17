@@ -26,11 +26,11 @@ describe('product-header', () => {
     const page = await newSpecPage({
       components: [ProductHeader],
       html: `
-        <tec-product-header title="My product" sticky="false"></tec-product-header>
+        <tec-product-header title-product="My product" sticky="false"></tec-product-header>
       `,
     });
     expect(page.root).toEqualHtml(`
-      <tec-product-header sticky="false" title="My product">
+      <tec-product-header sticky="false" title-product="My product">
          <mock:shadow-root>
            <header>
              <div class="title" style="cursor: pointer;">
