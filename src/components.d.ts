@@ -25,7 +25,7 @@ export namespace Components {
     interface TecProductHeader {
         /**
           * Use to make a bar fixed on top
-          * @default false
+          * @default true
          */
         "sticky": boolean;
         /**
@@ -81,7 +81,7 @@ declare namespace LocalJSX {
         "onTitleClicked"?: (event: CustomEvent<void>) => void;
         /**
           * Use to make a bar fixed on top
-          * @default false
+          * @default true
          */
         "sticky"?: boolean;
         /**

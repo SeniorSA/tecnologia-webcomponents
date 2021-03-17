@@ -9,7 +9,7 @@
 
 | Property             | Attribute              | Description                                        | Type      | Default     |
 | -------------------- | ---------------------- | -------------------------------------------------- | --------- | ----------- |
-| `sticky`             | `sticky`               | Use to make a bar fixed on top                     | `boolean` | `false`     |
+| `sticky`             | `sticky`               | Use to make a bar fixed on top                     | `boolean` | `true`      |
 | `title`              | `title`                | The product name                                   | `string`  | `undefined` |
 | `titleCursorPointer` | `title-cursor-pointer` | Set `false` to remove `cursor: pointer` from title | `boolean` | `true`      |
 

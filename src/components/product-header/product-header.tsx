@@ -21,10 +21,10 @@ export class ProductHeader {
 
   /**
    * Use to make a bar fixed on top
-   * @default false
+   * @default true
    */
   @Prop({ mutable: true, reflect: true })
-  sticky = false;
+  sticky = true;
 
   /**
    * Emitted when the title was clicked
