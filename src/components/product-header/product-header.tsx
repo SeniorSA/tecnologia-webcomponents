@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'tec-product-header',
@@ -6,11 +6,15 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class ProductHeader {
+  @Prop({ mutable: true, reflect: true })
+  sticky = false;
+
   render() {
     return (
       <Host>
-        <header>
+        <header class={this.sticky && 'sticky'}>
           <slot name="title"></slot>
+          <slot name="content"></slot>
         </header>
       </Host>
     );

@@ -4,7 +4,7 @@ import { sass } from '@stencil/sass';
 export const config: Config = {
   namespace: 'tecnologia-webcomponents',
   taskQueue: 'async',
-  buildEs5: true,
+  buildEs5: 'prod',
   extras: {
     cssVarsShim: true,
     dynamicImportShim: true,
@@ -31,9 +31,9 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
       copy: [
         {
-          src: 'styles.css'
+          src: 'styles.css',
         },
-        { src: 'assets/fontawesome/webfonts', dest: 'webfonts' }
+        { src: 'assets/fontawesome/webfonts', dest: 'webfonts' },
       ],
     },
   ],

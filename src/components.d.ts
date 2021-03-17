@@ -22,6 +22,9 @@ export namespace Components {
         "middle": string;
         "theme": TecnologiaTheme;
     }
+    interface TecProductHeader {
+        "sticky": boolean;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -30,8 +33,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLTecProductHeaderElement extends Components.TecProductHeader, HTMLStencilElement {
+    }
+    var HTMLTecProductHeaderElement: {
+        prototype: HTMLTecProductHeaderElement;
+        new (): HTMLTecProductHeaderElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "tec-product-header": HTMLTecProductHeaderElement;
     }
 }
 declare namespace LocalJSX {
@@ -50,8 +60,12 @@ declare namespace LocalJSX {
         "middle"?: string;
         "theme"?: TecnologiaTheme;
     }
+    interface TecProductHeader {
+        "sticky"?: boolean;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "tec-product-header": TecProductHeader;
     }
 }
 export { LocalJSX as JSX };
@@ -59,6 +73,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
         }
     }
 }
