@@ -23,7 +23,20 @@ export namespace Components {
         "theme": TecnologiaTheme;
     }
     interface TecProductHeader {
+        /**
+          * Use to make a bar fixed on top
+          * @default false
+         */
         "sticky": boolean;
+        /**
+          * The product name
+         */
+        "title": string;
+        /**
+          * Set `false` to remove `cursor: pointer` from title
+          * @default true
+         */
+        "titleCursorPointer": boolean;
     }
 }
 declare global {
@@ -61,7 +74,25 @@ declare namespace LocalJSX {
         "theme"?: TecnologiaTheme;
     }
     interface TecProductHeader {
+        /**
+          * Emitted when the title was clicked
+          * @returns void
+         */
+        "onTitleClicked"?: (event: CustomEvent<void>) => void;
+        /**
+          * Use to make a bar fixed on top
+          * @default false
+         */
         "sticky"?: boolean;
+        /**
+          * The product name
+         */
+        "title"?: string;
+        /**
+          * Set `false` to remove `cursor: pointer` from title
+          * @default true
+         */
+        "titleCursorPointer"?: boolean;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

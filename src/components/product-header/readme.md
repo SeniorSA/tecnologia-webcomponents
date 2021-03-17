@@ -7,9 +7,18 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default |
-| -------- | --------- | ----------- | --------- | ------- |
-| `sticky` | `sticky`  |             | `boolean` | `false` |
+| Property             | Attribute              | Description                                        | Type      | Default     |
+| -------------------- | ---------------------- | -------------------------------------------------- | --------- | ----------- |
+| `sticky`             | `sticky`               | Use to make a bar fixed on top                     | `boolean` | `false`     |
+| `title`              | `title`                | The product name                                   | `string`  | `undefined` |
+| `titleCursorPointer` | `title-cursor-pointer` | Set `false` to remove `cursor: pointer` from title | `boolean` | `true`      |
+
+
+## Events
+
+| Event          | Description                        | Type                |
+| -------------- | ---------------------------------- | ------------------- |
+| `titleClicked` | Emitted when the title was clicked | `CustomEvent<void>` |
 
 
 ----------------------------------------------
