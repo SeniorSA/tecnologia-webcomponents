@@ -10,7 +10,7 @@
 
 ### Features
 
-- Created NPM package for `tecnologia-design-tokens`
+- Created base NPM package for `tecnologia-design-tokens`
   - Added SASS to project
   - Added `style-dictionary`
 - Added `style-dictionary@next` for create design tokens.
