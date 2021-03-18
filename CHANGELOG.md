@@ -17,7 +17,7 @@
 - Created styles architecture to work with multiple themes.
 - Support to FontAwesome icons
 - Add style tokens for colors and fonts.
-- Create auxiliary classes for layout
+- Created auxiliary classes for layout
   - Support multi-theme
 
 ### Fixes
