@@ -33,6 +33,7 @@ jobs:
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
+        run: echo "Upload artifact"
         with:
           name: tecnologia-webcomponents # artifact name
           path: |
