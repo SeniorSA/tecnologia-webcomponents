@@ -16,18 +16,18 @@ $tec-font-serif: #{$font-family-serif-base};
 $tec-font-mono: #{$font-family-mono-base};
 $tec-title-font: #{$font-family-sans-serif-font-3-family};
 
-.tec-text-sans {
+.text-sans {
   font-family: #{$tec-font-sans};
 }
 
-.tec-text-serif {
+.text-serif {
   font-family: #{$tec-font-serif}, serif;
 }
 
-.tec-text-mono {
+.text-mono {
   font-family: #{$tec-font-mono};
 }
 
-.tec-title-font {
+.title-font {
   font-family: #{$tec-title-font}, sans-serif;
 }
