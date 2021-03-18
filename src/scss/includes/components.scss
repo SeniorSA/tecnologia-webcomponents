@@ -10,10 +10,10 @@
 
 :host([theme='light']) {
   @include componentLightThemeVars();
-  @include meta.load-css("../../../design-tokens/web/scss/themes/light");
+  @include generate-status(light)
 }
 
 :host([theme='dark']) {
   @include componentDarkThemeVars();
-  @include meta.load-css("../../../design-tokens/web/scss/themes/dark");
+  @include generate-status(dark)
 }

@@ -4,7 +4,7 @@
 
 /* design tokens */
 @import '../../design-tokens/dist/tokens/scss/variables';
-@import '../../design-tokens/dist/web/scss/styles';
+@import '../../design-tokens/dist/web/css/styles';
 
 /* shared properties */
 @import './mixins/base/base';
@@ -14,3 +14,4 @@
 /* themes */
 @import './mixins/themes/light';
 @import './mixins/themes/dark';
+@import '../../design-tokens/web/scss/themes/theme-status'
