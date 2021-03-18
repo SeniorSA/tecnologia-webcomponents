@@ -19,7 +19,7 @@ $tec-title-font: #{$font-family-sans-serif-font-3-family};
 }
 
 .tec-text-serif {
-  font-family: #{$tec-font-serif};
+  font-family: #{$tec-font-serif}, serif;
 }
 
 .tec-text-mono {
@@ -29,4 +29,3 @@ $tec-title-font: #{$font-family-sans-serif-font-3-family};
 .tec-title-font {
   font-family: #{$tec-title-font}, sans-serif;
 }
-
