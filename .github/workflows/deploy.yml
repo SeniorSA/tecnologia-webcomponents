@@ -59,17 +59,26 @@ jobs:
           path: .
 
       # NPM PUBLISH
-      - name: Publish to NPM if version has been updated
-        uses: pascalgn/npm-publish-action@1.3.6
+      - id: publish
+        name: Publish to NPM if version has been updated
+        uses: JS-DevTools/npm-publish@v1
         with:
-          tag_name: "v%s"
-          tag_message: "v%s"
-          commit_pattern: "^[Rr]elease (\\S+)"
-          workspace: "." # artifact directory
-          publish_args: "--non-interactive"
+          token: ${{ secrets.NPM_TOKEN }}
+          access: public
+          tag: ${{ steps.publish.outputs.version }}
+
+      - name: Create Release
+        if: steps.publish.outputs.type != 'none'
+        id: create_release
+        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # automatically generated
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.publish.outputs.version }}
+          release_name: Release ${{ steps.publish.outputs.version }}
+          body: ${{ steps.publish.outputs.version }}
+          draft: false
+          prerelease: false
 
       # CDN DEPLOY
       - name: Configure AWS credentials for CDN account
