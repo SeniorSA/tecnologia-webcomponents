@@ -2,9 +2,13 @@
 
 ## 0.1.0-1
 
+### Features
+
+- Optimize GitHub Actions to use `artifacts` and multiples `steps`.
+
 ### Dependencies
 
-- Update to `@stencil/core: ^2.4.0`
+- Updated to `@stencil/core: ^2.4.0`
 
 ## 0.1.0-0
 

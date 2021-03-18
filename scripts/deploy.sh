@@ -4,7 +4,7 @@ echo "Deploy to CDN"
 
 BUCKET=s3://cdn.tecnologia.senior.com.br/platform/tecnologia-webcomponents/
 
-aws s3 sync dist ${BUCKET}${GITHUB_REF##*/} --delete
+aws s3 sync ${BASE_PATH}dist ${BUCKET}${GITHUB_REF##*/} --delete
 aws s3 sync loader ${BUCKET}${GITHUB_REF##*/}/loader/ --delete
 
 echo "Copy to S3 concluded"
