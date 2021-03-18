@@ -25,7 +25,7 @@ $tec-title-font: #{$font-family-sans-serif-font-3-family};
 }
 
 .text-mono {
-  font-family: #{$tec-font-mono};
+  font-family: #{$tec-font-mono}, monospace;
 }
 
 .title-font {
