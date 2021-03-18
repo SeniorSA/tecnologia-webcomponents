@@ -37,6 +37,7 @@
     "storybook:build": "npm run test && build-storybook -s dist"
   },
   "dependencies": {
+    "@seniorsistemas/tecnologia-design-tokens": "^0.1.2",
     "@stencil/core": "^2.4.0"
   },
   "devDependencies": {

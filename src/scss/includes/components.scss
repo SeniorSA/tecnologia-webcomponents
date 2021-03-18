@@ -10,10 +10,10 @@
 
 :host([theme='light']) {
   @include componentLightThemeVars();
-  @include generate-status(light)
+  // @include generate-status(light)
 }
 
 :host([theme='dark']) {
   @include componentDarkThemeVars();
-  @include generate-status(dark)
+  // @include generate-status(dark)
 }
