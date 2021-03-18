@@ -43,6 +43,7 @@ jobs:
             package.json
 
   deploy:
+    needs: build_and_test
     name: Deploy to CDN and NPM
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
