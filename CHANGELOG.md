@@ -18,7 +18,7 @@
 - Support to FontAwesome icons
 - Add style tokens for colors and fonts.
 - Create auxiliary classes for layout
-  - Suport multi theme
+  - Support multi-theme
 
 ### Fixes
 
