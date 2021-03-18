@@ -26,9 +26,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "14.1.x"
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+        run: |
+          npm ci
+          npm run build --if-present
+          npm test
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
@@ -47,9 +48,11 @@ jobs:
     steps:
       - name: Checkout and log environments
       - uses: actions/checkout@v2
+        run: echo "Checkout repo"
 
       - name: Download artifact
         uses: actions/download-artifact@v2
+        run: echo "Download artifact"
         with:
           name: tecnologia-webcomponents
 
@@ -70,6 +73,7 @@ jobs:
       # CDN DEPLOY
       - name: Configure AWS credentials for CDN account
         uses: aws-actions/configure-aws-credentials@v1
+        run: echo "Configure AWS CLI"
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
