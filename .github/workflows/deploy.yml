@@ -11,8 +11,9 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
 
     steps:
-      - name: Checkout and log environments
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+
+      - name: Log environments
         run: |
           echo "Logging GitHub environments"
           echo "Branch" ${GITHUB_REF##*/}
