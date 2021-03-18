@@ -36,6 +36,7 @@ jobs:
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
+          retention-days: 7
           name: tecnologia-webcomponents # artifact name
           path: |
             dist
@@ -61,7 +62,6 @@ jobs:
       - name: Publish to NPM if version has been updated
         uses: pascalgn/npm-publish-action@1.3.6
         with:
-          create_tag: "true"
           tag_name: "v%s"
           tag_message: "v%s"
           commit_pattern: "^[Rr]elease (\\S+)"
@@ -84,7 +84,7 @@ jobs:
           sh ./scripts/check-file.sh
           sh ./scripts/deploy.sh
         env:
-          BASE_PATH: tecnologia-webcomponents
+          BASE_PATH: tecnologia-webcomponents/
           CI: true
           AWS_CLOUDFRONT_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_DIST_ID }}
           FILE: ./tecnologia-webcomponents/dist/tecnologia-webcomponents/tecnologia-webcomponents.js
