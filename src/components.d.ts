@@ -8,18 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TecnologiaTheme } from "./components/interfaces";
 export namespace Components {
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
         "theme": TecnologiaTheme;
     }
     interface TecProductHeader {
@@ -59,18 +47,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
         "theme"?: TecnologiaTheme;
     }
     interface TecProductHeader {
