@@ -3,7 +3,8 @@
 */
 
 /* design tokens */
-@import './variables/variables';
+@import '~@seniorsistemas/tecnologia-design-tokens/dist/tokens/scss/variables';
+@import '~@seniorsistemas/tecnologia-design-tokens/dist/web/css/styles.min.css';
 
 /* shared properties */
 @import './mixins/base/base';

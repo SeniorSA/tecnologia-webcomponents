@@ -6,7 +6,7 @@
     "email": "aplicativos-arquitetura@senior.com.br",
     "url": "https://senior.com.br/solucoes/performance-corporativa/bpm"
   },
-  "version": "0.1.0-1",
+  "version": "0.2.2",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -25,10 +25,7 @@
   "scripts": {
     "build": "stencil build --docs",
     "build:watch": "stencil build --docs --watch",
-    "start": "npm run dev-server:prepare && chokidar \"./properties/**/*.json\" -c \"npm run style-dictionary\"",
-    "dev-server": "stencil build --dev --watch --serve",
-    "dev-server:prepare": "npm-run-all style-dictionary dev-server",
-    "style-dictionary": "style-dictionary build",
+    "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e --coverage --verbose --json --outputFile=.jest-test-results.json",
     "test:watch": "stencil test --spec --e2e --coverage --watchAll --verbose --json --outputFile=.jest-test-results.json",
     "test:coverage": "stencil test --spec --e2e --coverage --json --outputFile=.jest-test-results.json",
@@ -39,7 +36,9 @@
     "storybook:build": "npm run test && build-storybook -s dist"
   },
   "dependencies": {
-    "@stencil/core": "^2.4.0"
+    "@seniorsistemas/tecnologia-design-tokens": "^0.2.1",
+    "@stencil/core": "^2.4.0",
+    "@storybook/cli": "^6.1.21"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -59,15 +58,13 @@
     "@storybook/html": "^6.1.21",
     "@storybook/storybook-deployer": "^2.8.7",
     "@storybook/theming": "^6.1.21",
-    "@types/jest": "^26.0.20",
+    "@types/jest": "^26.0.21",
     "@types/puppeteer": "^5.4.3",
-    "chokidar-cli": "^2.1.0",
     "jest": "26.4.2",
     "jest-cli": "26.4.2",
     "npm-run-all": "^4.1.5",
     "puppeteer": "^5.5.0",
-    "react-is": "^16.13.1",
-    "style-dictionary": "^3.0.0-rc.6"
+    "react-is": "^16.13.1"
   },
   "license": "MIT",
   "bugs": {
