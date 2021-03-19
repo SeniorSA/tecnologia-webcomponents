@@ -1,5 +1,12 @@
 # Release notes
 
+## 0.2.1
+
+### Features
+
+- Add conditional CDN deploy.
+- Add deploy step only on `master` branch.
+  
 ## 0.2.0
 
 ### Features
