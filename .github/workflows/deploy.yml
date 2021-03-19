@@ -46,7 +46,8 @@ jobs:
     needs: build_and_test
     name: Deploy to CDN and NPM
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    if: "github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+
 
     steps:
       - name: Checkout and log environments
@@ -93,6 +94,8 @@ jobs:
           sh ./scripts/check-file.sh
           sh ./scripts/deploy.sh
         env:
+          OLD_VERSION: ${{ steps.publish.outputs.old-version }}
+          VERSION: ${{ steps.publish.outputs.version }}
           CI: true
           AWS_CLOUDFRONT_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_DIST_ID }}
           FILE: ./dist/tecnologia-webcomponents/tecnologia-webcomponents.js
