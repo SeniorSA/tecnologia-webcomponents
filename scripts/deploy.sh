@@ -6,7 +6,7 @@ BUCKET=s3://cdn.tecnologia.senior.com.br/platform/tecnologia-webcomponents/
 FOLDER_NAME=${GITHUB_REF##*/}
 
 # If it's a pull request, change to GITHUB_HEAD_REF
-if [ ! -f $VERSION ] && [ ! -f $OLD_VERSION ]; then
+if [ ! -f $GITHUB_HEAD_REF ]; then
   FOLDER_NAME=$GITHUB_HEAD_REF
 fi
 
