@@ -1,4 +1,8 @@
+@use "sass:meta";
+
 @mixin componentDarkThemeVars() {
+  @include meta.load-css('~@seniorsistemas/tecnologia-design-tokens/dist/web/css/themes/dark.min.css');
+
   --tecnologia-color-primary: #{$status-primary-color-dark};
   --tecnologia-color-secondary: #{$status-secondary-color-dark};
   --tecnologia-color-danger: #{$status-danger-color-dark};
