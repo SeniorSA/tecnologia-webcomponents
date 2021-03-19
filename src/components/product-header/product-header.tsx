@@ -30,7 +30,7 @@ export class ProductHeader {
    * Emitted when the title was clicked
    * @returns void
    */
-  @Event({ bubbles: true, composed: true })
+  @Event({ bubbles: true, composed: true, eventName: 'title-clicked' })
   titleClicked: EventEmitter<void>;
 
   render() {
