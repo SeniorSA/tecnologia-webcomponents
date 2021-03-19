@@ -1,6 +1,5 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 import { defaultTheme } from '../../defaultTheme';
-import { format } from '../../utils/utils';
 import { TecnologiaTheme } from '../interfaces';
 
 @Component({
