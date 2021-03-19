@@ -11,26 +11,7 @@ import { TecnologiaTheme } from '../interfaces';
 export class MyComponent {
   @Prop({ reflect: true }) theme: TecnologiaTheme = defaultTheme;
 
-  /**
-   * The first name
-   */
-  @Prop() first: string;
-
-  /**
-   * The middle name
-   */
-  @Prop() middle: string;
-
-  /**
-   * The last name
-   */
-  @Prop() last: string;
-
-  private getText(): string {
-    return format(this.first, this.middle, this.last);
-  }
-
   render() {
-    return <div class="tec-bg-primary tec-text-sans">Hello, World! I'm {this.getText()}</div>;
+    return <h1 class="bg-primary text-title text-3x1">Hello, World!</h1>;
   }
 }

@@ -1,4 +1,8 @@
+@use "sass:meta";
+
 @mixin componentLightThemeVars() {
+  @include meta.load-css('~@seniorsistemas/tecnologia-design-tokens/dist/web/css/themes/light.min.css');
+
   --tecnologia-color-primary: #{$status-primary-color-light};
   --tecnologia-color-secondary: #{$status-secondary-color-light};
   --tecnologia-color-danger: #{$status-danger-color-light};

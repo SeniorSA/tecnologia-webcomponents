@@ -1,10 +1,14 @@
 # Release notes
 
-## Unreleased
+## 0.2.0
+
+## Features
+
+- Add auxiliary classes to components structure.
 
 ### Dependencies
 
-- Added `tecnologia-design-tokens@^0.1.2`
+- Added `tecnologia-design-tokens@^0.2.1`
 
 ## 0.1.0-1
 

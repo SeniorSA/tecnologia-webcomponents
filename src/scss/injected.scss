@@ -4,7 +4,7 @@
 
 /* design tokens */
 @import '~@seniorsistemas/tecnologia-design-tokens/dist/tokens/scss/variables';
-@import '~@seniorsistemas/tecnologia-design-tokens/dist/web/css/styles';
+@import '~@seniorsistemas/tecnologia-design-tokens/dist/web/css/styles.min.css';
 
 /* shared properties */
 @import './mixins/base/base';
@@ -14,5 +14,3 @@
 /* themes */
 @import './mixins/themes/light';
 @import './mixins/themes/dark';
-
-// @import '~@seniorsistemas/tecnologia-design-tokens/web/scss/themes/_theme-status';

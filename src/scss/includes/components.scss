@@ -1,5 +1,3 @@
-@use "sass:meta";
-
 :host {
   @include baseTokens();
 }
@@ -10,10 +8,8 @@
 
 :host([theme='light']) {
   @include componentLightThemeVars();
-  // @include generate-status(light)
 }
 
 :host([theme='dark']) {
   @include componentDarkThemeVars();
-  // @include generate-status(dark)
 }
