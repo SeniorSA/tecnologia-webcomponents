@@ -2,7 +2,7 @@
 
 ## 0.2.0
 
-## Features
+### Features
 
 - Add auxiliary classes to components structure.
 
