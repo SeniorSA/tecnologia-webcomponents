@@ -1,5 +1,11 @@
 # Release notes
 
+## 0.2.2
+
+### Fixes
+
+- Resolve Storybook build issue.
+
 ## 0.2.1
 
 ### Features

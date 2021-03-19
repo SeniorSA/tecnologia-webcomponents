@@ -6,7 +6,7 @@
     "email": "aplicativos-arquitetura@senior.com.br",
     "url": "https://senior.com.br/solucoes/performance-corporativa/bpm"
   },
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -38,8 +38,7 @@
   "dependencies": {
     "@seniorsistemas/tecnologia-design-tokens": "^0.2.1",
     "@stencil/core": "^2.4.0",
-    "i": "^0.3.6",
-    "npm": "^7.6.3"
+    "@storybook/cli": "^6.1.21"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
