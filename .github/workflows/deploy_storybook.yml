@@ -25,6 +25,15 @@ jobs:
         env:
           CI: true
 
+      - id: publish
+        name: Publish to NPM if version has been updated
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: public
+          tag: ${{ steps.publish.outputs.version }}
+          dry-run: true
+
       - name: Configure AWS credentials for CDN account
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -35,4 +44,5 @@ jobs:
       - name: Deploy landing page
         run: sh ./scripts/storybook-deploy.sh
         env:
+          VERSION: ${{ steps.publish.outputs.version }}
           AWS_CLOUDFRONT_LANDINGPAGE_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_LANDINGPAGE_DIST_ID }}
