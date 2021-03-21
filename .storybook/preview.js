@@ -18,16 +18,16 @@ export const globalTypes = {
     defaultValue: 'light',
     toolbar: {
       icon: 'circlehollow',
-      items: ['light'],
+      items: ['light', 'dark'],
     },
   },
   locale: {
     name: 'Locale',
     description: 'Internationalization locale',
-    defaultValue: 'en',
+    defaultValue: 'pt-BR',
     toolbar: {
       icon: 'globe',
-      items: [{ value: 'en', right: '🇺🇸', title: 'English' }],
+      items: [{ value: 'pt-BR', right: 'pt-BR', title: 'Portuguese Brazil' }],
     },
   },
 };
