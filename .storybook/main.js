@@ -6,10 +6,10 @@ module.exports = {
     '@storybook/addon-knobs',
     '@storybook/addon-viewport',
     '@storybook/addon-notes',
-    '@storybook/addon-a11y',
     '@storybook/addon-actions',
     '@storybook/addon-jest',
     '@storybook/addon-storysource',
     '@storybook/addon-backgrounds',
+    '@storybook/addon-a11y',
   ],
 };

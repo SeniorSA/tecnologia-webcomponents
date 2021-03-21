@@ -5,19 +5,74 @@ on:
     branches: [master, develop]
 
 jobs:
-  build:
-    name: Build and test
+  build_and_test:
+    name: Build, test and archive artifact
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
+
+      - name: Log environments
+        run: |
+          echo "Logging GitHub environments"
+          echo "Branch" ${GITHUB_REF##*/}
+          echo "GITHUB_REPOSITORY_NAME_SLUG" ${GITHUB_REPOSITORY_NAME_SLUG}
+          echo "GITHUB_REF" ${GITHUB_REF}
+          echo "GITHUB_REF_NAME" ${GITHUB_REF_NAME}
+          echo "GITHUB_REF_NAME_SLUG" ${GITHUB_REF_NAME_SLUG}
+          echo "GITHUB_REF_SLUG" ${GITHUB_REF_SLUG}
+          echo "GITHUB_HEAD_REF" ${GITHUB_HEAD_REF}
+          echo "GITHUB_BASE_REF" ${GITHUB_BASE_REF}
+
+      - name: npm install, build and test
         uses: actions/setup-node@v1
         with:
-          node-version: "14.x"
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+          node-version: "14.1.x"
+
+      - run: |
+          npm ci
+          npm run build --if-present
+          npm test
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          retention-days: 7
+          name: tecnologia-webcomponents # artifact name
+          path: |
+            dist
+            loader
+
+  deploy_test:
+    needs: build_and_test
+    name: Deploy pull request to CDN
+    runs-on: ubuntu-latest
+    if: "github.ref != 'refs/heads/develop' && github.ref != 'refs/heads/master' && !contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+
+    steps:
+      - name: Checkout and log environments
+        uses: actions/checkout@v2
+
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: tecnologia-webcomponents
+          path: .
+
+      # CDN DEPLOY
+      - name: Configure AWS credentials for CDN account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_SECRET_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy test PR to CDN
+        run: |
+          sh ./scripts/check-file.sh
+          sh ./scripts/deploy.sh
         env:
           CI: true
+          AWS_CLOUDFRONT_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_DIST_ID }}
+          FILE: ./dist/tecnologia-webcomponents/tecnologia-webcomponents.js

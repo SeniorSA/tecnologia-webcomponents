@@ -4,7 +4,7 @@ import { sass } from '@stencil/sass';
 export const config: Config = {
   namespace: 'tecnologia-webcomponents',
   taskQueue: 'async',
-  buildEs5: true,
+  buildEs5: 'prod',
   extras: {
     cssVarsShim: true,
     dynamicImportShim: true,

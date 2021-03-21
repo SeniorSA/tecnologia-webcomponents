@@ -10,6 +10,24 @@ export namespace Components {
     interface MyComponent {
         "theme": TecnologiaTheme;
     }
+    interface TecProductHeader {
+        /**
+          * Use to make a bar fixed on top
+          * @default true
+         */
+        "sticky": boolean;
+        "theme": TecnologiaTheme;
+        /**
+          * Set `false` to remove `cursor: pointer` from title
+          * @summary when `false` this property disable `titleClicked` event.
+          * @default true
+         */
+        "titleCursorPointer": boolean;
+        /**
+          * The product name
+         */
+        "titleProduct": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -18,16 +36,47 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLTecProductHeaderElement extends Components.TecProductHeader, HTMLStencilElement {
+    }
+    var HTMLTecProductHeaderElement: {
+        prototype: HTMLTecProductHeaderElement;
+        new (): HTMLTecProductHeaderElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "tec-product-header": HTMLTecProductHeaderElement;
     }
 }
 declare namespace LocalJSX {
     interface MyComponent {
         "theme"?: TecnologiaTheme;
     }
+    interface TecProductHeader {
+        /**
+          * Emitted when the title was clicked
+          * @returns void
+         */
+        "onTitle-clicked"?: (event: CustomEvent<void>) => void;
+        /**
+          * Use to make a bar fixed on top
+          * @default true
+         */
+        "sticky"?: boolean;
+        "theme"?: TecnologiaTheme;
+        /**
+          * Set `false` to remove `cursor: pointer` from title
+          * @summary when `false` this property disable `titleClicked` event.
+          * @default true
+         */
+        "titleCursorPointer"?: boolean;
+        /**
+          * The product name
+         */
+        "titleProduct"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "tec-product-header": TecProductHeader;
     }
 }
 export { LocalJSX as JSX };
@@ -35,6 +84,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
         }
     }
 }

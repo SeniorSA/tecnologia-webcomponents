@@ -3,14 +3,20 @@
 echo "Deploy to CDN"
 
 BUCKET=s3://cdn.tecnologia.senior.com.br/platform/tecnologia-webcomponents/
+FOLDER_NAME=${GITHUB_REF##*/}
 
-aws s3 sync ${BASE_PATH}dist ${BUCKET}${GITHUB_REF##*/} --delete
-aws s3 sync loader ${BUCKET}${GITHUB_REF##*/}/loader/ --delete
+# If it's a pull request, change to GITHUB_HEAD_REF
+if [ ! -f $GITHUB_HEAD_REF ]; then
+  FOLDER_NAME=$GITHUB_HEAD_REF
+fi
+
+aws s3 sync ${BASE_PATH}dist ${BUCKET}${FOLDER_NAME} --delete
+aws s3 sync loader ${BUCKET}${FOLDER_NAME}/loader/ --delete
 
 echo "Copy to S3 concluded"
 echo "Prepare to invalidade cache on CloudFront"
 
-aws cloudfront create-invalidation --distribution-id ${AWS_CLOUDFRONT_DIST_ID} --paths "/platform/tecnologia-webcomponents/${GITHUB_REF##*/}/*"
+aws cloudfront create-invalidation --distribution-id ${AWS_CLOUDFRONT_DIST_ID} --paths "/platform/tecnologia-webcomponents/${FOLDER_NAME}/*"
 
 # upload only when version changed
 if [ ! -f $VERSION ] && [ ! -f $OLD_VERSION ]; then

@@ -1,5 +1,11 @@
 # Release notes
 
+## 0.3.0
+
+### Features
+
+- Created `product-header` component.
+
 ## 0.2.2
 
 ### Fixes
