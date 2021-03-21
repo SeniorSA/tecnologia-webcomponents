@@ -10,5 +10,5 @@ addons.setConfig({
   enableShortcuts: true,
   theme: undefined,
   showRoots: true,
-  theme: themes.dark,
+  theme: themes.light,
 });

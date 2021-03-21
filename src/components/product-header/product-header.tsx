@@ -1,4 +1,6 @@
 import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { defaultTheme } from '../../defaultTheme';
+import { TecnologiaTheme } from '../interfaces';
 
 @Component({
   tag: 'tec-product-header',
@@ -6,6 +8,8 @@ import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
   shadow: true,
 })
 export class ProductHeader {
+  @Prop({ reflect: true }) theme: TecnologiaTheme = defaultTheme;
+
   /**
    * The product name
    */
@@ -14,6 +18,7 @@ export class ProductHeader {
 
   /**
    * Set `false` to remove `cursor: pointer` from title
+   * @summary when `false` this property disable `titleClicked` event.
    * @default true
    */
   @Prop({ mutable: false })
@@ -36,8 +41,8 @@ export class ProductHeader {
   render() {
     return (
       <Host>
-        <header class={this.sticky && 'sticky'}>
-          <div class="title" style={{ cursor: this.titleCursorPointer && 'pointer' }} onClick={() => this.titleClicked.emit()}>
+        <header class={`text-title ${this.sticky && 'sticky'}`}>
+          <div class="title" style={{ cursor: this.titleCursorPointer && 'pointer' }} onClick={() => this.titleCursorPointer && this.titleClicked.emit()}>
             {this.titleProduct}
           </div>
 

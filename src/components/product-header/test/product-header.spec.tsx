@@ -8,9 +8,9 @@ describe('product-header', () => {
       html: `<tec-product-header></tec-product-header>`,
     });
     expect(page.root).toEqualHtml(`
-      <tec-product-header sticky="">
+      <tec-product-header sticky="" theme="light">
         <mock:shadow-root>
-          <header class="sticky">
+          <header class="sticky text-title">
             <div class="title" style="cursor: pointer"></div>
 
             <div class="content">
@@ -30,9 +30,9 @@ describe('product-header', () => {
       `,
     });
     expect(page.root).toEqualHtml(`
-      <tec-product-header sticky="false" title-product="My product">
+      <tec-product-header sticky="false" title-product="My product" theme="light">
          <mock:shadow-root>
-           <header>
+           <header class="false text-title">
              <div class="title" style="cursor: pointer;">
                My product
              </div>

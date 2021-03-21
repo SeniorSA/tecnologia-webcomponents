@@ -16,8 +16,10 @@ export namespace Components {
           * @default true
          */
         "sticky": boolean;
+        "theme": TecnologiaTheme;
         /**
           * Set `false` to remove `cursor: pointer` from title
+          * @summary when `false` this property disable `titleClicked` event.
           * @default true
          */
         "titleCursorPointer": boolean;
@@ -54,14 +56,16 @@ declare namespace LocalJSX {
           * Emitted when the title was clicked
           * @returns void
          */
-        "onTitleClicked"?: (event: CustomEvent<void>) => void;
+        "onTitle-clicked"?: (event: CustomEvent<void>) => void;
         /**
           * Use to make a bar fixed on top
           * @default true
          */
         "sticky"?: boolean;
+        "theme"?: TecnologiaTheme;
         /**
           * Set `false` to remove `cursor: pointer` from title
+          * @summary when `false` this property disable `titleClicked` event.
           * @default true
          */
         "titleCursorPointer"?: boolean;
