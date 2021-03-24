@@ -1,0 +1,78 @@
+@import '../../scss/includes/components';
+
+$button-transition: all cubic-bezier(0.16, 0.97, 0.58, 0.94) 250ms;
+
+:host {
+  display: block;
+}
+
+// sizes
+:host([size='tiny']) button {
+  font-size: #{$font-size-xs};
+  padding: 0.5625rem 1.0625rem;
+  height: 35px;
+}
+
+:host([size='small']) button {
+  font-size: #{$font-size-sm};
+  padding: 0.75rem 1.5rem;
+  height: 43px;
+}
+
+:host([size='medium']) button {
+  font-size: #{$font-size-base};
+  padding: 1rem 1.8rem;
+  height: 51px;
+}
+
+:host([size='large']) button {
+  font-size: #{$font-size-lg};
+  padding: 1.125rem 2rem;
+  height: 59px;
+}
+
+:host([size='giant']) button {
+  font-size: #{$font-size-xl};
+  padding: 1.3125rem 2.5rem;
+  height: 67px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  color: #ffffff;
+  transition: $button-transition;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &:disabled {
+    background: #{$color-base-gray-300};
+    color: #{$color-base-gray-500};
+    cursor: inherit;
+
+    &:hover {
+      background: #{$color-base-gray-400};
+    }
+  }
+
+  &.primary {
+    background: #{$color-base-sky-blue-500};
+    &:hover {
+      background: #{$color-base-sky-blue-600};
+    }
+  }
+
+  &.success {
+    background: #{$color-base-green-500};
+    &:hover {
+      background: #{$color-base-green-600};
+    }
+  }
+
+  &.rounded {
+    border-radius: 5rem;
+  }
+}
