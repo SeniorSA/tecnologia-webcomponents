@@ -10,6 +10,11 @@ export namespace Components {
     interface MyComponent {
         "theme": TecnologiaTheme;
     }
+    interface TecBottomBar {
+        "buttonPosition": ButtonPosition;
+        "text": string;
+        "theme": TecnologiaTheme;
+    }
     interface TecProductHeader {
         /**
           * Use to make a bar fixed on top
@@ -36,6 +41,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLTecBottomBarElement extends Components.TecBottomBar, HTMLStencilElement {
+    }
+    var HTMLTecBottomBarElement: {
+        prototype: HTMLTecBottomBarElement;
+        new (): HTMLTecBottomBarElement;
+    };
     interface HTMLTecProductHeaderElement extends Components.TecProductHeader, HTMLStencilElement {
     }
     var HTMLTecProductHeaderElement: {
@@ -44,11 +55,17 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "tec-bottom-bar": HTMLTecBottomBarElement;
         "tec-product-header": HTMLTecProductHeaderElement;
     }
 }
 declare namespace LocalJSX {
     interface MyComponent {
+        "theme"?: TecnologiaTheme;
+    }
+    interface TecBottomBar {
+        "buttonPosition"?: ButtonPosition;
+        "text"?: string;
         "theme"?: TecnologiaTheme;
     }
     interface TecProductHeader {
@@ -76,6 +93,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "tec-bottom-bar": TecBottomBar;
         "tec-product-header": TecProductHeader;
     }
 }
@@ -84,6 +102,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "tec-bottom-bar": LocalJSX.TecBottomBar & JSXBase.HTMLAttributes<HTMLTecBottomBarElement>;
             "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
         }
     }

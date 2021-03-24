@@ -1,0 +1,62 @@
+@import '../../scss/includes/components';
+
+:host {
+  display: block;
+}
+
+$breakpoint-lg: 992px;
+
+:host([theme='dark']) {
+  .container {
+    background: #{$color-base-blue-gray-300};
+    color: #{$color-base-blue-gray-900};
+  }
+}
+
+:host([theme='light']) {
+  .container {
+    background: #{$color-base-blue-gray-900};
+    color: #fff;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 70px;
+  padding: 7px 60px;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: $breakpoint-lg;
+    height: 100%;
+  }
+
+  .text {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    text-overflow: ellipsis;
+  }
+}
+
+.flex-align-center {
+  justify-content: center !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 8px 20px;
+  }
+}

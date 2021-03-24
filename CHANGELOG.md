@@ -1,5 +1,11 @@
 # Release notes
 
+## 0.4.0
+
+### Features
+
+- Created `bottom-bar` component.
+
 ## 0.3.0
 
 ### Features
