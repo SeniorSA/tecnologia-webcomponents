@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Features
+
+- Created `tec-button` component.
+
 ## 0.3.0
 
 ### Features
