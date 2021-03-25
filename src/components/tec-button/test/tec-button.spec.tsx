@@ -36,7 +36,7 @@ describe('tec-button', () => {
       html: `<tec-button buttonId="1" label="Confirmar" size="small" mode="rounded"></tec-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <tec-button buttonid="1" label="Confirmar" mode="rounded" size="small" theme="light">
+      <tec-button buttonid="1" label="Confirm" mode="rounded" size="small" theme="light">
         <mock:shadow-root>
           <button type="button" id="1" class="solid rounded primary text-sans text-base"><span class="">Confirmar</span></button>
         </mock:shadow-root>
