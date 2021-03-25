@@ -38,6 +38,7 @@ $button-transition: all cubic-bezier(0.16, 0.97, 0.58, 0.94) 250ms;
 }
 
 button {
+  outline: none;
   cursor: pointer;
   border: none;
   color: #ffffff;
