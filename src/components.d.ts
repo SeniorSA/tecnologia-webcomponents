@@ -13,6 +13,7 @@ export namespace Components {
         "buttonPosition": ButtonPosition;
         "text": string;
         "theme": TecnologiaTheme;
+        "useAnimation": boolean;
     }
     interface TecButton {
         /**
@@ -111,6 +112,7 @@ declare namespace LocalJSX {
         "buttonPosition"?: ButtonPosition;
         "text"?: string;
         "theme"?: TecnologiaTheme;
+        "useAnimation"?: boolean;
     }
     interface TecButton {
         /**

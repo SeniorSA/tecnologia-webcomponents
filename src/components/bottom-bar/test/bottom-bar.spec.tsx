@@ -8,9 +8,15 @@ describe('bottom-bar', () => {
       html: `<tec-bottom-bar></tec-bottom-bar>`,
     });
     expect(page.root).toEqualHtml(`
-      <tec-bottom-bar>
+      <tec-bottom-bar theme="light">
         <mock:shadow-root>
-          <slot></slot>
+          <div class="container use-animation">
+            <div class="flex-align-center wrapper" style="flex-direction: row-reverse;">
+              <div class="button">
+                <slot name="button"></slot>
+              </div>
+            </div>
+          </div>
         </mock:shadow-root>
       </tec-bottom-bar>
     `);

@@ -1,10 +1,11 @@
 @import '../../scss/includes/components';
 
+$breakpoint-lg: 992px;
+
 :host {
   display: block;
+  height: 70px;
 }
-
-$breakpoint-lg: 992px;
 
 :host([theme='dark']) {
   .container {
@@ -25,10 +26,13 @@ $breakpoint-lg: 992px;
   align-items: center;
   justify-content: center;
 
-  height: 70px;
+  box-shadow: 0 -1px 6px #00000046;
+  position: sticky;
+  position: fixed; // to IE
+  z-index: 99;
   padding: 7px 60px;
   box-sizing: border-box;
-  position: fixed;
+  height: 70px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -48,6 +52,14 @@ $breakpoint-lg: 992px;
 
     height: 100%;
     text-overflow: ellipsis;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    span {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
 }
 
@@ -55,8 +67,24 @@ $breakpoint-lg: 992px;
   justify-content: center !important;
 }
 
-@media only screen and (max-width: 768px) {
+.use-animation {
+  animation: openBar 700ms forwards;
+}
+
+@media only screen and (max-width: 992px) {
+  .wrapper {
+    width: 100% !important;
+  }
   .container {
     padding: 8px 20px;
+  }
+}
+
+@keyframes openBar {
+  from {
+    bottom: -70px;
+  }
+  to {
+    top: inherit;
   }
 }

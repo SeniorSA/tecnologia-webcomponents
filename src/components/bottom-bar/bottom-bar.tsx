@@ -15,6 +15,9 @@ export class BottomBar {
 
   @Prop() buttonPosition = ButtonPosition.left;
 
+  @Prop({ mutable: false, reflect: false })
+  useAnimation = true;
+
   private handleButtonPositionStyle(position: ButtonPosition) {
     const isLeft = position === ButtonPosition.left;
     return {
@@ -25,7 +28,7 @@ export class BottomBar {
   render() {
     return (
       <Host>
-        <div class="container">
+        <div class={`container ${this.useAnimation && 'use-animation'}`}>
           <div
             style={this.handleButtonPositionStyle(this.buttonPosition)}
             class={`wrapper ${!this.text && 'flex-align-center'}`}
