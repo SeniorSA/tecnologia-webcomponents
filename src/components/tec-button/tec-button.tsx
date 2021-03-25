@@ -57,7 +57,7 @@ export class TecButton {
    * Size of button
    */
   @Prop({ mutable: true })
-  size: TecButtonSize = TecButtonSize.large;
+  size: TecButtonSize = TecButtonSize.small;
 
   /**
    * Boolean to indicate if button is disabled
