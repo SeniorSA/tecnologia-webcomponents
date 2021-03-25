@@ -1,6 +1,6 @@
 # Release notes
 
-## {version}
+## Unreleased
 
 ### Features
 
