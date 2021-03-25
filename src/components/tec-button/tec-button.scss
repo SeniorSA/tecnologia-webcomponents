@@ -9,32 +9,32 @@ $button-transition: all cubic-bezier(0.16, 0.97, 0.58, 0.94) 250ms;
 // sizes
 :host([size='tiny']) button {
   font-size: #{$font-size-xs};
-  padding: 0.5625rem 1.0625rem;
-  height: 35px;
+  padding: 0.2rem 1rem;
+  height: 30px;
 }
 
 :host([size='small']) button {
   font-size: #{$font-size-sm};
-  padding: 0.75rem 1.5rem;
-  height: 43px;
+  padding: 0.313rem 1.25rem;
+  height: 38px;
 }
 
 :host([size='medium']) button {
   font-size: #{$font-size-base};
-  padding: 1rem 1.8rem;
-  height: 51px;
+  padding: .5rem 1.5rem;
+  height: 44px;
 }
 
 :host([size='large']) button {
   font-size: #{$font-size-lg};
-  padding: 1.125rem 2rem;
-  height: 59px;
+  padding: .8rem 1.8rem;
+  height: 55px;
 }
 
 :host([size='giant']) button {
   font-size: #{$font-size-xl};
-  padding: 1.3125rem 2.5rem;
-  height: 67px;
+  padding: 1.2rem 2.3rem;
+  height: 65px;
 }
 
 button {
@@ -47,16 +47,6 @@ button {
   align-items: center;
   justify-content: center;
   position: relative;
-
-  &:disabled {
-    background: #{$color-base-gray-300};
-    color: #{$color-base-gray-500};
-    cursor: inherit;
-
-    &:hover {
-      background: #{$color-base-gray-400};
-    }
-  }
 
   &.primary {
     background: #{$color-base-sky-blue-500};
@@ -72,7 +62,21 @@ button {
     }
   }
 
+  &.responsive {
+    width: 100%;
+  }
+
   &.rounded {
     border-radius: 5rem;
+  }
+
+  &:disabled {
+    background: #{$color-base-gray-300};
+    color: #{$color-base-gray-500};
+    cursor: inherit;
+
+    &:hover {
+      background: #{$color-base-gray-400};
+    }
   }
 }

@@ -119,8 +119,10 @@ export class TecButton {
       [this.color]: true,
       [this.mode]: true,
       [this.status]: true,
-      disabled: this.isDisabled,
-      responsive: this.fullWidth,
+      'disabled': this.isDisabled,
+      'responsive': this.fullWidth,
+      'text-sans': true,
+      'text-base': true,
     };
 
     const iconClasses = {
@@ -130,7 +132,7 @@ export class TecButton {
 
     return (
       <Host>
-        <button type="button" id={this.buttonId} class={`text-sans text-base ${classList}`} disabled={this.isDisabled} onClick={this.handleEventClick}>
+        <button type="button" id={this.buttonId} class={classList} disabled={this.isDisabled} onClick={this.handleEventClick}>
           <span class={iconClasses}>
             {!!this.icon && <i class={this.icon}></i>}
             {!this.onlyIcon && this.label}
