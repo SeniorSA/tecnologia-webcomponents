@@ -71,12 +71,12 @@ button {
   }
 
   &:disabled {
-    background: #{$color-base-gray-300};
-    color: #{$color-base-gray-500};
-    cursor: inherit;
+    background-color: #{$color-base-blue-gray-300};
+    color: #{$color-base-blue-gray-500};
+    cursor: not-allowed;
 
     &:hover {
-      background: #{$color-base-gray-400};
+      background: #{$color-base-blue-gray-300};
     }
   }
 }
