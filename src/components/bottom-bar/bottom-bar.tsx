@@ -36,8 +36,8 @@ export class BottomBar {
                 style={{
                   margin:
                     this.buttonPosition === ButtonPosition.left
-                      ? '0 20px 0'
-                      : '0 0 0 20px',
+                      ? '0 0 0 20px'
+                      : '0 20px 0 0',
                 }}
               >
                 <span class="text-sans text-base">{this.text}</span>
