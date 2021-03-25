@@ -5,6 +5,7 @@
 ### Features
 
 - Created `bottom-bar` component.
+- Created `tec-button` component.
 
 ## 0.3.0
 

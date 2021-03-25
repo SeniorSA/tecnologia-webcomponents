@@ -6,13 +6,60 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TecnologiaTheme } from "./components/interfaces";
+import { TecStatus } from "./models/status.model";
+import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/tec-button/tec-button.model";
 export namespace Components {
-    interface MyComponent {
-        "theme": TecnologiaTheme;
-    }
     interface TecBottomBar {
         "buttonPosition": ButtonPosition;
         "text": string;
+        "theme": TecnologiaTheme;
+    }
+    interface TecButton {
+        /**
+          * Optional ID to be attached on button
+         */
+        "buttonId": string;
+        /**
+          * Colors of button (like gradient)
+         */
+        "color": TecButtonColor;
+        /**
+          * Boolean to indicate if button is disabled
+         */
+        "disabled": boolean;
+        /**
+          * If `true` button use `width: 100%`
+         */
+        "fullWidth": boolean;
+        /**
+          * Icon class from FontAwesome 5 Free Allows to use: brands, regular, solid Example: 'far fa-paper-plane'
+         */
+        "icon": string;
+        /**
+          * Position of icon
+         */
+        "iconMode": TecButtonIconMode;
+        /**
+          * Text to show inside button
+         */
+        "label": string;
+        "loading": boolean;
+        /**
+          * Mode of button (like square or rounded)
+         */
+        "mode": TecButtonMode;
+        /**
+          * If `true` button removes label
+         */
+        "onlyIcon": boolean;
+        /**
+          * Size of button
+         */
+        "size": TecButtonSize;
+        /**
+          * The status of button (color)
+         */
+        "status": TecStatus;
         "theme": TecnologiaTheme;
     }
     interface TecProductHeader {
@@ -35,17 +82,17 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLTecBottomBarElement extends Components.TecBottomBar, HTMLStencilElement {
     }
     var HTMLTecBottomBarElement: {
         prototype: HTMLTecBottomBarElement;
         new (): HTMLTecBottomBarElement;
+    };
+    interface HTMLTecButtonElement extends Components.TecButton, HTMLStencilElement {
+    }
+    var HTMLTecButtonElement: {
+        prototype: HTMLTecButtonElement;
+        new (): HTMLTecButtonElement;
     };
     interface HTMLTecProductHeaderElement extends Components.TecProductHeader, HTMLStencilElement {
     }
@@ -54,18 +101,67 @@ declare global {
         new (): HTMLTecProductHeaderElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "tec-bottom-bar": HTMLTecBottomBarElement;
+        "tec-button": HTMLTecButtonElement;
         "tec-product-header": HTMLTecProductHeaderElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        "theme"?: TecnologiaTheme;
-    }
     interface TecBottomBar {
         "buttonPosition"?: ButtonPosition;
         "text"?: string;
+        "theme"?: TecnologiaTheme;
+    }
+    interface TecButton {
+        /**
+          * Optional ID to be attached on button
+         */
+        "buttonId"?: string;
+        /**
+          * Colors of button (like gradient)
+         */
+        "color"?: TecButtonColor;
+        /**
+          * Boolean to indicate if button is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true` button use `width: 100%`
+         */
+        "fullWidth"?: boolean;
+        /**
+          * Icon class from FontAwesome 5 Free Allows to use: brands, regular, solid Example: 'far fa-paper-plane'
+         */
+        "icon"?: string;
+        /**
+          * Position of icon
+         */
+        "iconMode"?: TecButtonIconMode;
+        /**
+          * Text to show inside button
+         */
+        "label": string;
+        "loading"?: boolean;
+        /**
+          * Mode of button (like square or rounded)
+         */
+        "mode"?: TecButtonMode;
+        /**
+          * Emitted when button is clicked Captured by onClick listener. > Note: if button was disabled event can't be dispatch
+         */
+        "onClicked"?: (event: CustomEvent<UIEvent>) => void;
+        /**
+          * If `true` button removes label
+         */
+        "onlyIcon"?: boolean;
+        /**
+          * Size of button
+         */
+        "size"?: TecButtonSize;
+        /**
+          * The status of button (color)
+         */
+        "status"?: TecStatus;
         "theme"?: TecnologiaTheme;
     }
     interface TecProductHeader {
@@ -92,8 +188,8 @@ declare namespace LocalJSX {
         "titleProduct"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "tec-bottom-bar": TecBottomBar;
+        "tec-button": TecButton;
         "tec-product-header": TecProductHeader;
     }
 }
@@ -101,8 +197,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "tec-bottom-bar": LocalJSX.TecBottomBar & JSXBase.HTMLAttributes<HTMLTecBottomBarElement>;
+            "tec-button": LocalJSX.TecButton & JSXBase.HTMLAttributes<HTMLTecButtonElement>;
             "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
         }
     }
