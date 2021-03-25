@@ -121,7 +121,6 @@ export class TecButton {
       [this.status]: true,
       disabled: this.isDisabled,
       responsive: this.fullWidth,
-      'text-base': true,
     };
 
     const iconClasses = {
