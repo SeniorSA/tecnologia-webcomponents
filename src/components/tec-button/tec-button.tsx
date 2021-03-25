@@ -132,7 +132,7 @@ export class TecButton {
 
     return (
       <Host>
-        <button type="button" id={this.buttonId} class={classList} disabled={this.isDisabled} onClick={this.handleEventClick}>
+        <button type="button" id={this.buttonId} class={`text-sans text-base ${classList}`} disabled={this.isDisabled} onClick={this.handleEventClick}>
           <span class={iconClasses}>
             {!!this.icon && <i class={this.icon}></i>}
             {!this.onlyIcon && this.label}
