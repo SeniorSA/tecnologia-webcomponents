@@ -4,7 +4,12 @@
 
 ### Features
 
+- Created `bottom-bar` component.
 - Created `tec-button` component.
+
+### Fixes
+
+- Fix `tec-button` default size.
 
 ## 0.3.0
 
