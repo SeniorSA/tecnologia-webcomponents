@@ -13,7 +13,7 @@ export class BottomBar {
 
   @Prop() text: string;
 
-  @Prop() buttonPosition = ButtonPosition.left;
+  @Prop() buttonPosition: ButtonPosition = ButtonPosition.left;
 
   @Prop({ mutable: false, reflect: false })
   useAnimation = true;
