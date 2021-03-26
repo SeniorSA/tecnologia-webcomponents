@@ -1,0 +1,90 @@
+@import '../../scss/includes/components';
+
+$breakpoint-lg: 992px;
+
+:host {
+  display: block;
+  height: 70px;
+}
+
+:host([theme='dark']) {
+  .container {
+    background: #{$color-base-blue-gray-300};
+    color: #{$color-base-blue-gray-900};
+  }
+}
+
+:host([theme='light']) {
+  .container {
+    background: #{$color-base-blue-gray-900};
+    color: #fff;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 -1px 6px #00000046;
+  position: sticky;
+  position: fixed; // to IE
+  z-index: 99;
+  padding: 7px 60px;
+  box-sizing: border-box;
+  height: 70px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: $breakpoint-lg;
+    height: 100%;
+  }
+
+  .text {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    span {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}
+
+.flex-align-center {
+  justify-content: center !important;
+}
+
+.use-animation {
+  animation: openBar 700ms forwards;
+}
+
+@media only screen and (max-width: 992px) {
+  .wrapper {
+    width: 100% !important;
+  }
+  .container {
+    padding: 8px 20px;
+  }
+}
+
+@keyframes openBar {
+  from {
+    bottom: -70px;
+  }
+  to {
+    top: inherit;
+  }
+}

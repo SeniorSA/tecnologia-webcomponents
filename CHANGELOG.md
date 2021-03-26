@@ -1,5 +1,20 @@
 # Release notes
 
+## 0.4.0
+
+### Features
+
+- Created `bottom-bar` component.
+- Created `tec-button` component.
+
+### Fixes
+
+- Fix `tec-button` default size.
+
+### Dependencies
+
+- `"@stencil/core": "^2.5.1"`
+
 ## 0.3.0
 
 ### Features
