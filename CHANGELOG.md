@@ -11,6 +11,10 @@
 
 - Fix `tec-button` default size.
 
+### Dependencies
+
+- `"@stencil/core": "^2.5.1"`
+
 ## 0.3.0
 
 ### Features
