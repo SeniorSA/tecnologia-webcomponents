@@ -6,6 +6,7 @@
 
 - Created `bottom-bar` component.
 - Created `tec-button` component.
+- Created `tec-modal` component.
 
 ### Fixes
 
