@@ -42,7 +42,11 @@ export class ProductHeader {
     return (
       <Host>
         <header class={`text-title ${this.sticky && 'sticky'}`}>
-          <div class="title" style={{ cursor: this.titleCursorPointer && 'pointer' }} onClick={() => this.titleCursorPointer && this.titleClicked.emit()}>
+          <div
+            class="title"
+            style={{ cursor: this.titleCursorPointer && 'pointer' }}
+            onClick={() => this.titleCursorPointer && this.titleClicked.emit()}
+          >
             {this.titleProduct}
           </div>
 

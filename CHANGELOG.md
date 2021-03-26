@@ -4,6 +4,7 @@
 
 ### Features
 
+- Created `bottom-bar` component.
 - Created `tec-button` component.
 
 ### Fixes

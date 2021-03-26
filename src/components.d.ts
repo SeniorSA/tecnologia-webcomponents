@@ -9,8 +9,11 @@ import { TecnologiaTheme } from "./components/interfaces";
 import { TecStatus } from "./models/status.model";
 import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/tec-button/tec-button.model";
 export namespace Components {
-    interface MyComponent {
+    interface TecBottomBar {
+        "buttonPosition": ButtonPosition;
+        "text": string;
         "theme": TecnologiaTheme;
+        "useAnimation": boolean;
     }
     interface TecButton {
         /**
@@ -80,11 +83,11 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLTecBottomBarElement extends Components.TecBottomBar, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLTecBottomBarElement: {
+        prototype: HTMLTecBottomBarElement;
+        new (): HTMLTecBottomBarElement;
     };
     interface HTMLTecButtonElement extends Components.TecButton, HTMLStencilElement {
     }
@@ -99,14 +102,17 @@ declare global {
         new (): HTMLTecProductHeaderElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "tec-bottom-bar": HTMLTecBottomBarElement;
         "tec-button": HTMLTecButtonElement;
         "tec-product-header": HTMLTecProductHeaderElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface TecBottomBar {
+        "buttonPosition"?: ButtonPosition;
+        "text"?: string;
         "theme"?: TecnologiaTheme;
+        "useAnimation"?: boolean;
     }
     interface TecButton {
         /**
@@ -184,7 +190,7 @@ declare namespace LocalJSX {
         "titleProduct"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "tec-bottom-bar": TecBottomBar;
         "tec-button": TecButton;
         "tec-product-header": TecProductHeader;
     }
@@ -193,7 +199,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "tec-bottom-bar": LocalJSX.TecBottomBar & JSXBase.HTMLAttributes<HTMLTecBottomBarElement>;
             "tec-button": LocalJSX.TecButton & JSXBase.HTMLAttributes<HTMLTecButtonElement>;
             "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
         }
