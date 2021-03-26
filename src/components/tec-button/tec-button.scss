@@ -48,6 +48,9 @@ button {
   align-items: center;
   justify-content: center;
   position: relative;
+  font-size: #{$font-size-sm};
+  padding: 0.313rem 1.25rem;
+  height: 38px;
 
   &.primary {
     background: #{$color-base-sky-blue-500};
