@@ -1,5 +1,10 @@
 # Release notes
 
+## Unreleased
+
+### Fixes
+
+- Add import for `ButtonPosition` property in `components.d.ts`.
 ## 0.4.0
 
 ### Features
