@@ -60,6 +60,16 @@ export namespace Components {
         "status": TecStatus;
         "theme": TecnologiaTheme;
     }
+    interface TecModal {
+        "backDrop": boolean;
+        "closeOnEscape": boolean;
+        "fullWidth": boolean;
+        "modalTitle": string;
+        "opened": boolean;
+        "showCloseIcon": boolean;
+        "size": TecButtonSize;
+        "theme": TecnologiaTheme;
+    }
     interface TecProductHeader {
         /**
           * Use to make a bar fixed on top
@@ -92,6 +102,12 @@ declare global {
         prototype: HTMLTecButtonElement;
         new (): HTMLTecButtonElement;
     };
+    interface HTMLTecModalElement extends Components.TecModal, HTMLStencilElement {
+    }
+    var HTMLTecModalElement: {
+        prototype: HTMLTecModalElement;
+        new (): HTMLTecModalElement;
+    };
     interface HTMLTecProductHeaderElement extends Components.TecProductHeader, HTMLStencilElement {
     }
     var HTMLTecProductHeaderElement: {
@@ -101,6 +117,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "tec-button": HTMLTecButtonElement;
+        "tec-modal": HTMLTecModalElement;
         "tec-product-header": HTMLTecProductHeaderElement;
     }
 }
@@ -160,6 +177,17 @@ declare namespace LocalJSX {
         "status"?: TecStatus;
         "theme"?: TecnologiaTheme;
     }
+    interface TecModal {
+        "backDrop"?: boolean;
+        "closeOnEscape"?: boolean;
+        "fullWidth"?: boolean;
+        "modalTitle"?: string;
+        "onHidden"?: (event: CustomEvent<UIEvent>) => void;
+        "opened"?: boolean;
+        "showCloseIcon"?: boolean;
+        "size"?: TecButtonSize;
+        "theme"?: TecnologiaTheme;
+    }
     interface TecProductHeader {
         /**
           * Emitted when the title was clicked
@@ -186,6 +214,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "my-component": MyComponent;
         "tec-button": TecButton;
+        "tec-modal": TecModal;
         "tec-product-header": TecProductHeader;
     }
 }
@@ -195,6 +224,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "tec-button": LocalJSX.TecButton & JSXBase.HTMLAttributes<HTMLTecButtonElement>;
+            "tec-modal": LocalJSX.TecModal & JSXBase.HTMLAttributes<HTMLTecModalElement>;
             "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
         }
     }
