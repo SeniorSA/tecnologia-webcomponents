@@ -4,11 +4,11 @@
 
 ### Features
 
-- Created `tec-modal` component.
+- Created `modal` component.
 
 ### Fixes
 
-- Set `reflect` `true` on button component.
+- Set `reflect: true` on button component.
 
 ## 0.4.1
 
