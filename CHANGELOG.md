@@ -4,7 +4,7 @@
 
 ### Features
 
-- Created `tec-modal` component.
+- Created `modal` component.
 
 ### Fixes
 
