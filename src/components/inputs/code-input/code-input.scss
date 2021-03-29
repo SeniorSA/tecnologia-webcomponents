@@ -1,5 +1,19 @@
+@import '../../../scss/includes/components';
+
 :host {
   display: block;
+}
+
+:host([theme='dark']) {
+  input {
+    color: #{$color-base-blue-gray-700};
+  }
+}
+
+:host([theme='light']) {
+  input {
+    color: #{$color-base-blue-gray-900};
+  }
 }
 
 input {

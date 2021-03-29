@@ -74,6 +74,7 @@ export namespace Components {
         "case": CodeInputCase;
         "initialValue": string;
         "length": number;
+        "theme": TecnologiaTheme;
     }
     interface TecProductHeader {
         /**
@@ -194,6 +195,7 @@ declare namespace LocalJSX {
         "case"?: CodeInputCase;
         "initialValue"?: string;
         "length"?: number;
+        "theme"?: TecnologiaTheme;
     }
     interface TecProductHeader {
         /**

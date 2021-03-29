@@ -1,4 +1,6 @@
 import { Component, Host, h, Prop } from '@stencil/core';
+import { defaultTheme } from '../../../defaultTheme';
+import { TecnologiaTheme } from '../../interfaces';
 import { CodeInputCase } from './code-input.model';
 
 @Component({
@@ -7,6 +9,8 @@ import { CodeInputCase } from './code-input.model';
   shadow: true,
 })
 export class CodeInput {
+
+  @Prop({ reflect: true }) theme: TecnologiaTheme = defaultTheme;
 
   /**
    * Allow to parse all chars to UPPER or LOWER case
@@ -28,7 +32,12 @@ export class CodeInput {
     return (
       <Host>
         <div>
-          <input type="text" maxLength={this.length} pattern={`${this.accept}`} />
+          <input
+            class="text-mono text-8x1"
+            type="text"
+            maxLength={this.length}
+            pattern={`${this.accept}`}
+          />
         </div>
       </Host>
     );
