@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Fixes
+
+- Rename `tec-button` files to `button`. *Keeped compatibility with tag name.*
+
 ## 0.4.1
 
 ### Fixes

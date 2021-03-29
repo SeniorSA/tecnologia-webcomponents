@@ -8,7 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TecnologiaTheme } from "./components/interfaces";
 import { ButtonPosition } from "./components/bottom-bar/bottom-bar.model";
 import { TecStatus } from "./models/status.model";
-import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/tec-button/tec-button.model";
+import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/button/button.model";
+import { CodeInputCase } from "./components/inputs/code-input/code-input.model";
 export namespace Components {
     interface TecBottomBar {
         "buttonPosition": ButtonPosition;
@@ -64,6 +65,16 @@ export namespace Components {
         "status": TecStatus;
         "theme": TecnologiaTheme;
     }
+    interface TecCodeInput {
+        "accept": RegExp;
+        /**
+          * Allow to parse all chars to UPPER or LOWER case
+          * @default allow upper and lowercase values
+         */
+        "case": CodeInputCase;
+        "initialValue": string;
+        "length": number;
+    }
     interface TecProductHeader {
         /**
           * Use to make a bar fixed on top
@@ -96,6 +107,12 @@ declare global {
         prototype: HTMLTecButtonElement;
         new (): HTMLTecButtonElement;
     };
+    interface HTMLTecCodeInputElement extends Components.TecCodeInput, HTMLStencilElement {
+    }
+    var HTMLTecCodeInputElement: {
+        prototype: HTMLTecCodeInputElement;
+        new (): HTMLTecCodeInputElement;
+    };
     interface HTMLTecProductHeaderElement extends Components.TecProductHeader, HTMLStencilElement {
     }
     var HTMLTecProductHeaderElement: {
@@ -105,6 +122,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "tec-bottom-bar": HTMLTecBottomBarElement;
         "tec-button": HTMLTecButtonElement;
+        "tec-code-input": HTMLTecCodeInputElement;
         "tec-product-header": HTMLTecProductHeaderElement;
     }
 }
@@ -167,6 +185,16 @@ declare namespace LocalJSX {
         "status"?: TecStatus;
         "theme"?: TecnologiaTheme;
     }
+    interface TecCodeInput {
+        "accept"?: RegExp;
+        /**
+          * Allow to parse all chars to UPPER or LOWER case
+          * @default allow upper and lowercase values
+         */
+        "case"?: CodeInputCase;
+        "initialValue"?: string;
+        "length"?: number;
+    }
     interface TecProductHeader {
         /**
           * Emitted when the title was clicked
@@ -193,6 +221,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "tec-bottom-bar": TecBottomBar;
         "tec-button": TecButton;
+        "tec-code-input": TecCodeInput;
         "tec-product-header": TecProductHeader;
     }
 }
@@ -202,6 +231,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "tec-bottom-bar": LocalJSX.TecBottomBar & JSXBase.HTMLAttributes<HTMLTecBottomBarElement>;
             "tec-button": LocalJSX.TecButton & JSXBase.HTMLAttributes<HTMLTecButtonElement>;
+            "tec-code-input": LocalJSX.TecCodeInput & JSXBase.HTMLAttributes<HTMLTecCodeInputElement>;
             "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
         }
     }

@@ -1,5 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { TecButton } from '../tec-button';
+import { TecButton } from '../button';
 
 describe('tec-button', () => {
   it('renders theme light', async () => {
