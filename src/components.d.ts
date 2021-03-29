@@ -66,12 +66,13 @@ export namespace Components {
         "theme": TecnologiaTheme;
     }
     interface TecModal {
-        "blockScroll": boolean;
+        "blockBodyScroll": boolean;
         "closeOnEscape": boolean;
         "dimissOnBackdrop": boolean;
         "fullWidth": boolean;
         "modalTitle": string;
         "opened": boolean;
+        "responsive": boolean;
         "showCloseIcon": boolean;
         "size": TecSize;
         "theme": TecnologiaTheme;
@@ -187,13 +188,14 @@ declare namespace LocalJSX {
         "theme"?: TecnologiaTheme;
     }
     interface TecModal {
-        "blockScroll"?: boolean;
+        "blockBodyScroll"?: boolean;
         "closeOnEscape"?: boolean;
         "dimissOnBackdrop"?: boolean;
         "fullWidth"?: boolean;
         "modalTitle"?: string;
         "onHidden"?: (event: CustomEvent<UIEvent>) => void;
         "opened"?: boolean;
+        "responsive"?: boolean;
         "showCloseIcon"?: boolean;
         "size"?: TecSize;
         "theme"?: TecnologiaTheme;

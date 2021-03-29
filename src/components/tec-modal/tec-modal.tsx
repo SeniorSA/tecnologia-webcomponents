@@ -52,14 +52,17 @@ export class TecModal {
   closeOnEscape = true;
 
   @Prop()
-  blockScroll = true;
+  blockBodyScroll = true;
+
+  @Prop()
+  responsive = true;
 
   @Watch('opened')
   watchOpened(newValue: boolean) {
     if (!newValue) {
       setTimeout(() => {
         this.openedAuxiliary = false;
-      }, 400);
+      }, 200);
     } else {
       this.handleParentOverflow();
       this.openedAuxiliary = true;
@@ -89,7 +92,7 @@ export class TecModal {
   }
 
   handleParentOverflow() {
-    const property = this.opened && this.blockScroll ? 'hidden' : 'inherit';
+    const property = this.opened && this.blockBodyScroll ? 'hidden' : 'inherit';
     this.hostElement.parentElement.style.overflow = property;
   }
 
@@ -106,7 +109,7 @@ export class TecModal {
             <div
               class={`modal-content ${this.fullWidth && 'full-width'} ${
                 this.opened && 'open-animation'
-              } ${!this.opened && 'close-animation'}`}
+              } ${!this.opened && 'close-animation'} ${this.responsive && 'responsive'}`}
               onClick={() => (this.clickWasInside = true)}
             >
               <div class="modal-title text-title">

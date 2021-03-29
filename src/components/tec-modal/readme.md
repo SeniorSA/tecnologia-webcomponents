@@ -9,12 +9,13 @@
 
 | Property           | Attribute            | Description | Type                                                                                | Default         |
 | ------------------ | -------------------- | ----------- | ----------------------------------------------------------------------------------- | --------------- |
-| `blockScroll`      | `block-scroll`       |             | `boolean`                                                                           | `true`          |
+| `blockBodyScroll`  | `block-body-scroll`  |             | `boolean`                                                                           | `true`          |
 | `closeOnEscape`    | `close-on-escape`    |             | `boolean`                                                                           | `true`          |
 | `dimissOnBackdrop` | `dimiss-on-backdrop` |             | `boolean`                                                                           | `true`          |
 | `fullWidth`        | `full-width`         |             | `boolean`                                                                           | `false`         |
 | `modalTitle`       | `modal-title`        |             | `string`                                                                            | `undefined`     |
 | `opened`           | `opened`             |             | `boolean`                                                                           | `false`         |
+| `responsive`       | `responsive`         |             | `boolean`                                                                           | `true`          |
 | `showCloseIcon`    | `show-close-icon`    |             | `boolean`                                                                           | `true`          |
 | `size`             | `size`               |             | `TecSize.giant \| TecSize.large \| TecSize.medium \| TecSize.small \| TecSize.tiny` | `TecSize.small` |
 | `theme`            | `theme`              |             | `TecnologiaTheme.dark \| TecnologiaTheme.light`                                     | `defaultTheme`  |
