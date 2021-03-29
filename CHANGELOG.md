@@ -8,7 +8,7 @@
 
 ### Fixes
 
-- Set `reflect` `true` on button component.
+- Set `reflect: true` on button component.
 
 ## 0.4.1
 
