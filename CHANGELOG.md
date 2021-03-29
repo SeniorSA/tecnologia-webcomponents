@@ -1,5 +1,15 @@
 # Release notes
 
+## Unreleased
+
+### Features
+
+- Created `tec-modal` component.
+
+### Fixes
+
+- Set `reflect` `true` on button component.
+
 ## 0.4.1
 
 ### Fixes
@@ -12,7 +22,6 @@
 
 - Created `bottom-bar` component.
 - Created `tec-button` component.
-- Created `tec-modal` component.
 
 ### Fixes
 

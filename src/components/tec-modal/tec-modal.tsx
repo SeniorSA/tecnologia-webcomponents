@@ -1,7 +1,17 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Element, Watch, State } from '@stencil/core';
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Event,
+  EventEmitter,
+  Element,
+  Watch,
+  State,
+} from '@stencil/core';
 import { defaultTheme } from '../../defaultTheme';
+import { TecSize } from '../../models/size.model';
 import { TecnologiaTheme } from '../interfaces';
-import { TecButtonSize } from '../tec-button/tec-button.model';
 
 @Component({
   tag: 'tec-modal',
@@ -15,34 +25,34 @@ export class TecModal {
 
   @Element() hostElement: HTMLElement;
 
-  @Event({
-    bubbles: true,
-    composed: true,
-  })
+  @Event({ bubbles: true, composed: true })
   hidden: EventEmitter<UIEvent>;
 
   @Prop({ reflect: true }) theme: TecnologiaTheme = defaultTheme;
 
-  @Prop({ attribute: 'opened', mutable: true })
+  @Prop({ mutable: true })
   opened = false;
 
-  @Prop({ attribute: 'modalTitle', mutable: true })
+  @Prop({ mutable: true })
   modalTitle: string;
 
-  @Prop({ attribute: 'showCloseIcon', mutable: true })
+  @Prop({ mutable: true })
   showCloseIcon = true;
 
-  @Prop({ attribute: 'backDrop' })
-  backDrop = true;
+  @Prop()
+  dimissOnBackdrop = true;
 
-  @Prop({ attribute: 'size', mutable: true })
-  size = TecButtonSize.small;
+  @Prop({ mutable: true })
+  size: TecSize = TecSize.small;
 
-  @Prop({ attribute: 'fullWidth', mutable: true })
+  @Prop({ mutable: true })
   fullWidth = false;
 
-  @Prop({ attribute: 'closeOnEscape' })
+  @Prop()
   closeOnEscape = true;
+
+  @Prop()
+  blockScroll = true;
 
   @Watch('opened')
   watchOpened(newValue: boolean) {
@@ -51,22 +61,26 @@ export class TecModal {
         this.openedAuxiliary = false;
       }, 400);
     } else {
+      this.handleParentOverflow();
       this.openedAuxiliary = true;
     }
   }
 
   handleClick(event) {
-    if (!this.clickWasInside && this.backDrop) this.closeModal(event);
+    if (!this.clickWasInside && this.dimissOnBackdrop) this.closeModal(event);
 
-    this.clickWasInside = false
+    this.clickWasInside = false;
   }
 
   closeModal(event?: MouseEvent) {
     this.opened = false;
+    this.handleParentOverflow();
     this.hidden.emit(event);
   }
 
   componentWillLoad() {
+    this.hasFooterContent = !!this.hostElement.querySelector('[slot="footer"]');
+    if (this.opened) this.handleParentOverflow();
     this.openedAuxiliary = this.opened;
     if (this.closeOnEscape)
       document.addEventListener('keydown', event => {
@@ -74,19 +88,29 @@ export class TecModal {
       });
   }
 
-  render() {
-    this.hasFooterContent = !!this.hostElement.querySelector('[slot="footer"]');
+  handleParentOverflow() {
+    const property = this.opened && this.blockScroll ? 'hidden' : 'inherit';
+    this.hostElement.parentElement.style.overflow = property;
+  }
 
+  render() {
     return (
       this.openedAuxiliary && (
         <Host>
-          <div class={`modal ${this.opened && 'show-background'} ${!this.opened && 'remove-background'}`} onClick={(event) => this.handleClick(event)}>
+          <div
+            class={`modal ${this.opened && 'show-background'} ${
+              !this.opened && 'remove-background'
+            }`}
+            onClick={event => this.handleClick(event)}
+          >
             <div
-              class={`modal-content ${this.fullWidth && 'full-width'} ${this.opened && 'open-animation'} ${!this.opened && 'close-animation'}`}
-              onClick={() => this.clickWasInside = true}
+              class={`modal-content ${this.fullWidth && 'full-width'} ${
+                this.opened && 'open-animation'
+              } ${!this.opened && 'close-animation'}`}
+              onClick={() => (this.clickWasInside = true)}
             >
               <div class="modal-title text-title">
-                <h1>{this.modalTitle}</h1>
+                <h1 class="text-2x1">{this.modalTitle}</h1>
                 {this.showCloseIcon && (
                   <span class="close" onClick={event => this.closeModal(event)}>
                     &times;
@@ -100,7 +124,9 @@ export class TecModal {
 
               {this.hasFooterContent && (
                 <div class="footer">
-                  <slot name="footer"></slot>
+                  <div class="footer-content">
+                    <slot name="footer"></slot>
+                  </div>
                 </div>
               )}
             </div>

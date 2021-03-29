@@ -7,16 +7,17 @@
 
 ## Properties
 
-| Property        | Attribute       | Description | Type                                                                                                              | Default               |
-| --------------- | --------------- | ----------- | ----------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `backDrop`      | `backdrop`      |             | `boolean`                                                                                                         | `true`                |
-| `closeOnEscape` | `closeonescape` |             | `boolean`                                                                                                         | `true`                |
-| `fullWidth`     | `fullwidth`     |             | `boolean`                                                                                                         | `false`               |
-| `modalTitle`    | `modaltitle`    |             | `string`                                                                                                          | `undefined`           |
-| `opened`        | `opened`        |             | `boolean`                                                                                                         | `false`               |
-| `showCloseIcon` | `showcloseicon` |             | `boolean`                                                                                                         | `true`                |
-| `size`          | `size`          |             | `TecButtonSize.giant \| TecButtonSize.large \| TecButtonSize.medium \| TecButtonSize.small \| TecButtonSize.tiny` | `TecButtonSize.small` |
-| `theme`         | `theme`         |             | `TecnologiaTheme.dark \| TecnologiaTheme.light`                                                                   | `defaultTheme`        |
+| Property           | Attribute            | Description | Type                                                                                | Default         |
+| ------------------ | -------------------- | ----------- | ----------------------------------------------------------------------------------- | --------------- |
+| `blockScroll`      | `block-scroll`       |             | `boolean`                                                                           | `true`          |
+| `closeOnEscape`    | `close-on-escape`    |             | `boolean`                                                                           | `true`          |
+| `dimissOnBackdrop` | `dimiss-on-backdrop` |             | `boolean`                                                                           | `true`          |
+| `fullWidth`        | `full-width`         |             | `boolean`                                                                           | `false`         |
+| `modalTitle`       | `modal-title`        |             | `string`                                                                            | `undefined`     |
+| `opened`           | `opened`             |             | `boolean`                                                                           | `false`         |
+| `showCloseIcon`    | `show-close-icon`    |             | `boolean`                                                                           | `true`          |
+| `size`             | `size`               |             | `TecSize.giant \| TecSize.large \| TecSize.medium \| TecSize.small \| TecSize.tiny` | `TecSize.small` |
+| `theme`            | `theme`              |             | `TecnologiaTheme.dark \| TecnologiaTheme.light`                                     | `defaultTheme`  |
 
 
 ## Events

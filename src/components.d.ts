@@ -9,6 +9,7 @@ import { TecnologiaTheme } from "./components/interfaces";
 import { ButtonPosition } from "./components/bottom-bar/bottom-bar.model";
 import { TecStatus } from "./models/status.model";
 import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/tec-button/tec-button.model";
+import { TecSize } from "./models/size.model";
 export namespace Components {
     interface TecBottomBar {
         "buttonPosition": ButtonPosition;
@@ -65,13 +66,14 @@ export namespace Components {
         "theme": TecnologiaTheme;
     }
     interface TecModal {
-        "backDrop": boolean;
+        "blockScroll": boolean;
         "closeOnEscape": boolean;
+        "dimissOnBackdrop": boolean;
         "fullWidth": boolean;
         "modalTitle": string;
         "opened": boolean;
         "showCloseIcon": boolean;
-        "size": TecButtonSize;
+        "size": TecSize;
         "theme": TecnologiaTheme;
     }
     interface TecProductHeader {
@@ -185,14 +187,15 @@ declare namespace LocalJSX {
         "theme"?: TecnologiaTheme;
     }
     interface TecModal {
-        "backDrop"?: boolean;
+        "blockScroll"?: boolean;
         "closeOnEscape"?: boolean;
+        "dimissOnBackdrop"?: boolean;
         "fullWidth"?: boolean;
         "modalTitle"?: string;
         "onHidden"?: (event: CustomEvent<UIEvent>) => void;
         "opened"?: boolean;
         "showCloseIcon"?: boolean;
-        "size"?: TecButtonSize;
+        "size"?: TecSize;
         "theme"?: TecnologiaTheme;
     }
     interface TecProductHeader {

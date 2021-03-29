@@ -1,9 +1,9 @@
 import { withActions } from '@storybook/addon-actions';
 import { withTests } from '@storybook/addon-jest';
 import results from '../../../.jest-test-results.json';
+import { TecSize } from '../../models/size.model';
 import { TecnologiaTheme } from '../interfaces';
 import readme from './readme.md';
-import { TecModalSize } from './tec.modal.model';
 
 export default {
   title: 'Components/Modal',
@@ -49,7 +49,7 @@ export default {
       description: 'Show close icon',
       defaultValue: true,
     },
-    backDrop: {
+    dimissOnBackdrop: {
       control: 'boolean',
       description: 'Close modal when click outside',
       defaultValue: true,
@@ -57,9 +57,9 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: Object.keys(TecModalSize),
+        options: Object.keys(TecSize),
       },
-      defaultValue: TecModalSize.small,
+      defaultValue: TecSize.small,
     },
     fullWidth: {
       control: 'boolean',
@@ -71,19 +71,25 @@ export default {
       description: 'Close modal when press Escape',
       defaultValue: true,
     },
+    blockScroll: {
+      control: 'boolean',
+      description: 'Block scroll',
+      defaultValue: true,
+    },
   },
 };
 
-const Template = ({ theme, opened, modalTitle, showCloseIcon, backDrop, size, fullWidth = false, closeOnEscape }) =>
+const Template = ({ theme, opened, modalTitle, showCloseIcon, dimissOnBackdrop, size, fullWidth = false, closeOnEscape, blockScroll}) =>
   `<tec-modal
       theme="${theme}"
       opened="${opened}"
-      modalTitle="${modalTitle}"
-      showCloseIcon="${showCloseIcon}"
-      backDrop="${backDrop}"
+      modal-title="${modalTitle}"
+      show-close-icon="${showCloseIcon}"
+      dimiss-on-backdrop="${dimissOnBackdrop}"
       size="${size}"
-      fullWidth="${fullWidth}"
-      closeOnEscape="${closeOnEscape}"
+      full-width="${fullWidth}"
+      close-on-escape="${closeOnEscape}"
+      block-scroll="${blockScroll}"
   >
   <div slot="content">
     <span>content here</span>
@@ -94,11 +100,6 @@ const Template = ({ theme, opened, modalTitle, showCloseIcon, backDrop, size, fu
 </tec-modal>`;
 
 export const Default = Template.bind({});
-
-export const DarkMode = Template.bind({});
-DarkMode.args = {
-  theme: 'dark',
-};
 
 export const FullWidth = Template.bind({});
 FullWidth.args = {
@@ -112,35 +113,40 @@ RemoveCloseIcon.args = {
 
 export const TinyModal = Template.bind({});
 TinyModal.args = {
-  size: TecModalSize.tiny,
+  size: TecSize.tiny,
 };
 
 export const SmallModal = Template.bind({});
 SmallModal.args = {
-  size: TecModalSize.small,
+  size: TecSize.small,
 };
 
 export const MediumModal = Template.bind({});
 MediumModal.args = {
-  size: TecModalSize.medium,
+  size: TecSize.medium,
 };
 
 export const LargeModal = Template.bind({});
 LargeModal.args = {
-  size: TecModalSize.large,
+  size: TecSize.large,
 };
 
 export const GiantModal = Template.bind({});
 GiantModal.args = {
-  size: TecModalSize.giant,
+  size: TecSize.giant,
 };
 
 export const RemoveCloseOnClickOut = Template.bind({});
 RemoveCloseOnClickOut.args = {
-  backDrop: false,
+  dimissOnBackdrop: false,
 };
 
 export const RemoveCloseOnPressEscape = Template.bind({});
 RemoveCloseOnPressEscape.args = {
   closeOnEscape: false,
+};
+
+export const DarkMode = Template.bind({});
+DarkMode.args = {
+  theme: 'dark',
 };

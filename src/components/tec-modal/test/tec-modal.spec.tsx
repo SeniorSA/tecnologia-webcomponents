@@ -17,14 +17,14 @@ describe('tec-modal', () => {
   it('opened', async () => {
     const page = await newSpecPage({
       components: [TecModal],
-      html: `<tec-modal opened="true" modalTitle="Test"></tec-modal>`,
+      html: `<tec-modal opened="true" modal-title="Test"></tec-modal>`,
     });
     expect(page.root).toEqualHtml(`
-      <tec-modal opened="true" theme="light" modalTitle="Test">
+      <tec-modal opened="true" theme="light" modal-title="Test">
         <mock:shadow-root>
           <div class="modal show-background false"><div class="modal-content false open-animation">
             <div class="modal-title text-title">
-            <h1>Test</h1>
+            <h1 class="text-2x1">Test</h1>
             <span class="close">×</span>
             </div>
             <div class="content"><slot name="content"></slot>
@@ -39,14 +39,14 @@ describe('tec-modal', () => {
   it('dark', async () => {
     const page = await newSpecPage({
       components: [TecModal],
-      html: `<tec-modal opened="true" modalTitle="Test" theme="dark"></tec-modal>`,
+      html: `<tec-modal opened="true" modal-title="Test" theme="dark"></tec-modal>`,
     });
     expect(page.root).toEqualHtml(`
-      <tec-modal opened="true" theme="dark" modalTitle="Test">
+      <tec-modal opened="true" theme="dark" modal-title="Test">
         <mock:shadow-root>
           <div class="modal show-background false"><div class="modal-content false open-animation">
             <div class="modal-title text-title">
-            <h1>Test</h1>
+            <h1 class="text-2x1">Test</h1>
             <span class="close">×</span>
             </div>
             <div class="content"><slot name="content"></slot>
@@ -61,14 +61,14 @@ describe('tec-modal', () => {
   it('remove close icon', async () => {
     const page = await newSpecPage({
       components: [TecModal],
-      html: `<tec-modal opened="true" modalTitle="Test" showCloseIcon="false"></tec-modal>`,
+      html: `<tec-modal opened="true" modal-title="Test" show-close-icon="false"></tec-modal>`,
     });
     expect(page.root).toEqualHtml(`
-      <tec-modal opened="true" theme="light" modalTitle="Test" showCloseIcon="false">
+      <tec-modal opened="true" theme="light" modal-title="Test" show-close-icon="false">
         <mock:shadow-root>
           <div class="modal show-background false"><div class="modal-content false open-animation">
             <div class="modal-title text-title">
-            <h1>Test</h1>
+            <h1 class="text-2x1">Test</h1>
             </div>
             <div class="content"><slot name="content"></slot>
             </div>
@@ -79,17 +79,17 @@ describe('tec-modal', () => {
     `);
   });
 
-  it('use fullWidth', async () => {
+  it('use full-width', async () => {
     const page = await newSpecPage({
       components: [TecModal],
-      html: `<tec-modal opened="true" modalTitle="Test" fullWidth="true"></tec-modal>`,
+      html: `<tec-modal opened="true" modal-title="Test" full-width="true"></tec-modal>`,
     });
     expect(page.root).toEqualHtml(`
-      <tec-modal opened="true" theme="light" modalTitle="Test" fullWidth="true">
+      <tec-modal opened="true" theme="light" modal-title="Test" full-width="true">
         <mock:shadow-root>
           <div class="false modal show-background"><div class="false full-width modal-content open-animation">
             <div class="modal-title text-title">
-            <h1>Test</h1>
+            <h1 class="text-2x1">Test</h1>
             <span class="close">×</span>
             </div>
             <div class="content"><slot name="content"></slot>

@@ -1,5 +1,13 @@
+@import '../../scss/includes/components';
+
 :host {
   display: block;
+}
+
+:host {
+  body {
+    overflow: hidden !important;
+  }
 }
 
 :host([theme='light']) {
@@ -19,7 +27,7 @@
       border: none;
 
       .modal-title {
-        border-bottom: 1px solid #353535 !important;
+        border-bottom: 1px solid #{$color-base-blue-gray-800} !important;
 
         h1 {
           color: #{$color-base-blue-gray-100} !important;
@@ -27,7 +35,7 @@
       }
 
       .footer {
-        border-top: 1px solid #353535 !important;
+        border-top: 1px solid #{$color-base-blue-gray-800} !important;
       }
     }
   }
@@ -54,7 +62,10 @@
 }
 
 .modal {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 100;
   left: 0;
@@ -66,42 +77,41 @@
   background-color: rgba(0,0,0,0.6);
 
   &.remove-background {
-    animation: remove-brackground 600ms forwards;
+    animation: remove-brackground 400ms forwards;
   }
 
   &.show-background {
-    animation: show-background 600ms forwards;
+    animation: show-background 400ms forwards;
   }
 }
 
 .modal-content {
   border-radius: 5px;
   background-color: #fefefe;
-  margin: 15% auto;
-  border: 1px solid #888;
+  border: 1px solid #{$color-base-gray-600};
   width: 30%;
 
   &.full-width {
     width: 100% !important;
+    border: none !important;
   }
 
   &.open-animation {
-    animation: open-fade 600ms forwards;
+    animation: open-fade 400ms forwards;
   }
 
   &.close-animation {
-    animation: close-fade 600ms forwards;
+    animation: close-fade 400ms forwards;
   }
 
   .modal-title {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #d9d9d9;
-    padding: .4rem 1rem;
+    border-bottom: 1px solid #{$color-base-gray-300};
+    padding: 0 1rem;
 
     h1 {
-      font-size: 16px;
-      color: #333;
+      color: #{$color-base-gray-900};
     }
 
     .close {
@@ -125,20 +135,27 @@
   }
 
   .footer {
+    display: flex;
     padding: .7rem 1rem;
-    border-top: 1px solid #d9d9d9;
+    border-top: 1px solid #{$color-base-gray-300};
+
+    .footer-content {
+      margin-left: auto;
+    }
   }
 }
 
 @keyframes open-fade {
   from {
+    top: -2rem;
     transform: scale(0);
     opacity: 0;
     z-index: 1;
   } to {
+    top: inherit;
     transform: scale(1);
     opacity: 1;
-    z-index: 101;
+    z-index: 100;
   }
 }
 
@@ -146,7 +163,7 @@
   from {
     transform: scale(1);
     opacity: 1;
-    z-index: 101;
+    z-index: 100;
   } to {
     transform: scale(0);
     opacity: 0;

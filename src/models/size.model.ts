@@ -1,4 +1,4 @@
-export enum TecModalSize {
+export enum TecSize {
   tiny = 'tiny',
   small = 'small',
   medium = 'medium',
