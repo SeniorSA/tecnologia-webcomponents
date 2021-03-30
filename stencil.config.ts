@@ -34,6 +34,10 @@ export const config: Config = {
           src: 'styles.css',
         },
         { src: 'assets/fontawesome/webfonts', dest: 'webfonts' },
+        {
+          src: '../node_modules/@seniorsistemas/tecnologia-design-tokens',
+          dest: '@seniorsistemas/tecnologia-design-tokens',
+        },
       ],
     },
   ],

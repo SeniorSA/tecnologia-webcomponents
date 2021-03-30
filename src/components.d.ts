@@ -66,15 +66,19 @@ export namespace Components {
         "theme": TecnologiaTheme;
     }
     interface TecCodeInput {
-        "accept": RegExp;
+        "accept"?: RegExp;
+        "autofocus"?: boolean;
         /**
           * Allow to parse all chars to UPPER or LOWER case
           * @default allow upper and lowercase values
          */
         "case": CodeInputCase;
-        "initialValue": string;
-        "length": number;
+        "disabled"?: boolean;
+        "length"?: number;
+        "placeholder"?: string;
         "theme": TecnologiaTheme;
+        "type"?: "text" | "password";
+        "value"?: string;
     }
     interface TecProductHeader {
         /**
@@ -188,14 +192,19 @@ declare namespace LocalJSX {
     }
     interface TecCodeInput {
         "accept"?: RegExp;
+        "autofocus"?: boolean;
         /**
           * Allow to parse all chars to UPPER or LOWER case
           * @default allow upper and lowercase values
          */
         "case"?: CodeInputCase;
-        "initialValue"?: string;
+        "disabled"?: boolean;
         "length"?: number;
+        "onInputFocus"?: (event: CustomEvent<any>) => void;
+        "placeholder"?: string;
         "theme"?: TecnologiaTheme;
+        "type"?: "text" | "password";
+        "value"?: string;
     }
     interface TecProductHeader {
         /**
