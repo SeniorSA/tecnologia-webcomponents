@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Element } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter, Element, Watch, State } from '@stencil/core';
 import { defaultTheme } from '../../../defaultTheme';
 import { TecnologiaTheme } from '../../interfaces';
 import { CodeInputCase } from './code-input.model';
@@ -10,21 +10,33 @@ import { CodeInputCase } from './code-input.model';
 })
 export class CodeInput {
 
+  private defaultValue: string;
+
   @Element() element: HTMLElement;
 
   @Event() inputFocus: EventEmitter;
 
+  @Event() inputBlur: EventEmitter;
+
+  @Event() inputChanges: EventEmitter;
+
+  @Event() inputInput: EventEmitter;
+
   @Prop({ reflect: true }) theme: TecnologiaTheme = defaultTheme;
 
-  @Prop({ mutable: true, reflect: true }) value?: string = "";
+  @Prop({ mutable: true, reflect: true }) value?: string;
 
-  @Prop() autofocus?: boolean = true;
+  @Prop({ reflect: true }) autofocus?: boolean = true;
 
-  @Prop({ mutable: true, reflect: true }) disabled?: boolean
+  @Prop({ reflect: true }) disabled?: boolean
 
-  @Prop() placeholder?: string;
+  @Prop({ reflect: true }) placeholder?: string;
 
   @Prop({ reflect: true, mutable: false }) type?: "text" | "password" = "text"
+
+  @Prop({ mutable: false, reflect: true }) length?: number = 5;
+
+  @Prop({ mutable: false }) validator?: RegExp = /^[0-9A-Za-z]+$/
 
   /**
    * Allow to parse all chars to UPPER or LOWER case
@@ -32,11 +44,24 @@ export class CodeInput {
    */
   @Prop() case: CodeInputCase = CodeInputCase.DEFAULT
 
-  @Prop({ mutable: false, reflect: true }) length?: number = 5;
-
-  @Prop() accept?: RegExp = /[0-9A-Za-z]+/g
+  @State() currentValue: string;
 
   input!: HTMLInputElement
+
+  @Watch('value')
+  validateValue(newValue: string, oldValue: string) {
+    console.log('newValue', newValue)
+    console.log('oldValue', oldValue)
+
+    console.log(this.validator.test(newValue))
+
+    this.currentValue = this.validator.test(newValue) ? newValue : oldValue
+  }
+
+  componentWillLoad() {
+    this.defaultValue = this.value
+    this.currentValue = this.value
+  }
 
   render() {
     return (
@@ -44,15 +69,18 @@ export class CodeInput {
         <div>
           <input
             class="text-mono text-8x1"
-            onFocus={this.inputFocusHandler}
-            disabled={this.disabled ? true : null}
             autoFocus={this.autofocus ? true : null}
-            ref={(el) => this.input = el as HTMLInputElement}
             maxLength={this.length}
-            pattern={`${this.accept}`}
+            placeholder={this.placeholder || ""}
+            disabled={this.disabled ? true : null}
+            pattern={`${this.validator}`}
+            value={this.currentValue}
+            defaultValue={this.defaultValue}
+            onInput={this.inputInputHandler}
+            onFocus={this.inputFocusHandler}
+            onBlur={this.inputBlurHandler}
             onKeyDown={this.valueChanges}
-            value={this.value}
-            placeholder={this.placeholder}
+            ref={(el) => this.input = el as HTMLInputElement}
           />
         </div>
       </Host>
@@ -63,21 +91,33 @@ export class CodeInput {
   // ---------------
   // PRIVATE METHODS
   // ---------------
-  private inputFocusHandler = (_e: FocusEvent) => {
+  private inputFocusHandler = () => {
     this.inputFocus.emit({
       element: this.input,
       value: this.value
     });
   };
 
+  private inputBlurHandler = () => {
+    this.inputBlur.emit({
+      element: this.input,
+      value: this.value
+    });
+  };
 
-  private valueChanges = (event) => {
-    if (this.accept.test(event.target.value)) {
-      console.log('regex válido')
-      this.input = event
-    } else {
-      this.element.innerHTML = 'inválido'
-    }
+  private inputInputHandler = (e: any) => {
+    this.value = e.target.value;
+    this.inputInput.emit({
+      element: this.input,
+      value: this.value
+    });
+  };
+
+  private valueChanges = () => {
+    this.inputChanges.emit({
+      element: this.input,
+      value: this.value
+    })
   }
 
 }
