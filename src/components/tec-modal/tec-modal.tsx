@@ -40,7 +40,7 @@ export class TecModal {
   showCloseIcon = true;
 
   @Prop()
-  dimissOnBackdrop = true;
+  dismissOnBackdrop = true;
 
   @Prop({ mutable: true })
   size: TecSize = TecSize.small;
@@ -70,7 +70,7 @@ export class TecModal {
   }
 
   handleClick(event) {
-    if (!this.clickWasInside && this.dimissOnBackdrop) this.closeModal(event);
+    if (!this.clickWasInside && this.dismissOnBackdrop) this.closeModal(event);
 
     this.clickWasInside = false;
   }
@@ -115,9 +115,11 @@ export class TecModal {
               <div class="modal-title text-title">
                 <h1 class="text-2x1">{this.modalTitle}</h1>
                 {this.showCloseIcon && (
-                  <span class="close" onClick={event => this.closeModal(event)}>
-                    &times;
-                  </span>
+                  <div class="close-container" onClick={event => this.closeModal(event)}>
+                    <span class="close">
+                      &times;
+                    </span>
+                  </div>
                 )}
               </div>
 

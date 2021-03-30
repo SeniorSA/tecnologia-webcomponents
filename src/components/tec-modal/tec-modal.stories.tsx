@@ -49,7 +49,7 @@ export default {
       description: 'Show close icon',
       defaultValue: true,
     },
-    dimissOnBackdrop: {
+    dismissOnBackdrop: {
       control: 'boolean',
       description: 'Close modal when click outside',
       defaultValue: true,
@@ -79,13 +79,13 @@ export default {
   },
 };
 
-const Template = ({ theme, opened, modalTitle, showCloseIcon, dimissOnBackdrop, size, fullWidth = false, closeOnEscape, blockScroll}) =>
+const Template = ({ theme, opened, modalTitle, showCloseIcon, dismissOnBackdrop, size, fullWidth = false, closeOnEscape, blockScroll}) =>
   `<tec-modal
       theme="${theme}"
       opened="${opened}"
       modal-title="${modalTitle}"
       show-close-icon="${showCloseIcon}"
-      dimiss-on-backdrop="${dimissOnBackdrop}"
+      dimiss-on-backdrop="${dismissOnBackdrop}"
       size="${size}"
       full-width="${fullWidth}"
       close-on-escape="${closeOnEscape}"
@@ -138,7 +138,7 @@ GiantModal.args = {
 
 export const RemoveCloseOnClickOut = Template.bind({});
 RemoveCloseOnClickOut.args = {
-  dimissOnBackdrop: false,
+  dismissOnBackdrop: false,
 };
 
 export const RemoveCloseOnPressEscape = Template.bind({});

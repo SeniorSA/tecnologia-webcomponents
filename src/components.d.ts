@@ -68,7 +68,7 @@ export namespace Components {
     interface TecModal {
         "blockBodyScroll": boolean;
         "closeOnEscape": boolean;
-        "dimissOnBackdrop": boolean;
+        "dismissOnBackdrop": boolean;
         "fullWidth": boolean;
         "modalTitle": string;
         "opened": boolean;
@@ -190,7 +190,7 @@ declare namespace LocalJSX {
     interface TecModal {
         "blockBodyScroll"?: boolean;
         "closeOnEscape"?: boolean;
-        "dimissOnBackdrop"?: boolean;
+        "dismissOnBackdrop"?: boolean;
         "fullWidth"?: boolean;
         "modalTitle"?: string;
         "onHidden"?: (event: CustomEvent<UIEvent>) => void;

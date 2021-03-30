@@ -25,7 +25,9 @@ describe('tec-modal', () => {
           <div class="modal show-background false"><div class="responsive modal-content false open-animation">
             <div class="modal-title text-title">
             <h1 class="text-2x1">Test</h1>
-            <span class="close">×</span>
+            <div class="close-container">
+              <span class="close">×</span>
+            </div>
             </div>
             <div class="content"><slot name="content"></slot>
             </div>
@@ -47,7 +49,9 @@ describe('tec-modal', () => {
           <div class="modal show-background false"><div class="responsive modal-content false open-animation">
             <div class="modal-title text-title">
             <h1 class="text-2x1">Test</h1>
-            <span class="close">×</span>
+            <div class="close-container">
+              <span class="close">×</span>
+            </div>
             </div>
             <div class="content"><slot name="content"></slot>
             </div>
@@ -90,7 +94,9 @@ describe('tec-modal', () => {
           <div class="false modal show-background"><div class="false full-width modal-content open-animation responsive">
             <div class="modal-title text-title">
             <h1 class="text-2x1">Test</h1>
-            <span class="close">×</span>
+            <div class="close-container">
+              <span class="close">×</span>
+            </div>
             </div>
             <div class="content"><slot name="content"></slot>
             </div>
@@ -112,7 +118,9 @@ describe('tec-modal', () => {
           <div class="false modal show-background"><div class="false full-width modal-content open-animation">
             <div class="modal-title text-title">
             <h1 class="text-2x1">Test</h1>
-            <span class="close">×</span>
+            <div class="close-container">
+              <span class="close">×</span>
+            </div>
             </div>
             <div class="content"><slot name="content"></slot>
             </div>
