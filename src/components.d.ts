@@ -9,7 +9,7 @@ import { TecnologiaTheme } from "./components/interfaces";
 import { ButtonPosition } from "./components/bottom-bar/bottom-bar.model";
 import { TecStatus } from "./models/status.model";
 import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/button/button.model";
-import { CodeInputCase } from "./components/inputs/code-input/code-input.model";
+import { CodeInputCase, CodeInputCustomEventValue, CodeInputEvent } from "./components/inputs/code-input/code-input.model";
 export namespace Components {
     interface TecBottomBar {
         "buttonPosition": ButtonPosition;
@@ -74,12 +74,12 @@ export namespace Components {
         "case": CodeInputCase;
         "clear": () => Promise<void>;
         "disabled"?: boolean;
-        "initialValue": string;
+        "initialValue"?: string;
         "length": number;
         "placeholder"?: string;
         "theme": TecnologiaTheme;
         "type"?: "text" | "password";
-        "validator"?: RegExp;
+        "useMargin": boolean;
         "value"?: string;
     }
     interface TecProductHeader {
@@ -202,14 +202,23 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "initialValue"?: string;
         "length"?: number;
-        "onInputBlur"?: (event: CustomEvent<any>) => void;
-        "onInputChanges"?: (event: CustomEvent<any>) => void;
-        "onInputFocus"?: (event: CustomEvent<any>) => void;
-        "onInputInput"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the input was cleared
+         */
+        "onCleared"?: (event: CustomEvent<void>) => void;
+        "onCodeBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * When `value` property changes
+         */
+        "onCodeChange"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
+        "onCodeFocus"?: (event: CustomEvent<void>) => void;
+        "onInputBlur"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
+        "onInputChange"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
+        "onInputFocus"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
         "placeholder"?: string;
         "theme"?: TecnologiaTheme;
         "type"?: "text" | "password";
-        "validator"?: RegExp;
+        "useMargin"?: boolean;
         "value"?: string;
     }
     interface TecProductHeader {

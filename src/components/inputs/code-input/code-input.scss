@@ -40,12 +40,15 @@
     width: 7rem;
     height: 9rem;
     font-weight: 500;
-    margin: 0 0.5rem 0 0.5rem;
     border-radius: 3px;
     border: 1px solid $color-base-blue-gray-300;
     text-align: center;
     transition: 200ms ease-in;
     box-shadow: 0 0 7px rgba(73, 73, 73, 0.061);
+
+    &.use-margin {
+      margin: 0 0.5rem 0 0.5rem;
+    }
 
     &:focus {
       box-shadow: 0 0 15px rgba(56, 56, 56, 0.233);

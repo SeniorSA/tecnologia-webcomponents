@@ -1,7 +1,7 @@
-import { Component, Host, h, Prop, Event, EventEmitter, Element, Watch, State, Method } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, Watch } from '@stencil/core';
 import { defaultTheme } from '../../../defaultTheme';
 import { TecnologiaTheme } from '../../interfaces';
-import { CodeInputCase } from './code-input.model';
+import { CodeInputCase, CodeInputCustomEventValue, CodeInputEvent } from './code-input.model';
 
 @Component({
   tag: 'tec-code-input',
@@ -15,17 +15,31 @@ export class CodeInput {
 
   @Element() element: HTMLElement;
 
-  @Event() inputFocus: EventEmitter;
+  // Events for each input
+  @Event() inputChange: EventEmitter<CodeInputEvent<string>>;
+  @Event() inputFocus: EventEmitter<CodeInputEvent<CodeInputCustomEventValue>>;
+  @Event() inputBlur: EventEmitter<CodeInputEvent<CodeInputCustomEventValue>>;
 
-  @Event() inputBlur: EventEmitter;
+  // Events for wrapper (triggered for any input)
+  /**
+   * When `value` property changes
+   */
+  @Event() codeChange: EventEmitter<CodeInputEvent<string>>;
+  @Event() codeFocus: EventEmitter<void>;
+  @Event() codeBlur: EventEmitter<void>;
 
-  @Event() inputChanges: EventEmitter;
 
-  @Event() inputInput: EventEmitter;
+  /**
+   * Emitted when the input was cleared
+   */
+  @Event() cleared: EventEmitter<void>;
+
 
   @Prop({ reflect: true }) theme: TecnologiaTheme = defaultTheme;
 
-  @Prop({ mutable: true }) initialValue: string;
+  @Prop({ mutable: true }) initialValue?: string = "";
+
+  @Prop({ reflect: true }) placeholder?: string = "";
 
   @Prop({ mutable: true, reflect: true }) value?: string;
 
@@ -33,13 +47,14 @@ export class CodeInput {
 
   @Prop({ reflect: true }) disabled?: boolean
 
-  @Prop({ reflect: true }) placeholder?: string;
-
-  @Prop({ reflect: true, mutable: false }) type?: "text" | "password" = "text"
+  @Prop({ mutable: false, reflect: true }) type?: "text" | "password" = "text"
 
   @Prop({ mutable: false, reflect: true }) length: number = 5;
 
-  @Prop({ mutable: false }) validator?: RegExp = /^[0-9A-Za-z]+$/
+  @Prop({ mutable: false }) useMargin: boolean = true
+
+  // TODO:
+  // @Prop({ mutable: false }) validator?: RegExp = /^[0-9A-Za-z]+$/
 
   /**
    * Allow to parse all chars to UPPER or LOWER case
@@ -47,40 +62,44 @@ export class CodeInput {
    */
   @Prop() case: CodeInputCase = CodeInputCase.DEFAULT
 
-  @State() currentValue: string;
-
   input!: HTMLInputElement
 
-  // @Watch('value')
-  // validateValue(newValue: string, oldValue: string) {
-  //   console.log('newValue', newValue)
-  //   console.log('oldValue', oldValue)
-
-  //   console.log(this.validator.test(newValue))
-
-  //   this.currentValue = this.validator.test(newValue) ? newValue : oldValue
-  // }
+  @Watch('value')
+  valueChanges(newValue: string) {
+    if (newValue) this.valueChangesHandler(newValue)
+  }
 
   @Watch('placeholder')
   placeholderChanges() {
-    this.internalPlaceholder = this.buildPlaceholder()
+    this.internalPlaceholder = this.splitPlaceholder()
   }
 
   @Method()
   async clear(): Promise<void> {
-    // TODO: implement
+    if (this.length) {
+      this.buildArrayIterator().map((_, index) => {
+        const input = this.getInputByIndex(index)
+        if (input) input.value = ""
+      })
+
+      this.cleared.emit()
+    }
   }
 
   componentWillLoad() {
-    this.currentValue = this.value
-    this.internalValue = this.buildDefaultValue()
-    this.internalPlaceholder = this.buildPlaceholder()
+    this.internalValue = this.splitInitialValue()
+    this.internalPlaceholder = this.splitPlaceholder()
     this.value = this.initialValue
   }
 
   render() {
-    const Inputs = () => {
-      return Array(this.length).fill(null).map((_, index) => {
+    const Inputs = ({ useMargin = true }) => {
+      const classList = {
+        'text-mono text-8x1': true,
+        'use-margin': useMargin
+      }
+
+      return this.buildArrayIterator().map((_, index) => {
 
         const placeholder = this.internalPlaceholder[index]
         const enableAufocus = this.autofocus && index === 0
@@ -88,16 +107,21 @@ export class CodeInput {
 
         return (
           <input
-            class="text-mono text-8x1"
-            type="text"
-            id={`field-${index}`}
-            placeholder={placeholder ?? ""}
-            value={value ?? ""}
-            autoFocus={enableAufocus}
+            class={classList}
+            autoComplete="false"
+            autoCapitalize="false"
             maxlength="1"
+            id={`field-${index}`}
+            type={this.type}
+            placeholder={placeholder}
+            value={value}
+            autoFocus={enableAufocus}
+            disabled={this.disabled ?? null}
             onInput={(event: InputEvent) => this.inputInputHandler(event, index)}
             onFocus={event => this.inputFocusHandler(event, index)}
+            onBlur={event => this.inputBlurHandler(event, index)}
             onKeyDown={event => this.inputKeyDown(event, index)}
+            onKeyUp={event => this.inputKeyupHandler(event, index)}
           />
         )
       })
@@ -106,30 +130,52 @@ export class CodeInput {
     return (
       <Host>
         <div class="wrapper">
-          <Inputs />
+          <Inputs useMargin={this.useMargin} />
         </div>
       </Host >
     );
   }
 
+
   // ---------------
   // PRIVATE METHODS
   // ---------------
-  private inputInputHandler = (event: InputEvent, index: number) => {
-    console.log(event)
 
+  private internalValueHandler() {
+
+  }
+
+  private inputInputHandler(event: InputEvent, index: number) {
     if (event.data && index < (this.length - 1)) {
       const nextInput = this.getInputByIndex(index + 1)
       nextInput.focus()
     }
+
+    this.inputChange.emit({ event, value: event.data })
   }
 
-  private inputFocusHandler = (_event: FocusEvent, index: number) => {
+  private inputFocusHandler(event: FocusEvent, index: number) {
     const input: HTMLInputElement = this.getInputByIndex(index)
-    if (input) input.select()
+    if (input) {
+      input.select()
+
+      this.inputFocus.emit({
+        event,
+        value: {
+          id: input.getAttribute('id'),
+          index,
+          value: input.value
+        }
+      })
+    }
   }
 
-  private inputKeyDown = (event: KeyboardEvent, index: number) => {
+  private inputKeyupHandler(_event: KeyboardEvent, index: number) {
+    const input: HTMLInputElement = this.getInputByIndex(index)
+    if (input) input.value = this.caseHandler(input.value)
+  }
+
+  private inputKeyDown(event: KeyboardEvent, index: number): void {
     const actions = {
       'Backspace': () => {
         setTimeout(() => {
@@ -146,6 +192,17 @@ export class CodeInput {
 
     const execAction = actions[event.code]
     if (execAction) execAction()
+  }
+
+  private inputBlurHandler(event: FocusEvent, index: number): void {
+    const input = this.getInputByIndex(index)
+    this.inputBlur.emit({
+      event, value: {
+        id: input?.id,
+        index,
+        value: input?.value
+      }
+    })
   }
 
   /**
@@ -167,6 +224,10 @@ export class CodeInput {
     return input
   }
 
+  private getInputByIndex(index: number): HTMLInputElement {
+    return this.element.shadowRoot.querySelector(`input#field-${index}`)
+  }
+
   private focusOnNextInput(currentIndex: number): HTMLInputElement {
     if (currentIndex < (this.length - 1)) {
       return this.inputFocusAndSelect(currentIndex + 1, true)
@@ -179,16 +240,39 @@ export class CodeInput {
     }
   }
 
-  private getInputByIndex = (index: number): HTMLInputElement => {
-    return this.element.shadowRoot.querySelector(`input#field-${index}`)
+  private buildArrayIterator(): any[] {
+    return Array(this.length).fill(null)
   }
 
-  private buildPlaceholder(): string[] {
+  private splitPlaceholder(): string[] {
     return this.placeholder.split("")
   }
 
-  private buildDefaultValue(): string[] {
+  private splitInitialValue(): string[] {
     return this.initialValue.split("")
+  }
+
+  private valueChangesHandler(newValue: string): void {
+    const valueSplitted = newValue.split("")
+    if (valueSplitted) {
+      this.buildArrayIterator().map((_, index) => {
+        const input = this.getInputByIndex(index)
+        if (input && valueSplitted[index]) {
+          input.value = valueSplitted[index]
+        }
+      })
+
+      this.codeChange.emit({ value: newValue })
+    }
+  }
+
+  private caseHandler(value: string): string {
+    if (value) {
+      if (this.case === CodeInputCase.LOWERCASE) return value.toLowerCase()
+      if (this.case === CodeInputCase.UPPERCASE) return value.toUpperCase()
+      return value
+    }
+    return value
   }
 
 }

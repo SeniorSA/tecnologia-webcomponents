@@ -1,5 +1,16 @@
 export enum CodeInputCase {
-  UPPERCASE = 'UPPERCASE',
-  LOWERCASE = 'LOWERCASE',
-  DEFAULT = 'DEFAULT',
+  UPPERCASE = 'uppercase',
+  LOWERCASE = 'lowercase',
+  DEFAULT = 'default',
+}
+
+export interface CodeInputEvent<T> {
+  event?: any;
+  value?: T;
+}
+
+export interface CodeInputCustomEventValue {
+  id: string;
+  index: number;
+  value: string;
 }

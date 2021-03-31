@@ -32,13 +32,41 @@
       <tec-button slot="button" label="Sign" size="medium"></tec-button>
     </tec-bottom-bar>
 
-    <tec-code-input initial-value="0121A" placeholder="00122" id="code-input"></tec-code-input>
+    <tec-code-input id="code-input" case="uppercase"></tec-code-input>
 
+    <!-- <tec-code-input
+      initial-value="0121A"
+      placeholder="00122"
+      id="code-input"
+    ></tec-code-input> -->
 
-    <script type="text/javascript">
-    document.querySelector("#code-input").addEventListener("inputChanges", event => {
-      console.log(event)
-    })
+    <tec-button
+      slot="button"
+      id="button-clear"
+      label="Clear"
+      onClick="clear()"
+      size="medium"
+    ></tec-button>
+
+    <script>
+      let codeInput = document.querySelector('#code-input');
+
+      // codeInput.addEventListener('inputChanges', event => {
+      //   console.log(event);
+      // });
+
+      // setTimeout(() => {
+      //   codeInput.setAttribute('value', '124')
+      // }, 1500);
+
+      // FOCUS
+      // codeInput.addEventListener('inputFocus', event => {
+      //   console.log(event);
+      // });
+
+      document.querySelector('#button-clear').addEventListener('click', () => {
+        codeInput.clear();
+      });
     </script>
   </body>
 </html>
