@@ -1,15 +1,14 @@
-import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, Watch } from '@stencil/core';
-import { defaultTheme } from '../../../defaultTheme';
-import { TecnologiaTheme } from '../../interfaces';
-import { CodeInputCase, CodeInputCustomEventValue, CodeInputEvent } from './code-input.model';
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, Watch } from '@stencil/core'
+import { defaultTheme } from '../../../defaultTheme'
+import { TecnologiaTheme } from '../../interfaces'
+import { CodeInputCase, CodeInputCustomEventValue, CodeInputEvent } from './code-input.model'
 
 @Component({
   tag: 'tec-code-input',
   styleUrl: 'code-input.scss',
-  shadow: true,
+  shadow: true
 })
 export class CodeInput {
-
   private internalValue: string[];
   private internalPlaceholder: string[];
 
@@ -27,19 +26,18 @@ export class CodeInput {
   @Event() codeChange: EventEmitter<CodeInputEvent<string>>;
   @Event() codeFocus: EventEmitter<void>;
   @Event() codeBlur: EventEmitter<void>;
-
+  @Event() completed: EventEmitter<CodeInputEvent<string>>
 
   /**
    * Emitted when the input was cleared
    */
   @Event() cleared: EventEmitter<void>;
 
-
   @Prop({ reflect: true }) theme: TecnologiaTheme = defaultTheme;
 
-  @Prop({ mutable: true }) initialValue?: string = "";
+  @Prop({ mutable: true }) initialValue?: string = '';
 
-  @Prop({ reflect: true }) placeholder?: string = "";
+  @Prop({ reflect: true }) placeholder?: string = '';
 
   @Prop({ mutable: true, reflect: true }) value?: string;
 
@@ -47,7 +45,7 @@ export class CodeInput {
 
   @Prop({ reflect: true }) disabled?: boolean
 
-  @Prop({ mutable: false, reflect: true }) type?: "text" | "password" = "text"
+  @Prop({ mutable: false, reflect: true }) type?: 'text' | 'password' = 'text'
 
   @Prop({ mutable: false, reflect: true }) length: number = 5;
 
@@ -62,11 +60,11 @@ export class CodeInput {
    */
   @Prop() case: CodeInputCase = CodeInputCase.DEFAULT
 
-  input!: HTMLInputElement
-
   @Watch('value')
-  valueChanges(newValue: string) {
-    if (newValue) this.valueChangesHandler(newValue)
+  valueChanges(newValue: string, oldValue: string) {
+    if (newValue && newValue !== oldValue) {
+      this.valueChangesHandler(newValue)
+    }
   }
 
   @Watch('placeholder')
@@ -77,9 +75,9 @@ export class CodeInput {
   @Method()
   async clear(): Promise<void> {
     if (this.length) {
-      this.buildArrayIterator().map((_, index) => {
+      this.buildArrayIterator().forEach((_, index) => {
         const input = this.getInputByIndex(index)
-        if (input) input.value = ""
+        if (input) input.value = ''
       })
 
       this.cleared.emit()
@@ -100,7 +98,6 @@ export class CodeInput {
       }
 
       return this.buildArrayIterator().map((_, index) => {
-
         const placeholder = this.internalPlaceholder[index]
         const enableAufocus = this.autofocus && index === 0
         const value = this.internalValue[index]
@@ -133,25 +130,36 @@ export class CodeInput {
           <Inputs useMargin={this.useMargin} />
         </div>
       </Host >
-    );
+    )
   }
-
 
   // ---------------
   // PRIVATE METHODS
   // ---------------
 
-  private internalValueHandler() {
-
+  private buildFinalValue(): string {
+    const value = this.internalValue.join("")
+    if (value?.length) return value
   }
 
   private inputInputHandler(event: InputEvent, index: number) {
+    const currentInput = this.getInputByIndex(index)
+    if (currentInput) {
+      // handle input by case
+      currentInput.value = this.caseHandler(currentInput.value)
+
+      // build final value
+      this.internalValue[index] = currentInput.value
+      this.value = this.buildFinalValue()
+    }
+
+    // apply focus on next input
     if (event.data && index < (this.length - 1)) {
       const nextInput = this.getInputByIndex(index + 1)
       nextInput.focus()
     }
 
-    this.inputChange.emit({ event, value: event.data })
+    this.inputChange.emit({ event, value: currentInput.value })
   }
 
   private inputFocusHandler(event: FocusEvent, index: number) {
@@ -162,7 +170,7 @@ export class CodeInput {
       this.inputFocus.emit({
         event,
         value: {
-          id: input.getAttribute('id'),
+          id: input.id,
           index,
           value: input.value
         }
@@ -177,15 +185,15 @@ export class CodeInput {
 
   private inputKeyDown(event: KeyboardEvent, index: number): void {
     const actions = {
-      'Backspace': () => {
+      Backspace: () => {
         setTimeout(() => {
           this.focusOnPreviousInput(index)
-        }, 10);
+        }, 10)
       },
-      'ArrowLeft': () => {
+      ArrowLeft: () => {
         this.focusOnPreviousInput(index)
       },
-      'ArrowRight': () => {
+      ArrowRight: () => {
         this.focusOnNextInput(index)
       }
     }
@@ -197,7 +205,8 @@ export class CodeInput {
   private inputBlurHandler(event: FocusEvent, index: number): void {
     const input = this.getInputByIndex(index)
     this.inputBlur.emit({
-      event, value: {
+      event,
+      value: {
         id: input?.id,
         index,
         value: input?.value
@@ -218,7 +227,7 @@ export class CodeInput {
       if (select) {
         setTimeout(() => {
           input.select()
-        }, 10);
+        }, 10)
       }
     }
     return input
@@ -245,17 +254,17 @@ export class CodeInput {
   }
 
   private splitPlaceholder(): string[] {
-    return this.placeholder.split("")
+    return this.placeholder.split('')
   }
 
   private splitInitialValue(): string[] {
-    return this.initialValue.split("")
+    return this.initialValue.split('')
   }
 
   private valueChangesHandler(newValue: string): void {
-    const valueSplitted = newValue.split("")
+    const valueSplitted = newValue.split('')
     if (valueSplitted) {
-      this.buildArrayIterator().map((_, index) => {
+      this.buildArrayIterator().forEach((_, index) => {
         const input = this.getInputByIndex(index)
         if (input && valueSplitted[index]) {
           input.value = valueSplitted[index]
@@ -274,5 +283,4 @@ export class CodeInput {
     }
     return value
   }
-
 }

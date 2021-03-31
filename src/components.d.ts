@@ -78,7 +78,7 @@ export namespace Components {
         "length": number;
         "placeholder"?: string;
         "theme": TecnologiaTheme;
-        "type"?: "text" | "password";
+        "type"?: 'text' | 'password';
         "useMargin": boolean;
         "value"?: string;
     }
@@ -212,12 +212,13 @@ declare namespace LocalJSX {
          */
         "onCodeChange"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
         "onCodeFocus"?: (event: CustomEvent<void>) => void;
+        "onCompleted"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
         "onInputBlur"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
         "onInputChange"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
         "onInputFocus"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
         "placeholder"?: string;
         "theme"?: TecnologiaTheme;
-        "type"?: "text" | "password";
+        "type"?: 'text' | 'password';
         "useMargin"?: boolean;
         "value"?: string;
     }
