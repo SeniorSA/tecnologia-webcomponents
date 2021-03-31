@@ -72,8 +72,9 @@ export namespace Components {
           * @default allow upper and lowercase values
          */
         "case": CodeInputCase;
+        "clear": () => Promise<void>;
         "disabled"?: boolean;
-        "length"?: number;
+        "length": number;
         "placeholder"?: string;
         "theme": TecnologiaTheme;
         "type"?: "text" | "password";
