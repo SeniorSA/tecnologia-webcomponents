@@ -10,7 +10,7 @@ import { CodeInputCase } from './code-input.model';
 })
 export class CodeInput {
 
-  private defaultValue: string;
+  private internalValue: string[];
   private internalPlaceholder: string[];
 
   @Element() element: HTMLElement;
@@ -24,6 +24,8 @@ export class CodeInput {
   @Event() inputInput: EventEmitter;
 
   @Prop({ reflect: true }) theme: TecnologiaTheme = defaultTheme;
+
+  @Prop({ mutable: true }) initialValue: string;
 
   @Prop({ mutable: true, reflect: true }) value?: string;
 
@@ -70,10 +72,10 @@ export class CodeInput {
   }
 
   componentWillLoad() {
-    this.defaultValue = this.value
     this.currentValue = this.value
+    this.internalValue = this.buildDefaultValue()
     this.internalPlaceholder = this.buildPlaceholder()
-
+    this.value = this.initialValue
   }
 
   render() {
@@ -82,6 +84,7 @@ export class CodeInput {
 
         const placeholder = this.internalPlaceholder[index]
         const enableAufocus = this.autofocus && index === 0
+        const value = this.internalValue[index]
 
         return (
           <input
@@ -89,6 +92,7 @@ export class CodeInput {
             type="text"
             id={`field-${index}`}
             placeholder={placeholder ?? ""}
+            value={value ?? ""}
             autoFocus={enableAufocus}
             maxlength="1"
             onInput={(event: InputEvent) => this.inputInputHandler(event, index)}
@@ -104,34 +108,16 @@ export class CodeInput {
         <div class="wrapper">
           <Inputs />
         </div>
-        {/* <div class="wrapper">
-          <div class="input">
-            <input
-              class="text-mono text-8x1"
-              autoFocus={this.autofocus ? true : null}
-              maxLength={this.length}
-              placeholder={this.placeholder || ""}
-              disabled={this.disabled ? true : null}
-              pattern={`${this.validator}`}
-              value={this.currentValue}
-              defaultValue={this.defaultValue}
-              onInput={this.inputInputHandler}
-              onFocus={this.inputFocusHandler}
-              onBlur={this.inputBlurHandler}
-              onKeyDown={this.valueChanges}
-              ref={(el) => this.input = el as HTMLInputElement}
-            />
-          </div>
-        </div> */}
       </Host >
     );
   }
-
 
   // ---------------
   // PRIVATE METHODS
   // ---------------
   private inputInputHandler = (event: InputEvent, index: number) => {
+    console.log(event)
+
     if (event.data && index < (this.length - 1)) {
       const nextInput = this.getInputByIndex(index + 1)
       nextInput.focus()
@@ -144,7 +130,6 @@ export class CodeInput {
   }
 
   private inputKeyDown = (event: KeyboardEvent, index: number) => {
-    console.log(event)
     const actions = {
       'Backspace': () => {
         setTimeout(() => {
@@ -152,48 +137,45 @@ export class CodeInput {
         }, 10);
       },
       'ArrowLeft': () => {
-        this.focusOnPreviousInput(index, true)
+        this.focusOnPreviousInput(index)
       },
       'ArrowRight': () => {
-        this.focusOnNextInput(index, true)
+        this.focusOnNextInput(index)
       }
     }
 
-    // FIXME: improvement this
     const execAction = actions[event.code]
     if (execAction) execAction()
-
   }
 
-
   /**
-   * Focus on next input field
+   * Focus and select a input on index
    * @param currentIndex current input index
-   * @returns input element focused
+   * @param select select all content from input
+   * @returns input element focused and selected
    */
-  private focusOnNextInput(currentIndex: number, select = false): HTMLInputElement {
-    if (currentIndex < (this.length - 1)) {
-      const nextInput = this.getInputByIndex(currentIndex + 1)
-      nextInput.focus()
+  inputFocusAndSelect(index: number, select = false): HTMLInputElement {
+    const input = this.getInputByIndex(index)
+    if (input) {
+      input.focus()
       if (select) {
         setTimeout(() => {
-          nextInput.select()
+          input.select()
         }, 10);
       }
-      return nextInput
+    }
+    return input
+  }
+
+  private focusOnNextInput(currentIndex: number): HTMLInputElement {
+    if (currentIndex < (this.length - 1)) {
+      return this.inputFocusAndSelect(currentIndex + 1, true)
     }
   }
 
-  private focusOnPreviousInput(currentIndex: number, select = false): HTMLInputElement {
+  private focusOnPreviousInput(currentIndex: number): HTMLInputElement {
     if (currentIndex >= 0) {
-      const previousInput = this.getInputByIndex(currentIndex - 1)
-      previousInput.focus()
-      if (select) {
-        setTimeout(() => {
-          previousInput.select()
-        }, 10);
-      }
-      return previousInput
+      return this.inputFocusAndSelect(currentIndex - 1, true)
     }
   }
 
@@ -206,37 +188,7 @@ export class CodeInput {
   }
 
   private buildDefaultValue(): string[] {
-    return this.defaultValue.split("")
+    return this.initialValue.split("")
   }
-
-
-  // private inputFocusHandler = () => {
-  //   this.inputFocus.emit({
-  //     element: this.input,
-  //     value: this.value
-  //   });
-  // };
-
-  // private inputBlurHandler = () => {
-  //   this.inputBlur.emit({
-  //     element: this.input,
-  //     value: this.value
-  //   });
-  // };
-
-  // private inputInputHandler = (e: any) => {
-  //   this.value = e.target.value;
-  //   this.inputInput.emit({
-  //     element: this.input,
-  //     value: this.value
-  //   });
-  // };
-
-  // private valueChanges = () => {
-  //   this.inputChanges.emit({
-  //     element: this.input,
-  //     value: this.value
-  //   })
-  // }
 
 }

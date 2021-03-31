@@ -74,6 +74,7 @@ export namespace Components {
         "case": CodeInputCase;
         "clear": () => Promise<void>;
         "disabled"?: boolean;
+        "initialValue": string;
         "length": number;
         "placeholder"?: string;
         "theme": TecnologiaTheme;
@@ -199,6 +200,7 @@ declare namespace LocalJSX {
          */
         "case"?: CodeInputCase;
         "disabled"?: boolean;
+        "initialValue"?: string;
         "length"?: number;
         "onInputBlur"?: (event: CustomEvent<any>) => void;
         "onInputChanges"?: (event: CustomEvent<any>) => void;
