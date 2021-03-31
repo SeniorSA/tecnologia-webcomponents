@@ -2,9 +2,14 @@
 
 ## Unreleased
 
+### Features
+
+- Created `code-input` component to use on two-factor authentication and others.
+
 ### Fixes
 
 - Rename `tec-button` files to `button`. *Keeped compatibility with tag name.*
+- Added ESLint + Prettier configs to enforce a style guide.
 
 ## 0.4.1
 
