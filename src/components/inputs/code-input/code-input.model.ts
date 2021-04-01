@@ -1,9 +1,3 @@
-export enum CodeInputCase {
-  UPPERCASE = 'uppercase',
-  LOWERCASE = 'lowercase',
-  DEFAULT = 'default',
-}
-
 export interface CodeInputEvent<T> {
   event?: any;
   value?: T;

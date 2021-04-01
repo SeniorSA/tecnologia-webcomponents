@@ -1,8 +1,9 @@
-import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, Watch } from '@stencil/core'
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core'
 import { defaultTheme } from '../../../defaultTheme'
-import { removeStringWhiteSpace } from '../../../utils/utils'
+import { TecStringCase } from '../../../models/case.model'
+import { caseStringHandler, removeStringWhiteSpace } from '../../../utils/utils'
 import { TecnologiaTheme } from '../../interfaces'
-import { CodeInputCase, CodeInputCustomEventValue, CodeInputEvent } from './code-input.model'
+import { CodeInputCustomEventValue, CodeInputEvent } from './code-input.model'
 
 @Component({
   tag: 'tec-code-input',
@@ -12,6 +13,8 @@ import { CodeInputCase, CodeInputCustomEventValue, CodeInputEvent } from './code
 export class CodeInput {
   private internalValue: string[];
   private internalPlaceholder: string[];
+
+  @State() value?: string = '';
 
   @Element() element: HTMLElement;
 
@@ -43,13 +46,6 @@ export class CodeInput {
   @Prop({ reflect: true }) disabled?: boolean
 
   /**
-   * Observer current value from component
-   * > Note: don't use for set a initial value
-   * @readonly value
-   */
-  @Prop({ mutable: true, reflect: true }) value?: string = '';
-
-  /**
    * Auto focus on first input
    */
   @Prop({ reflect: true }) autofocus?: boolean = true;
@@ -73,17 +69,7 @@ export class CodeInput {
    * Allow to parse all chars to UPPER or LOWER case
    * @default allow upper and lowercase values
    */
-  @Prop() case: CodeInputCase = CodeInputCase.DEFAULT
-
-  /**
-   * Remove white spaces from value on events
-   * @example if false the returned value
-   * will be the same input order, like: `0   2`
-   * @returns when false: `' 0 A 2'`
-   * @return when true: `'0A2'`
-   */
-  @Prop({ mutable: false, attribute: 'event-remove-spaces' })
-  removeWhiteSpacesOnEvents = false;
+  @Prop() case: TecStringCase = TecStringCase.DEFAULT
 
   @Watch('value')
   valueChanges (newValue: string, oldValue: string) {
@@ -154,7 +140,7 @@ export class CodeInput {
     }
 
     return (
-      <Host>
+      <Host value={this.value}>
         <div class="wrapper">
           <Inputs useMargin={this.useMargin} />
         </div>
@@ -178,25 +164,24 @@ export class CodeInput {
 
   private inputInputHandler (event: InputEvent, index: number) {
     const currentInput = this.getInputByIndex(index)
+    this.inputChange.emit({ event, value: currentInput.value })
+
     if (currentInput) {
       // handle input by case
-      currentInput.value = this.caseHandler(currentInput.value)
+      currentInput.value = caseStringHandler(currentInput.value, this.case)
 
       // build final value
       this.internalValue[index] = currentInput.value || ' '
       this.value = this.buildFinalValue()
     }
 
-    // apply focus on next input
     if (event.data && index < (this.length - 1)) {
+      // apply focus on next input
       const nextInput = this.getInputByIndex(index + 1)
       nextInput.focus()
-    } else {
-      // the input was completed
-      this.completed.emit({ value: this.handleRemoveWhiteSpacesProp(this.value) })
     }
 
-    this.inputChange.emit({ event, value: currentInput.value })
+    this.handleCompletedEvent()
   }
 
   private inputFocusHandler (event: FocusEvent, index: number) {
@@ -219,7 +204,7 @@ export class CodeInput {
 
   private inputKeyupHandler (_event: KeyboardEvent, index: number) {
     const input: HTMLInputElement = this.getInputByIndex(index)
-    if (input) input.value = this.caseHandler(input.value)
+    if (input) input.value = caseStringHandler(input.value, this.case)
   }
 
   private inputKeyDown (event: KeyboardEvent, index: number): void {
@@ -315,17 +300,17 @@ export class CodeInput {
         }
       })
 
-      this.codeChange.emit({ value: this.handleRemoveWhiteSpacesProp(newValue) })
+      this.codeChange.emit({ value: removeStringWhiteSpace(newValue) })
     }
   }
 
-  private handleRemoveWhiteSpacesProp (value: string): string {
-    return this.removeWhiteSpacesOnEvents ? removeStringWhiteSpace(value) : value
-  }
+  private handleCompletedEvent (): void {
+    const shouldEmit = removeStringWhiteSpace(this.value).length === this.length
 
-  private caseHandler (value: string): string {
-    if (this.case === CodeInputCase.LOWERCASE) return value.toLowerCase()
-    if (this.case === CodeInputCase.UPPERCASE) return value.toUpperCase()
-    return value
+    if (shouldEmit) {
+      this.completed.emit({
+        value: removeStringWhiteSpace(this.value)
+      })
+    }
   }
 }

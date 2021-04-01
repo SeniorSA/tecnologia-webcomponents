@@ -36,40 +36,5 @@ describe('code-input', () => {
     it('buildArrayIterator()', () => {
 
     })
-
-    describe('caseHandler()', () => {
-      it('default', () => {
-        const comp = new CodeInput()
-        comp.case = CodeInputCase.DEFAULT
-
-        let method = comp['caseHandler']('A')
-        expect(method).toEqual('A')
-
-        method = comp['caseHandler']('1')
-        expect(method).toEqual('1')
-      })
-
-      it('toLowerCase', () => {
-        const comp = new CodeInput()
-        comp.case = CodeInputCase.LOWERCASE
-
-        let method = comp['caseHandler']('A')
-        expect(method).toEqual('a')
-
-        method = comp['caseHandler']('1')
-        expect(method).toEqual('1')
-      })
-
-      it('toUppercase', () => {
-        const comp = new CodeInput()
-        comp.case = CodeInputCase.UPPERCASE
-
-        let method = comp['caseHandler']('a')
-        expect(method).toEqual('A')
-
-        method = comp['caseHandler']('1')
-        expect(method).toEqual('1')
-      })
-    })
   })
 })

@@ -9,7 +9,8 @@ import { TecnologiaTheme } from "./components/interfaces";
 import { ButtonPosition } from "./components/bottom-bar/bottom-bar.model";
 import { TecStatus } from "./models/status.model";
 import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/button/button.model";
-import { CodeInputCase, CodeInputCustomEventValue, CodeInputEvent } from "./components/inputs/code-input/code-input.model";
+import { TecStringCase } from "./models/case.model";
+import { CodeInputCustomEventValue, CodeInputEvent } from "./components/inputs/code-input/code-input.model";
 export namespace Components {
     interface TecBottomBar {
         "buttonPosition": ButtonPosition;
@@ -74,7 +75,7 @@ export namespace Components {
           * Allow to parse all chars to UPPER or LOWER case
           * @default allow upper and lowercase values
          */
-        "case": CodeInputCase;
+        "case": TecStringCase;
         "clear": () => Promise<void>;
         "disabled"?: boolean;
         "initialValue"?: string;
@@ -83,13 +84,6 @@ export namespace Components {
          */
         "length": number;
         "placeholder"?: string;
-        /**
-          * Remove white spaces from value on events
-          * @example if false the returned value will be the same input order, like: `0   2`
-          * @returns when false: `' 0 A 2'`
-          * @return when true: `'0A2'`
-         */
-        "removeWhiteSpacesOnEvents": boolean;
         "theme": TecnologiaTheme;
         /**
           * Type of inputs
@@ -99,11 +93,6 @@ export namespace Components {
           * Add margin between inputs
          */
         "useMargin": boolean;
-        /**
-          * Observer current value from component > Note: don't use for set a initial value
-          * @readonly value
-         */
-        "value"?: string;
     }
     interface TecProductHeader {
         /**
@@ -224,7 +213,7 @@ declare namespace LocalJSX {
           * Allow to parse all chars to UPPER or LOWER case
           * @default allow upper and lowercase values
          */
-        "case"?: CodeInputCase;
+        "case"?: TecStringCase;
         "disabled"?: boolean;
         "initialValue"?: string;
         /**
@@ -246,13 +235,6 @@ declare namespace LocalJSX {
         "onInputChange"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
         "onInputFocus"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
         "placeholder"?: string;
-        /**
-          * Remove white spaces from value on events
-          * @example if false the returned value will be the same input order, like: `0   2`
-          * @returns when false: `' 0 A 2'`
-          * @return when true: `'0A2'`
-         */
-        "removeWhiteSpacesOnEvents"?: boolean;
         "theme"?: TecnologiaTheme;
         /**
           * Type of inputs
@@ -262,11 +244,6 @@ declare namespace LocalJSX {
           * Add margin between inputs
          */
         "useMargin"?: boolean;
-        /**
-          * Observer current value from component > Note: don't use for set a initial value
-          * @readonly value
-         */
-        "value"?: string;
     }
     interface TecProductHeader {
         /**

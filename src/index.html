@@ -36,7 +36,7 @@
 
 
 
-    <tec-code-input id="code-input"></tec-code-input>
+    <tec-code-input id="code-input" event-remove-spaces="true"></tec-code-input>
 
     <!-- <tec-code-input
       initial-value="0121A"
@@ -60,6 +60,10 @@
       // codeInput.addEventListener('inputChanges', event => {
       //   console.log(event);
       // });
+
+      codeInput.addEventListener('completed', event => {
+        console.log(event);
+      });
 
       // setTimeout(() => {
       //   codeInput.setAttribute('value', '124')
