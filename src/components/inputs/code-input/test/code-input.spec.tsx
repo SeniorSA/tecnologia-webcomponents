@@ -1,6 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing'
 import { CodeInput } from '../code-input'
-import { CodeInputCase } from '../code-input.model'
 
 describe('code-input', () => {
   it('render with default values', async () => {
@@ -34,7 +33,32 @@ describe('code-input', () => {
     })
 
     it('buildArrayIterator()', () => {
+      const comp = new CodeInput()
+      expect(comp['buildArrayIterator'](2)).toEqual([null, null])
+    })
 
+    it('splitInitialValue()', () => {
+      const comp = new CodeInput()
+      comp['initialValue'] = ''
+      expect(comp['splitInitialValue']()).toEqual([' ', ' ', ' ', ' ', ' '])
+
+      comp['initialValue'] = '12345'
+      expect(comp['splitInitialValue']()).toEqual(['1', '2', '3', '4', '5'])
+    })
+
+    it('splitPlaceholder()', () => {
+      const comp = new CodeInput()
+      comp.placeholder = '1234'
+      expect(comp['splitPlaceholder']()).toEqual(['1', '2', '3', '4'])
+    })
+
+    it('buildFinalValue()', () => {
+      const comp = new CodeInput()
+      comp['internalValue'] = ['1', '2', '3']
+      expect(comp['buildFinalValue']()).toEqual('123')
+
+      comp['internalValue'] = []
+      expect(comp['buildFinalValue']()).toEqual('')
     })
   })
 })
