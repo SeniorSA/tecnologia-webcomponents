@@ -1,5 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, Watch } from '@stencil/core'
 import { defaultTheme } from '../../../defaultTheme'
+import { removeStringWhiteSpace } from '../../../utils/utils'
 import { TecnologiaTheme } from '../../interfaces'
 import { CodeInputCase, CodeInputCustomEventValue, CodeInputEvent } from './code-input.model'
 
@@ -73,6 +74,16 @@ export class CodeInput {
    * @default allow upper and lowercase values
    */
   @Prop() case: CodeInputCase = CodeInputCase.DEFAULT
+
+  /**
+   * Remove white spaces from value on events
+   * @example if false the returned value
+   * will be the same input order, like: `0   2`
+   * @returns when false: `' 0 A 2'`
+   * @return when true: `'0A2'`
+   */
+  @Prop({ mutable: false, attribute: 'event-remove-spaces' })
+  removeWhiteSpacesOnEvents = false;
 
   @Watch('value')
   valueChanges (newValue: string, oldValue: string) {
@@ -182,7 +193,7 @@ export class CodeInput {
       nextInput.focus()
     } else {
       // the input was completed
-      this.completed.emit({ value: this.value })
+      this.completed.emit({ value: this.handleRemoveWhiteSpacesProp(this.value) })
     }
 
     this.inputChange.emit({ event, value: currentInput.value })
@@ -296,14 +307,20 @@ export class CodeInput {
     const valueSplitted = newValue.split('')
     if (valueSplitted) {
       this.buildArrayIterator().forEach((_, index) => {
+        const currentValue = valueSplitted[index]
         const input = this.getInputByIndex(index)
-        if (input && valueSplitted[index]) {
-          input.value = valueSplitted[index]
+
+        if (input && currentValue) {
+          input.value = currentValue
         }
       })
 
-      this.codeChange.emit({ value: newValue })
+      this.codeChange.emit({ value: this.handleRemoveWhiteSpacesProp(newValue) })
     }
+  }
+
+  private handleRemoveWhiteSpacesProp (value: string): string {
+    return this.removeWhiteSpacesOnEvents ? removeStringWhiteSpace(value) : value
   }
 
   private caseHandler (value: string): string {

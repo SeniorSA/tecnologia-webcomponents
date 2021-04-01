@@ -83,6 +83,13 @@ export namespace Components {
          */
         "length": number;
         "placeholder"?: string;
+        /**
+          * Remove white spaces from value on events
+          * @example if false the returned value will be the same input order, like: `0   2`
+          * @returns when false: `' 0 A 2'`
+          * @return when true: `'0A2'`
+         */
+        "removeWhiteSpacesOnEvents": boolean;
         "theme": TecnologiaTheme;
         /**
           * Type of inputs
@@ -239,6 +246,13 @@ declare namespace LocalJSX {
         "onInputChange"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
         "onInputFocus"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
         "placeholder"?: string;
+        /**
+          * Remove white spaces from value on events
+          * @example if false the returned value will be the same input order, like: `0   2`
+          * @returns when false: `' 0 A 2'`
+          * @return when true: `'0A2'`
+         */
+        "removeWhiteSpacesOnEvents"?: boolean;
         "theme"?: TecnologiaTheme;
         /**
           * Type of inputs
