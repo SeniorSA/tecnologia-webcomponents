@@ -172,7 +172,7 @@ export class CodeInput {
       currentInput.value = this.caseHandler(currentInput.value)
 
       // build final value
-      this.internalValue[index] = currentInput.value
+      this.internalValue[index] = currentInput.value || ' '
       this.value = this.buildFinalValue()
     }
 
@@ -279,8 +279,8 @@ export class CodeInput {
     }
   }
 
-  private buildArrayIterator (): any[] {
-    return Array(this.length).fill(null)
+  private buildArrayIterator (length = this.length): any[] {
+    return Array(length).fill(null)
   }
 
   private splitPlaceholder (): string[] {
@@ -288,7 +288,8 @@ export class CodeInput {
   }
 
   private splitInitialValue (): string[] {
-    return this.initialValue.split('')
+    const valueSplitted = this.initialValue.split('')
+    return this.buildArrayIterator().map((_, index) => valueSplitted[index] ?? ' ')
   }
 
   private valueChangesHandler (newValue: string): void {

@@ -35,7 +35,7 @@ describe('code-input', () => {
 
     it('buildArrayIterator()', () => {
 
-    });
+    })
 
     describe('caseHandler()', () => {
       it('default', () => {
@@ -47,7 +47,7 @@ describe('code-input', () => {
 
         method = comp['caseHandler']('1')
         expect(method).toEqual('1')
-      });
+      })
 
       it('toLowerCase', () => {
         const comp = new CodeInput()
@@ -58,7 +58,7 @@ describe('code-input', () => {
 
         method = comp['caseHandler']('1')
         expect(method).toEqual('1')
-      });
+      })
 
       it('toUppercase', () => {
         const comp = new CodeInput()
@@ -69,7 +69,7 @@ describe('code-input', () => {
 
         method = comp['caseHandler']('1')
         expect(method).toEqual('1')
-      });
-    });
+      })
+    })
   })
 })
