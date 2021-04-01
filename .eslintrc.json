@@ -16,6 +16,6 @@
   ],
   "rules": {
     "no-trailing-spaces": "error",
-    "no-multiple-empty-lines": "error",
+    "no-multiple-empty-lines": "error"
   }
 }
