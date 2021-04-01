@@ -38,7 +38,8 @@
   "dependencies": {
     "@seniorsistemas/tecnologia-design-tokens": "^0.3.0",
     "@stencil/core": "^2.5.1",
-    "@storybook/cli": "^6.1.21"
+    "@storybook/cli": "^6.1.21",
+    "typescript": "^4.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",

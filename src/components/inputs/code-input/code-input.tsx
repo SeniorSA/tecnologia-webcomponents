@@ -75,19 +75,19 @@ export class CodeInput {
   @Prop() case: CodeInputCase = CodeInputCase.DEFAULT
 
   @Watch('value')
-  valueChanges(newValue: string, oldValue: string) {
+  valueChanges (newValue: string, oldValue: string) {
     if (newValue && newValue !== oldValue) {
       this.valueChangesHandler(newValue)
     }
   }
 
   @Watch('placeholder')
-  placeholderChanges() {
+  placeholderChanges () {
     this.internalPlaceholder = this.splitPlaceholder()
   }
 
   @Method()
-  async clear(): Promise<void> {
+  async clear (): Promise<void> {
     if (this.length) {
       this.value = ''
       this.initInternalValue()
@@ -102,13 +102,13 @@ export class CodeInput {
     }
   }
 
-  componentWillLoad() {
+  componentWillLoad () {
     this.initInternalValue()
     this.internalPlaceholder = this.splitPlaceholder()
     this.value = this.initialValue
   }
 
-  render() {
+  render () {
     const Inputs = ({ useMargin = true }) => {
       const classList = {
         'text-mono text-8x1': true,
@@ -155,17 +155,17 @@ export class CodeInput {
   // PRIVATE METHODS
   // ---------------
 
-  private buildFinalValue(): string {
+  private buildFinalValue (): string {
     const value = this.internalValue.join('')
     if (value?.length) return value
     return ''
   }
 
-  private initInternalValue(): void {
+  private initInternalValue (): void {
     this.internalValue = this.splitInitialValue()
   }
 
-  private inputInputHandler(event: InputEvent, index: number) {
+  private inputInputHandler (event: InputEvent, index: number) {
     const currentInput = this.getInputByIndex(index)
     if (currentInput) {
       // handle input by case
@@ -188,7 +188,7 @@ export class CodeInput {
     this.inputChange.emit({ event, value: currentInput.value })
   }
 
-  private inputFocusHandler(event: FocusEvent, index: number) {
+  private inputFocusHandler (event: FocusEvent, index: number) {
     const input: HTMLInputElement = this.getInputByIndex(index)
     if (input) {
       input.select()
@@ -206,12 +206,12 @@ export class CodeInput {
     this.codeFocus.emit()
   }
 
-  private inputKeyupHandler(_event: KeyboardEvent, index: number) {
+  private inputKeyupHandler (_event: KeyboardEvent, index: number) {
     const input: HTMLInputElement = this.getInputByIndex(index)
     if (input) input.value = this.caseHandler(input.value)
   }
 
-  private inputKeyDown(event: KeyboardEvent, index: number): void {
+  private inputKeyDown (event: KeyboardEvent, index: number): void {
     const actions = {
       Backspace: () => {
         setTimeout(() => {
@@ -230,7 +230,7 @@ export class CodeInput {
     if (execAction) execAction()
   }
 
-  private inputBlurHandler(event: FocusEvent, index: number): void {
+  private inputBlurHandler (event: FocusEvent, index: number): void {
     const input = this.getInputByIndex(index)
     this.inputBlur.emit({
       event,
@@ -250,7 +250,7 @@ export class CodeInput {
    * @param select select all content from input
    * @returns input element focused and selected
    */
-  inputFocusAndSelect(index: number, select = false): HTMLInputElement {
+  inputFocusAndSelect (index: number, select = false): HTMLInputElement {
     const input = this.getInputByIndex(index)
     if (input) {
       input.focus()
@@ -263,35 +263,35 @@ export class CodeInput {
     return input
   }
 
-  private getInputByIndex(index: number): HTMLInputElement {
+  private getInputByIndex (index: number): HTMLInputElement {
     return this.element.shadowRoot.querySelector(`input#field-${index}`)
   }
 
-  private focusOnNextInput(currentIndex: number): HTMLInputElement {
+  private focusOnNextInput (currentIndex: number): HTMLInputElement {
     if (currentIndex < (this.length - 1)) {
       return this.inputFocusAndSelect(currentIndex + 1, true)
     }
   }
 
-  private focusOnPreviousInput(currentIndex: number): HTMLInputElement {
+  private focusOnPreviousInput (currentIndex: number): HTMLInputElement {
     if (currentIndex >= 0) {
       return this.inputFocusAndSelect(currentIndex - 1, true)
     }
   }
 
-  private buildArrayIterator(): any[] {
+  private buildArrayIterator (): any[] {
     return Array(this.length).fill(null)
   }
 
-  private splitPlaceholder(): string[] {
+  private splitPlaceholder (): string[] {
     return this.placeholder.split('')
   }
 
-  private splitInitialValue(): string[] {
+  private splitInitialValue (): string[] {
     return this.initialValue.split('')
   }
 
-  private valueChangesHandler(newValue: string): void {
+  private valueChangesHandler (newValue: string): void {
     const valueSplitted = newValue.split('')
     if (valueSplitted) {
       this.buildArrayIterator().forEach((_, index) => {
@@ -305,7 +305,7 @@ export class CodeInput {
     }
   }
 
-  private caseHandler(value: string): string {
+  private caseHandler (value: string): string {
     if (this.case === CodeInputCase.LOWERCASE) return value.toLowerCase()
     if (this.case === CodeInputCase.UPPERCASE) return value.toUpperCase()
     return value
