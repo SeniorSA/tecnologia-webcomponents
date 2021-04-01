@@ -8,8 +8,13 @@
 
 ### Fixes
 
-- Rename `tec-button` files to `button`. *Keeped compatibility with tag name.*
+- Rename `tec-button` files to `button`. _Keeped compatibility with tag name._
+
+### Development
+
 - Added ESLint + Prettier configs to enforce a style guide.
+- Allow to run Puppeteer tests on Macbook (OSX). Check by `darwin` with `process.platform`.
+- Added VSCode configs to run and debug tests on IDE.
 
 ## 0.4.1
 
@@ -50,7 +55,7 @@
 
 - Add conditional CDN deploy.
 - Add deploy step only on `master` branch.
-  
+
 ## 0.2.0
 
 ### Features

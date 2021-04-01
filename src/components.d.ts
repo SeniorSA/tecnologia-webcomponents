@@ -66,6 +66,9 @@ export namespace Components {
         "theme": TecnologiaTheme;
     }
     interface TecCodeInput {
+        /**
+          * Auto focus on first input
+         */
         "autofocus"?: boolean;
         /**
           * Allow to parse all chars to UPPER or LOWER case
@@ -75,11 +78,24 @@ export namespace Components {
         "clear": () => Promise<void>;
         "disabled"?: boolean;
         "initialValue"?: string;
+        /**
+          * Inputs quantity
+         */
         "length": number;
         "placeholder"?: string;
         "theme": TecnologiaTheme;
+        /**
+          * Type of inputs
+         */
         "type"?: 'text' | 'password';
+        /**
+          * Add margin between inputs
+         */
         "useMargin": boolean;
+        /**
+          * Observer current value from component > Note: don't use for set a initial value
+          * @readonly value
+         */
         "value"?: string;
     }
     interface TecProductHeader {
@@ -193,6 +209,9 @@ declare namespace LocalJSX {
         "theme"?: TecnologiaTheme;
     }
     interface TecCodeInput {
+        /**
+          * Auto focus on first input
+         */
         "autofocus"?: boolean;
         /**
           * Allow to parse all chars to UPPER or LOWER case
@@ -201,6 +220,9 @@ declare namespace LocalJSX {
         "case"?: CodeInputCase;
         "disabled"?: boolean;
         "initialValue"?: string;
+        /**
+          * Inputs quantity
+         */
         "length"?: number;
         /**
           * Emitted when the input was cleared
@@ -218,8 +240,18 @@ declare namespace LocalJSX {
         "onInputFocus"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
         "placeholder"?: string;
         "theme"?: TecnologiaTheme;
+        /**
+          * Type of inputs
+         */
         "type"?: 'text' | 'password';
+        /**
+          * Add margin between inputs
+         */
         "useMargin"?: boolean;
+        /**
+          * Observer current value from component > Note: don't use for set a initial value
+          * @readonly value
+         */
         "value"?: string;
     }
     interface TecProductHeader {

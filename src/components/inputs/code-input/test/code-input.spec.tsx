@@ -1,18 +1,75 @@
-import { newSpecPage } from '@stencil/core/testing';
-import { CodeInput } from '../code-input';
+import { newSpecPage } from '@stencil/core/testing'
+import { CodeInput } from '../code-input'
+import { CodeInputCase } from '../code-input.model'
 
 describe('code-input', () => {
-  it('renders', async () => {
+  it('render with default values', async () => {
     const page = await newSpecPage({
       components: [CodeInput],
-      html: `<code-input></code-input>`,
-    });
+      html: '<tec-code-input></tec-code-input>'
+    })
     expect(page.root).toEqualHtml(`
-      <code-input>
+      <tec-code-input autofocus="" length="5" placeholder="" theme="light" type="text" value="">
         <mock:shadow-root>
-          <slot></slot>
+          <div class="wrapper">
+            <input autocapitalize="false" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="1" type="text">
+            <input autocapitalize="false" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="1" type="text">
+            <input autocapitalize="false" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="1" type="text">
+            <input autocapitalize="false" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-3" maxlength="1" type="text">
+            <input autocapitalize="false" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-4" maxlength="1" type="text">
+          </div>
         </mock:shadow-root>
-      </code-input>
-    `);
-  });
-});
+      </tec-code-input>
+    `)
+  })
+
+  describe('methods', () => {
+    it('buildFinalValue()', async () => {
+      const comp = new CodeInput()
+      comp['internalValue'] = ['0', '1', '2', '3', '4']
+      expect(comp['buildFinalValue']()).toEqual('01234')
+
+      comp['internalValue'] = []
+      expect(comp['buildFinalValue']()).toEqual('')
+    })
+
+    it('buildArrayIterator()', () => {
+
+    });
+
+    describe('caseHandler()', () => {
+      it('default', () => {
+        const comp = new CodeInput()
+        comp.case = CodeInputCase.DEFAULT
+
+        let method = comp['caseHandler']('A')
+        expect(method).toEqual('A')
+
+        method = comp['caseHandler']('1')
+        expect(method).toEqual('1')
+      });
+
+      it('toLowerCase', () => {
+        const comp = new CodeInput()
+        comp.case = CodeInputCase.LOWERCASE
+
+        let method = comp['caseHandler']('A')
+        expect(method).toEqual('a')
+
+        method = comp['caseHandler']('1')
+        expect(method).toEqual('1')
+      });
+
+      it('toUppercase', () => {
+        const comp = new CodeInput()
+        comp.case = CodeInputCase.UPPERCASE
+
+        let method = comp['caseHandler']('a')
+        expect(method).toEqual('A')
+
+        method = comp['caseHandler']('1')
+        expect(method).toEqual('1')
+      });
+    });
+  })
+})

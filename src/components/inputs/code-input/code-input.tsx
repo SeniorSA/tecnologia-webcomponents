@@ -39,20 +39,34 @@ export class CodeInput {
 
   @Prop({ reflect: true }) placeholder?: string = '';
 
-  @Prop({ mutable: true, reflect: true }) value?: string;
-
-  @Prop({ reflect: true }) autofocus?: boolean = true;
-
   @Prop({ reflect: true }) disabled?: boolean
 
+  /**
+   * Observer current value from component
+   * > Note: don't use for set a initial value
+   * @readonly value
+   */
+  @Prop({ mutable: true, reflect: true }) value?: string = '';
+
+  /**
+   * Auto focus on first input
+   */
+  @Prop({ reflect: true }) autofocus?: boolean = true;
+
+  /**
+   * Type of inputs
+   */
   @Prop({ mutable: false, reflect: true }) type?: 'text' | 'password' = 'text'
 
+  /**
+   * Inputs quantity
+   */
   @Prop({ mutable: false, reflect: true }) length: number = 5;
 
+  /**
+   * Add margin between inputs
+   */
   @Prop({ mutable: false }) useMargin: boolean = true
-
-  // TODO:
-  // @Prop({ mutable: false }) validator?: RegExp = /^[0-9A-Za-z]+$/
 
   /**
    * Allow to parse all chars to UPPER or LOWER case
@@ -75,17 +89,21 @@ export class CodeInput {
   @Method()
   async clear(): Promise<void> {
     if (this.length) {
+      this.value = ''
+      this.initInternalValue()
+
       this.buildArrayIterator().forEach((_, index) => {
         const input = this.getInputByIndex(index)
         if (input) input.value = ''
       })
 
+      this.codeChange.emit({ value: '' })
       this.cleared.emit()
     }
   }
 
   componentWillLoad() {
-    this.internalValue = this.splitInitialValue()
+    this.initInternalValue()
     this.internalPlaceholder = this.splitPlaceholder()
     this.value = this.initialValue
   }
@@ -138,8 +156,13 @@ export class CodeInput {
   // ---------------
 
   private buildFinalValue(): string {
-    const value = this.internalValue.join("")
+    const value = this.internalValue.join('')
     if (value?.length) return value
+    return ''
+  }
+
+  private initInternalValue(): void {
+    this.internalValue = this.splitInitialValue()
   }
 
   private inputInputHandler(event: InputEvent, index: number) {
@@ -157,6 +180,9 @@ export class CodeInput {
     if (event.data && index < (this.length - 1)) {
       const nextInput = this.getInputByIndex(index + 1)
       nextInput.focus()
+    } else {
+      // the input was completed
+      this.completed.emit({ value: this.value })
     }
 
     this.inputChange.emit({ event, value: currentInput.value })
@@ -176,6 +202,8 @@ export class CodeInput {
         }
       })
     }
+
+    this.codeFocus.emit()
   }
 
   private inputKeyupHandler(_event: KeyboardEvent, index: number) {
@@ -212,6 +240,8 @@ export class CodeInput {
         value: input?.value
       }
     })
+
+    this.codeBlur.emit()
   }
 
   /**
@@ -276,11 +306,8 @@ export class CodeInput {
   }
 
   private caseHandler(value: string): string {
-    if (value) {
-      if (this.case === CodeInputCase.LOWERCASE) return value.toLowerCase()
-      if (this.case === CodeInputCase.UPPERCASE) return value.toUpperCase()
-      return value
-    }
+    if (this.case === CodeInputCase.LOWERCASE) return value.toLowerCase()
+    if (this.case === CodeInputCase.UPPERCASE) return value.toUpperCase()
     return value
   }
 }
