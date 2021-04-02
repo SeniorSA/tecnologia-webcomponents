@@ -113,7 +113,7 @@ export class CodeInput {
       }
 
       return this.buildArrayIterator().map((_, index) => {
-        const placeholder = this.internalPlaceholder[index]
+        const placeholder = this.internalPlaceholder[index] || ''
         const enableAufocus = this.autofocus && index === 0
         const value = this.internalValue[index]
 
@@ -126,7 +126,7 @@ export class CodeInput {
             id={`field-${index}`}
             type={this.type}
             placeholder={placeholder}
-            value={value}
+            value={placeholder && !value.trim() ? null : value}
             autoFocus={enableAufocus}
             disabled={this.disabled ?? null}
             onInput={(event: InputEvent) => this.inputInputHandler(event, index)}
