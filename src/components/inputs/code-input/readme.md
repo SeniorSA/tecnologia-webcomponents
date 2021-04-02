@@ -1,9 +1,8 @@
 # tec-code-input
 
-
+> Note: the recommendation is recover final value using events, like `completed`, but if you using `value` attribute from DOM, keep in mind: `value` attribute can contain white spaces ` 0  244`, this represent as we seen on screen.
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -20,7 +19,6 @@
 | `useMargin`    | `use-margin`    | Add margin between inputs                                                       | `boolean`                                                                     | `true`                  |
 | `value`        | `value`         | Observer current value from component > Note: don't use for set a initial value | `string`                                                                      | `''`                    |
 
-
 ## Events
 
 | Event         | Description                        | Type                                                     |
@@ -34,20 +32,14 @@
 | `inputChange` |                                    | `CustomEvent<CodeInputEvent<string>>`                    |
 | `inputFocus`  |                                    | `CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>` |
 
-
 ## Methods
 
 ### `clear() => Promise<void>`
-
-
 
 #### Returns
 
 Type: `Promise<void>`
 
+---
 
-
-
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

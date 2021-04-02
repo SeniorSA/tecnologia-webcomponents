@@ -86,13 +86,9 @@ export class CodeInput {
   @Method()
   async clear (): Promise<void> {
     if (this.length) {
-      this.value = ''
-      this.initInternalValue()
-
-      this.buildArrayIterator().forEach((_, index) => {
-        const input = this.getInputByIndex(index)
-        if (input) input.value = ''
-      })
+      this.initialValue
+        ? this.clearWithInitialValue()
+        : this.clearWithoutInitialValue()
 
       this.codeChange.emit({ value: '' })
       this.cleared.emit()
@@ -302,6 +298,22 @@ export class CodeInput {
 
       this.codeChange.emit({ value: removeStringWhiteSpace(newValue) })
     }
+  }
+
+  private clearWithInitialValue (): void {
+    this.initInternalValue()
+    this.internalPlaceholder = this.splitPlaceholder()
+    this.value = this.initialValue
+  }
+
+  private clearWithoutInitialValue (): void {
+    this.value = ''
+    this.initInternalValue()
+
+    this.buildArrayIterator().forEach((_, index) => {
+      const input = this.getInputByIndex(index)
+      if (input) input.value = ''
+    })
   }
 
   private handleCompletedEvent (): void {
