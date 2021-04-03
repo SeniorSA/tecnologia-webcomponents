@@ -117,7 +117,7 @@ export class TecModal {
                 {this.showCloseIcon && (
                   <div class="close-container" onClick={event => this.closeModal(event)}>
                     <span class="close">
-                      &times;
+                      <span>&times;</span>
                     </span>
                   </div>
                 )}

@@ -26,7 +26,7 @@ describe('tec-modal', () => {
             <div class="modal-title text-title">
             <h1 class="text-2x1">Test</h1>
             <div class="close-container">
-              <span class="close">×</span>
+              <span class="close"><span>×</span></span>
             </div>
             </div>
             <div class="content"><slot name="content"></slot>
@@ -50,7 +50,7 @@ describe('tec-modal', () => {
             <div class="modal-title text-title">
             <h1 class="text-2x1">Test</h1>
             <div class="close-container">
-              <span class="close">×</span>
+              <span class="close"><span>×</span></span>
             </div>
             </div>
             <div class="content"><slot name="content"></slot>
@@ -95,7 +95,7 @@ describe('tec-modal', () => {
             <div class="modal-title text-title">
             <h1 class="text-2x1">Test</h1>
             <div class="close-container">
-              <span class="close">×</span>
+              <span class="close"><span>×</span></span>
             </div>
             </div>
             <div class="content"><slot name="content"></slot>
@@ -119,7 +119,7 @@ describe('tec-modal', () => {
             <div class="modal-title text-title">
             <h1 class="text-2x1">Test</h1>
             <div class="close-container">
-              <span class="close">×</span>
+              <span class="close"><span>×</span></span>
             </div>
             </div>
             <div class="content"><slot name="content"></slot>

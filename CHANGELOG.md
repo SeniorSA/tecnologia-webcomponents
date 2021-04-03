@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Fixes
+
+- Fix modal close icon position
+
 ## 0.5.0
 
 ### Features
