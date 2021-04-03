@@ -115,14 +115,14 @@
     }
 
     .close-container {
-      padding: .1rem;
       margin-left: auto;
       border-radius: 100%;
-      min-width: 27px;
+      min-width: 28px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: 150ms;
+      cursor: pointer;
 
       &:hover {
         background-color: #{$color-base-gray-200};
@@ -130,14 +130,14 @@
 
       .close {
         color: #{$color-base-gray-700};
-        font-size: 20px;
+        font-size: 22px;
         font-weight: bold;
+        padding-bottom: 0.125rem;
       }
 
       .close:hover,
       .close:focus {
         text-decoration: none;
-        cursor: pointer;
       }
     }
   }

@@ -1,5 +1,11 @@
 # Release notes
 
+## 0.5.1
+
+### Fixes
+
+- Fix modal close icon position
+
 ## 0.5.0
 
 ### Features
@@ -49,7 +55,7 @@
 
 - Add conditional CDN deploy.
 - Add deploy step only on `master` branch.
-  
+
 ## 0.2.0
 
 ### Features

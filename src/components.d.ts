@@ -95,24 +95,6 @@ export namespace Components {
          */
         "titleProduct": string;
     }
-    interface TecProductHeader {
-        /**
-          * Use to make a bar fixed on top
-          * @default true
-         */
-        "sticky": boolean;
-        "theme": TecnologiaTheme;
-        /**
-          * Set `false` to remove `cursor: pointer` from title
-          * @summary when `false` this property disable `titleClicked` event.
-          * @default true
-         */
-        "titleCursorPointer": boolean;
-        /**
-          * The product name
-         */
-        "titleProduct": string;
-    }
 }
 declare global {
     interface HTMLTecBottomBarElement extends Components.TecBottomBar, HTMLStencilElement {
@@ -132,12 +114,6 @@ declare global {
     var HTMLTecModalElement: {
         prototype: HTMLTecModalElement;
         new (): HTMLTecModalElement;
-    };
-    interface HTMLTecProductHeaderElement extends Components.TecProductHeader, HTMLStencilElement {
-    }
-    var HTMLTecProductHeaderElement: {
-        prototype: HTMLTecProductHeaderElement;
-        new (): HTMLTecProductHeaderElement;
     };
     interface HTMLTecProductHeaderElement extends Components.TecProductHeader, HTMLStencilElement {
     }
@@ -223,29 +199,6 @@ declare namespace LocalJSX {
         "showCloseIcon"?: boolean;
         "size"?: TecSize;
         "theme"?: TecnologiaTheme;
-    }
-    interface TecProductHeader {
-        /**
-          * Emitted when the title was clicked
-          * @returns void
-         */
-        "onTitle-clicked"?: (event: CustomEvent<void>) => void;
-        /**
-          * Use to make a bar fixed on top
-          * @default true
-         */
-        "sticky"?: boolean;
-        "theme"?: TecnologiaTheme;
-        /**
-          * Set `false` to remove `cursor: pointer` from title
-          * @summary when `false` this property disable `titleClicked` event.
-          * @default true
-         */
-        "titleCursorPointer"?: boolean;
-        /**
-          * The product name
-         */
-        "titleProduct"?: string;
     }
     interface TecProductHeader {
         /**
