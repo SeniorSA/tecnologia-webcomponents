@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Fixes
+
+- Removed Storybook from production dependencies
+
 ## 0.5.1
 
 ### Fixes
