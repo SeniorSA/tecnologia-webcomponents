@@ -36,14 +36,13 @@
     "storybook:build": "npm run test && build-storybook -s dist"
   },
   "dependencies": {
-    "@stencil/core": "^2.5.1",
-    "@seniorsistemas/tecnologia-design-tokens": "^0.3.0"
+    "@seniorsistemas/tecnologia-design-tokens": "^0.3.0",
+    "@stencil/core": "^2.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-typescript": "^7.13.0",
     "@stencil/sass": "^1.4.1",
-    "@storybook/cli": "^6.1.21",
     "@storybook/addon-a11y": "^6.1.21",
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-backgrounds": "^6.1.21",
@@ -55,6 +54,7 @@
     "@storybook/addon-storysource": "^6.1.21",
     "@storybook/addon-viewport": "^6.1.21",
     "@storybook/addons": "^6.1.21",
+    "@storybook/cli": "^6.1.21",
     "@storybook/html": "^6.1.21",
     "@storybook/storybook-deployer": "^2.8.7",
     "@storybook/theming": "^6.1.21",
