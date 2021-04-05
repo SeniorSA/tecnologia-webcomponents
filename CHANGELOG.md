@@ -1,5 +1,22 @@
 # Release notes
 
+## 0.6.0
+
+### Features
+
+- Created `code-input` component to use on two-factor authentication and others.
+
+### Fixes
+
+- Rename `tec-button` files to `button`. _Keeped compatibility with tag name._
+- Removed Storybook from production dependencies
+
+### Development
+
+- Added ESLint + Prettier configs to enforce a style guide.
+- Allow to run Puppeteer tests on Macbook (OSX). Check by `darwin` with `process.platform`.
+- Added VSCode configs to run and debug tests on IDE.
+
 ## 0.5.1
 
 ### Fixes

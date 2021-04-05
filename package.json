@@ -37,8 +37,7 @@
   },
   "dependencies": {
     "@seniorsistemas/tecnologia-design-tokens": "^0.3.0",
-    "@stencil/core": "^2.5.1",
-    "@storybook/cli": "^6.1.21"
+    "@stencil/core": "^2.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -55,11 +54,21 @@
     "@storybook/addon-storysource": "^6.1.21",
     "@storybook/addon-viewport": "^6.1.21",
     "@storybook/addons": "^6.1.21",
+    "@storybook/cli": "^6.1.21",
     "@storybook/html": "^6.1.21",
     "@storybook/storybook-deployer": "^2.8.7",
     "@storybook/theming": "^6.1.21",
     "@types/jest": "^26.0.22",
     "@types/puppeteer": "^5.4.3",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.3.1",
     "jest": "26.6.3",
     "jest-cli": "26.6.3",
     "npm-run-all": "^4.1.5",
