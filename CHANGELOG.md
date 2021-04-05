@@ -2,25 +2,20 @@
 
 ## Unreleased
 
-### Fixes
-
-- Removed Storybook from production dependencies
-
-## 0.5.1
-
-### Fixes
-
-- Fix modal close icon position
-
-## 0.5.0
-
 ### Features
 
-- Created `modal` component.
+- Created `code-input` component to use on two-factor authentication and others.
 
 ### Fixes
 
-- Set `reflect: true` on button component.
+- Rename `tec-button` files to `button`. _Keeped compatibility with tag name._
+- Removed Storybook from production dependencies
+
+### Development
+
+- Added ESLint + Prettier configs to enforce a style guide.
+- Allow to run Puppeteer tests on Macbook (OSX). Check by `darwin` with `process.platform`.
+- Added VSCode configs to run and debug tests on IDE.
 
 ## 0.4.1
 

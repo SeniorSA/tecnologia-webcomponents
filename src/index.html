@@ -11,6 +11,13 @@
     <script type="module" src="/build/tecnologia-webcomponents.esm.js"></script>
     <script nomodule src="/build/tecnologia-webcomponents.js"></script>
     <link rel="stylesheet" type="text/css" href="./assets/fontawesome/css/all.css" />
+
+    <!-- Fonts from design tokens -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Oxygen+Mono&family=Roboto+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body style="height: 150vh;">
@@ -42,6 +49,51 @@
     >
       <tec-button slot="button" label="Sign" size="medium"></tec-button>
     </tec-bottom-bar>
+
+
+
+    <tec-code-input id="code-input" placeholder="12125"></tec-code-input>
+
+    <!-- <tec-code-input
+      initial-value="0121A"
+      placeholder="00122"
+      id="code-input"
+    ></tec-code-input> -->
+
+
+    <br>
+    <tec-button
+      slot="button"
+      id="button-clear"
+      label="Clear"
+      onClick="clear()"
+      size="medium"
+    ></tec-button>
+
+    <script>
+      let codeInput = document.querySelector('#code-input');
+
+      // codeInput.addEventListener('inputChanges', event => {
+      //   console.log(event);
+      // });
+
+      codeInput.addEventListener('completed', event => {
+        console.log(event);
+      });
+
+      // setTimeout(() => {
+      //   codeInput.setAttribute('value', '124')
+      // }, 1500);
+
+      // FOCUS
+      // codeInput.addEventListener('inputFocus', event => {
+      //   console.log(event);
+      // });
+
+      document.querySelector('#button-clear').addEventListener('click', () => {
+        codeInput.clear();
+      });
+    </script>
   </body>
 
   <script>

@@ -2,11 +2,11 @@ import { Component, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 import { TecnologiaTheme } from '../interfaces';
 import { defaultTheme } from '../../defaultTheme';
 import { TecStatus } from '../../models/status.model';
-import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from './tec-button.model';
+import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from './button.model';
 
 @Component({
   tag: 'tec-button',
-  styleUrl: 'tec-button.scss',
+  styleUrl: 'button.scss',
   shadow: true,
 })
 export class TecButton {

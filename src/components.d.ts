@@ -8,7 +8,9 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TecnologiaTheme } from "./components/interfaces";
 import { ButtonPosition } from "./components/bottom-bar/bottom-bar.model";
 import { TecStatus } from "./models/status.model";
-import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/tec-button/tec-button.model";
+import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/button/button.model";
+import { TecStringCase } from "./models/case.model";
+import { CodeInputCustomEventValue, CodeInputEvent } from "./components/inputs/code-input/code-input.model";
 import { TecSize } from "./models/size.model";
 export namespace Components {
     interface TecBottomBar {
@@ -65,6 +67,34 @@ export namespace Components {
         "status": TecStatus;
         "theme": TecnologiaTheme;
     }
+    interface TecCodeInput {
+        /**
+          * Auto focus on first input
+         */
+        "autofocus"?: boolean;
+        /**
+          * Allow to parse all chars to UPPER or LOWER case
+          * @default allow upper and lowercase values
+         */
+        "case": TecStringCase;
+        "clear": () => Promise<void>;
+        "disabled"?: boolean;
+        "initialValue"?: string;
+        /**
+          * Inputs quantity
+         */
+        "length": number;
+        "placeholder"?: string;
+        "theme": TecnologiaTheme;
+        /**
+          * Type of inputs
+         */
+        "type"?: 'text' | 'password';
+        /**
+          * Add margin between inputs
+         */
+        "useMargin": boolean;
+    }
     interface TecModal {
         "blockBodyScroll": boolean;
         "closeOnEscape": boolean;
@@ -109,6 +139,12 @@ declare global {
         prototype: HTMLTecButtonElement;
         new (): HTMLTecButtonElement;
     };
+    interface HTMLTecCodeInputElement extends Components.TecCodeInput, HTMLStencilElement {
+    }
+    var HTMLTecCodeInputElement: {
+        prototype: HTMLTecCodeInputElement;
+        new (): HTMLTecCodeInputElement;
+    };
     interface HTMLTecModalElement extends Components.TecModal, HTMLStencilElement {
     }
     var HTMLTecModalElement: {
@@ -124,6 +160,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "tec-bottom-bar": HTMLTecBottomBarElement;
         "tec-button": HTMLTecButtonElement;
+        "tec-code-input": HTMLTecCodeInputElement;
         "tec-modal": HTMLTecModalElement;
         "tec-product-header": HTMLTecProductHeaderElement;
     }
@@ -187,6 +224,47 @@ declare namespace LocalJSX {
         "status"?: TecStatus;
         "theme"?: TecnologiaTheme;
     }
+    interface TecCodeInput {
+        /**
+          * Auto focus on first input
+         */
+        "autofocus"?: boolean;
+        /**
+          * Allow to parse all chars to UPPER or LOWER case
+          * @default allow upper and lowercase values
+         */
+        "case"?: TecStringCase;
+        "disabled"?: boolean;
+        "initialValue"?: string;
+        /**
+          * Inputs quantity
+         */
+        "length"?: number;
+        /**
+          * Emitted when the input was cleared
+         */
+        "onCleared"?: (event: CustomEvent<void>) => void;
+        "onCodeBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * When `value` property changes
+         */
+        "onCodeChange"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
+        "onCodeFocus"?: (event: CustomEvent<void>) => void;
+        "onCompleted"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
+        "onInputBlur"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
+        "onInputChange"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
+        "onInputFocus"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
+        "placeholder"?: string;
+        "theme"?: TecnologiaTheme;
+        /**
+          * Type of inputs
+         */
+        "type"?: 'text' | 'password';
+        /**
+          * Add margin between inputs
+         */
+        "useMargin"?: boolean;
+    }
     interface TecModal {
         "blockBodyScroll"?: boolean;
         "closeOnEscape"?: boolean;
@@ -226,6 +304,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "tec-bottom-bar": TecBottomBar;
         "tec-button": TecButton;
+        "tec-code-input": TecCodeInput;
         "tec-modal": TecModal;
         "tec-product-header": TecProductHeader;
     }
@@ -236,6 +315,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "tec-bottom-bar": LocalJSX.TecBottomBar & JSXBase.HTMLAttributes<HTMLTecBottomBarElement>;
             "tec-button": LocalJSX.TecButton & JSXBase.HTMLAttributes<HTMLTecButtonElement>;
+            "tec-code-input": LocalJSX.TecCodeInput & JSXBase.HTMLAttributes<HTMLTecCodeInputElement>;
             "tec-modal": LocalJSX.TecModal & JSXBase.HTMLAttributes<HTMLTecModalElement>;
             "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
         }

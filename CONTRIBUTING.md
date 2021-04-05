@@ -2,6 +2,10 @@
 
 > If you ever questions, before send a pull requests, open a [topic on Discussions](https://github.com/SeniorSA/tecnologia-webcomponents/discussions/categories/contributing).
 
+## Requirements
+
+Node: `>=14.16.0`
+
 ## Rename stylesheet files to SCSS
 
 Stencil generate `.css` files for all components, rename this to use a SASS (`.scss`)
