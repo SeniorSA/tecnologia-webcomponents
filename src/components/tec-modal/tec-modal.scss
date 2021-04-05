@@ -1,0 +1,339 @@
+@import '../../scss/includes/components';
+
+:host {
+  display: block;
+}
+
+:host {
+  body {
+    overflow: hidden !important;
+  }
+}
+
+:host([theme='light']) {
+  .modal {
+    .modal-content {
+      background: #ffffff;
+      color: #{$color-base-blue-gray-900};
+    }
+  }
+}
+
+:host([theme='dark']) {
+  .modal {
+    .modal-content {
+      background: #{$color-base-blue-gray-900};
+      color: #{$color-base-blue-gray-100};
+      border: none;
+
+      .modal-title {
+        border-bottom: 1px solid #{$color-base-blue-gray-800} !important;
+
+        h1 {
+          color: #{$color-base-blue-gray-100} !important;
+        }
+      }
+
+      .footer {
+        border-top: 1px solid #{$color-base-blue-gray-800} !important;
+      }
+    }
+  }
+}
+
+:host([size='tiny']) .modal-content {
+  width: 20%;
+}
+
+:host([size='small']) .modal-content {
+  width: 30%;
+}
+
+:host([size='medium']) .modal-content {
+  width: 40%;
+}
+
+:host([size='large']) .modal-content {
+  width: 50%;
+}
+
+:host([size='giant']) .modal-content {
+  width: 60%;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.6);
+
+  &.remove-background {
+    animation: remove-brackground 100ms forwards;
+  }
+
+  &.show-background {
+    animation: show-background 100ms forwards;
+  }
+}
+
+.modal-content {
+  border-radius: 5px;
+  background-color: #fefefe;
+  border: 1px solid #{$color-base-gray-600};
+  width: 30%;
+
+  &.full-width {
+    width: 100% !important;
+    border: none !important;
+  }
+
+  &.open-animation {
+    animation: open-fade 100ms forwards;
+  }
+
+  &.close-animation {
+    animation: close-fade 100ms forwards;
+  }
+
+  .modal-title {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #{$color-base-gray-300};
+    padding: 0 1rem;
+
+    h1 {
+      color: #{$color-base-gray-900};
+    }
+
+    .close-container {
+      margin-left: auto;
+      border-radius: 100%;
+      min-width: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 150ms;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #{$color-base-gray-200};
+      }
+
+      .close {
+        color: #{$color-base-gray-700};
+        font-size: 22px;
+        font-weight: bold;
+        padding-bottom: 0.125rem;
+      }
+
+      .close:hover,
+      .close:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .content {
+    padding: 1rem;
+    overflow: auto;
+    max-height: 70vh;
+  }
+
+  .footer {
+    display: flex;
+    padding: 0.7rem 1rem;
+    border-top: 1px solid #{$color-base-gray-300};
+
+    .footer-content {
+      margin-left: auto;
+    }
+  }
+}
+
+@media (max-width: #{$breakpoint-base-2xl}) {
+  .responsive {
+    width: 40%;
+  }
+
+  :host([size='tiny']) .modal-content {
+    width: 30%;
+  }
+
+  :host([size='small']) .modal-content {
+    width: 40%;
+  }
+
+  :host([size='medium']) .modal-content {
+    width: 40%;
+  }
+
+  :host([size='large']) .modal-content {
+    width: 50%;
+  }
+
+  :host([size='giant']) .modal-content {
+    width: 60%;
+  }
+}
+
+@media (max-width: #{$breakpoint-base-xl}) {
+  .responsive {
+    width: 45%;
+  }
+
+  :host([size='tiny']) .responsive {
+    width: 30%;
+  }
+
+  :host([size='small']) .responsive {
+    width: 45%;
+  }
+
+  :host([size='medium']) .responsive {
+    width: 55%;
+  }
+
+  :host([size='large']) .responsive {
+    width: 65%;
+  }
+
+  :host([size='giant']) .responsive {
+    width: 75%;
+  }
+}
+
+@media (max-width: #{$breakpoint-base-lg}) {
+  .responsive {
+    width: 50%;
+  }
+
+  :host([size='tiny']) .responsive {
+    width: 40%;
+  }
+
+  :host([size='small']) .responsive {
+    width: 50%;
+  }
+
+  :host([size='medium']) .responsive {
+    width: 60%;
+  }
+
+  :host([size='large']) .responsive {
+    width: 70%;
+  }
+
+  :host([size='giant']) .responsive {
+    width: 80%;
+  }
+}
+
+@media (max-width: #{$breakpoint-base-md}) {
+  .responsive {
+    width: 60%;
+  }
+
+  :host([size='tiny']) .responsive {
+    width: 50%;
+  }
+
+  :host([size='small']) .responsive {
+    width: 60%;
+  }
+
+  :host([size='medium']) .responsive {
+    width: 70%;
+  }
+
+  :host([size='large']) .responsive {
+    width: 80%;
+  }
+
+  :host([size='giant']) .responsive {
+    width: 90%;
+  }
+}
+
+@media (max-width: #{$breakpoint-base-sm}) {
+  .responsive {
+    width: 70%;
+  }
+
+  :host([size='tiny']) .responsive {
+    width: 70%;
+  }
+
+  :host([size='small']) .responsive {
+    width: 85%;
+  }
+
+  :host([size='medium']) .responsive {
+    width: 90%;
+  }
+
+  :host([size='large']) .responsive {
+    width: 95%;
+  }
+
+  :host([size='giant']) .responsive {
+    width: 98%;
+  }
+}
+
+@keyframes open-fade {
+  from {
+    top: 10rem;
+    transform: scale(0.9);
+    opacity: 0;
+    z-index: 1;
+  }
+  to {
+    top: inherit;
+    transform: scale(1);
+    opacity: 1;
+    z-index: 100;
+  }
+}
+
+@keyframes close-fade {
+  from {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 100;
+  }
+  to {
+    transform: scale(0.9);
+    opacity: 0;
+    z-index: 1;
+  }
+}
+
+@keyframes remove-brackground {
+  from {
+    opacity: 1;
+  }
+  to {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes show-background {
+  from {
+    display: none;
+    opacity: 0;
+  }
+  to {
+    display: hidden;
+    opacity: 1;
+  }
+}

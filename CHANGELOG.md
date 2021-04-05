@@ -9,6 +9,7 @@
 ### Fixes
 
 - Rename `tec-button` files to `button`. _Keeped compatibility with tag name._
+- Removed Storybook from production dependencies
 
 ### Development
 

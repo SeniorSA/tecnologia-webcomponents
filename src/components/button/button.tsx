@@ -68,7 +68,7 @@ export class TecButton {
   /**
    * If `true` button use `width: 100%`
    */
-  @Prop({ attribute: 'fullWidth' })
+  @Prop({ reflect: true })
   fullWidth = false;
 
   /**
