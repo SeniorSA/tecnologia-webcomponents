@@ -324,5 +324,70 @@ describe('tec-code-input', () => {
         expect(event).toHaveReceivedEventDetail({ value: '012BB' })
       })
     })
+
+    describe('codeChange', () => {
+      it('emit for each typed letter', async () => {
+        const page = await newE2EPage()
+        await page.setContent('<tec-code-input length="2"></tec-code-input>')
+
+        const element = await page.find('tec-code-input')
+        const event = await element.spyOnEvent('codeChange')
+
+        await page.waitForChanges()
+
+        await element.type('0')
+        expect(event).toHaveReceivedEventTimes(1)
+        expect(event).toHaveReceivedEventDetail({ value: '0' })
+
+        await element.type('A', { delay: 2 })
+        expect(event).toHaveReceivedEventTimes(2)
+        expect(event).toHaveReceivedEventDetail({ value: '0A' })
+      })
+    })
+
+    it('inputChange', async () => {
+      const page = await newE2EPage()
+      await page.setContent('<tec-code-input length="2"></tec-code-input>')
+
+      const element = await page.find('tec-code-input')
+      const event = await element.spyOnEvent('inputChange')
+
+      await page.waitForChanges()
+
+      await element.type('0')
+      expect(event).toHaveReceivedEventTimes(1)
+      expect(event).toHaveReceivedEventDetail({
+        event: { isTrusted: true },
+        value: '0'
+      })
+
+      await element.type('A', { delay: 2 })
+      expect(event).toHaveReceivedEventTimes(2)
+      expect(event).toHaveReceivedEventDetail({
+        event: { isTrusted: true },
+        value: 'A'
+      })
+    })
+
+    it('inputFocus', async () => {
+      const page = await newE2EPage()
+      await page.setContent('<tec-code-input length="2" autofocus="false"></tec-code-input>')
+
+      const element = await page.find('tec-code-input')
+      const event = await element.spyOnEvent('inputFocus')
+
+      const firstInput = await page.find('tec-code-input >>> input')
+      await firstInput.focus()
+
+      expect(event).toHaveReceivedEventTimes(1)
+      expect(event).toHaveReceivedEventDetail({
+        event: { isTrusted: true },
+        value: {
+          index: 0,
+          id: 'field-0',
+          value: ' '
+        }
+      })
+    })
   })
 })
