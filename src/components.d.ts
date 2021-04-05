@@ -11,6 +11,7 @@ import { TecStatus } from "./models/status.model";
 import { TecButtonColor, TecButtonIconMode, TecButtonMode, TecButtonSize } from "./components/button/button.model";
 import { TecStringCase } from "./models/case.model";
 import { CodeInputCustomEventValue, CodeInputEvent } from "./components/inputs/code-input/code-input.model";
+import { TecSize } from "./models/size.model";
 export namespace Components {
     interface TecBottomBar {
         "buttonPosition": ButtonPosition;
@@ -94,6 +95,18 @@ export namespace Components {
          */
         "useMargin": boolean;
     }
+    interface TecModal {
+        "blockBodyScroll": boolean;
+        "closeOnEscape": boolean;
+        "dismissOnBackdrop": boolean;
+        "fullWidth": boolean;
+        "modalTitle": string;
+        "opened": boolean;
+        "responsive": boolean;
+        "showCloseIcon": boolean;
+        "size": TecSize;
+        "theme": TecnologiaTheme;
+    }
     interface TecProductHeader {
         /**
           * Use to make a bar fixed on top
@@ -132,6 +145,12 @@ declare global {
         prototype: HTMLTecCodeInputElement;
         new (): HTMLTecCodeInputElement;
     };
+    interface HTMLTecModalElement extends Components.TecModal, HTMLStencilElement {
+    }
+    var HTMLTecModalElement: {
+        prototype: HTMLTecModalElement;
+        new (): HTMLTecModalElement;
+    };
     interface HTMLTecProductHeaderElement extends Components.TecProductHeader, HTMLStencilElement {
     }
     var HTMLTecProductHeaderElement: {
@@ -142,6 +161,7 @@ declare global {
         "tec-bottom-bar": HTMLTecBottomBarElement;
         "tec-button": HTMLTecButtonElement;
         "tec-code-input": HTMLTecCodeInputElement;
+        "tec-modal": HTMLTecModalElement;
         "tec-product-header": HTMLTecProductHeaderElement;
     }
 }
@@ -245,6 +265,19 @@ declare namespace LocalJSX {
          */
         "useMargin"?: boolean;
     }
+    interface TecModal {
+        "blockBodyScroll"?: boolean;
+        "closeOnEscape"?: boolean;
+        "dismissOnBackdrop"?: boolean;
+        "fullWidth"?: boolean;
+        "modalTitle"?: string;
+        "onHidden"?: (event: CustomEvent<UIEvent>) => void;
+        "opened"?: boolean;
+        "responsive"?: boolean;
+        "showCloseIcon"?: boolean;
+        "size"?: TecSize;
+        "theme"?: TecnologiaTheme;
+    }
     interface TecProductHeader {
         /**
           * Emitted when the title was clicked
@@ -272,6 +305,7 @@ declare namespace LocalJSX {
         "tec-bottom-bar": TecBottomBar;
         "tec-button": TecButton;
         "tec-code-input": TecCodeInput;
+        "tec-modal": TecModal;
         "tec-product-header": TecProductHeader;
     }
 }
@@ -282,6 +316,7 @@ declare module "@stencil/core" {
             "tec-bottom-bar": LocalJSX.TecBottomBar & JSXBase.HTMLAttributes<HTMLTecBottomBarElement>;
             "tec-button": LocalJSX.TecButton & JSXBase.HTMLAttributes<HTMLTecButtonElement>;
             "tec-code-input": LocalJSX.TecCodeInput & JSXBase.HTMLAttributes<HTMLTecCodeInputElement>;
+            "tec-modal": LocalJSX.TecModal & JSXBase.HTMLAttributes<HTMLTecModalElement>;
             "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
         }
     }
