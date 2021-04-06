@@ -4,7 +4,7 @@
 
 ### Fixes
 
-- Fix url to use with package with `unpkg.com`.
+- Fix url to use package with `unpkg.com`.
 
 ## 0.6.0
 
