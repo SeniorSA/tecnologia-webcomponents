@@ -64,7 +64,7 @@ For legacy projects use:
 <script src="https://cdn.tecnologia.senior.com.br/platform/tecnologia-webcomponents/develop/tecnologia-webcomponents/tecnologia-webcomponents.js"></script>
 ```
 
-> Other alternative is use UNPKG, for this, overwrite with the following URL: `@seniorsistemas/tecnologia-webcomponents/dist/tecnologia-webcomponents/tecnologia-webcomponents.js`
+> Other alternative is use UNPKG, for this, overwrite with the following URL: `https://unpkg.com/@seniorsistemas/tecnologia-webcomponents@latest/dist/tecnologia-webcomponents/tecnologia-webcomponents.js`
 
 ### Angular applications
 

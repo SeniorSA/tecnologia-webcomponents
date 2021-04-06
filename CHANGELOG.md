@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Fixes
+
+- Fix url to use with package with `unpkg.com`.
+
 ## 0.6.0
 
 ### Features
