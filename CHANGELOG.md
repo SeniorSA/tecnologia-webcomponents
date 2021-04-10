@@ -5,6 +5,7 @@
 ### Fixes
 
 - Fix url to use package with `unpkg.com`.
+- Prevent `bottom-bar` to force the page to add scroll. (Removed `block` from `:host`)
 
 ## 0.6.0
 
