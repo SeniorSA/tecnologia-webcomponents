@@ -87,5 +87,8 @@
     "Senior Sistemas",
     "Tecnologia Aplicativos",
     "StencilJS"
-  ]
+  ],
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  }
 }
