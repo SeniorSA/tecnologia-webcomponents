@@ -4,20 +4,21 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property       | Attribute       | Description                                                                     | Type                                                                          | Default                 |
-| -------------- | --------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------- |
-| `autofocus`    | `autofocus`     | Auto focus on first input                                                       | `boolean`                                                                     | `true`                  |
-| `case`         | `case`          | Allow to parse all chars to UPPER or LOWER case                                 | `CodeInputCase.DEFAULT \| CodeInputCase.LOWERCASE \| CodeInputCase.UPPERCASE` | `CodeInputCase.DEFAULT` |
-| `disabled`     | `disabled`      |                                                                                 | `boolean`                                                                     | `undefined`             |
-| `initialValue` | `initial-value` |                                                                                 | `string`                                                                      | `''`                    |
-| `length`       | `length`        | Inputs quantity                                                                 | `number`                                                                      | `5`                     |
-| `placeholder`  | `placeholder`   |                                                                                 | `string`                                                                      | `''`                    |
-| `theme`        | `theme`         |                                                                                 | `TecnologiaTheme.dark \| TecnologiaTheme.light`                               | `defaultTheme`          |
-| `type`         | `type`          | Type of inputs                                                                  | `"password" \| "text"`                                                        | `'text'`                |
-| `useMargin`    | `use-margin`    | Add margin between inputs                                                       | `boolean`                                                                     | `true`                  |
-| `value`        | `value`         | Observer current value from component > Note: don't use for set a initial value | `string`                                                                      | `''`                    |
+| Property       | Attribute       | Description                                     | Type                                                                          | Default                 |
+| -------------- | --------------- | ----------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------- |
+| `autofocus`    | `autofocus`     | Auto focus on first input                       | `boolean`                                                                     | `true`                  |
+| `case`         | `case`          | Allow to parse all chars to UPPER or LOWER case | `TecStringCase.DEFAULT \| TecStringCase.LOWERCASE \| TecStringCase.UPPERCASE` | `TecStringCase.DEFAULT` |
+| `disabled`     | `disabled`      |                                                 | `boolean`                                                                     | `undefined`             |
+| `initialValue` | `initial-value` |                                                 | `string`                                                                      | `''`                    |
+| `length`       | `length`        | Inputs quantity                                 | `number`                                                                      | `5`                     |
+| `placeholder`  | `placeholder`   |                                                 | `string`                                                                      | `''`                    |
+| `theme`        | `theme`         |                                                 | `TecnologiaTheme.dark \| TecnologiaTheme.light`                               | `defaultTheme`          |
+| `type`         | `type`          | Type of inputs                                  | `"password" \| "text"`                                                        | `'text'`                |
+| `useMargin`    | `use-margin`    | Add margin between inputs                       | `boolean`                                                                     | `true`                  |
+
 
 ## Events
 
@@ -36,10 +37,15 @@
 
 ### `clear() => Promise<void>`
 
+
+
 #### Returns
 
 Type: `Promise<void>`
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

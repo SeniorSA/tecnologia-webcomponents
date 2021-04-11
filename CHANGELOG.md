@@ -1,5 +1,16 @@
 # Release notes
 
+## 0.6.1
+
+### Fixes
+
+- Fix url to use package with `unpkg.com`.
+- Prevent `bottom-bar` to force the page to add scroll. (Removed `block` from `:host`)
+
+### Dependencies
+
+- Add `fsevents` on optional dependencies.
+
 ## 0.6.0
 
 ### Features
