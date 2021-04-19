@@ -36,8 +36,7 @@ export class TecModal {
   @Prop({ mutable: true })
   modalTitle: string;
 
-  @Prop({ mutable: true })
-  showCloseIcon = true;
+  @Prop({}) showCloseIcon = true;
 
   @Prop()
   dismissOnBackdrop = true;
@@ -85,11 +84,12 @@ export class TecModal {
     this.hasFooterContent = !!this.hostElement.querySelector('[slot="footer"]');
     if (this.opened) this.handleParentOverflow();
     this.openedAuxiliary = this.opened;
-    if (this.closeOnEscape)
-      document.addEventListener('keydown', event => {
-        if (this.opened && event.key === 'Escape') this.closeModal();
-      });
+    if (this.closeOnEscape) document.addEventListener('keydown', this.handleKeyDown);
   }
+
+  handleKeyDown = (event: KeyboardEvent) => {
+    if (this.opened && event.key === 'Escape') this.closeModal();
+  };
 
   handleParentOverflow() {
     const property = this.opened && this.blockBodyScroll ? 'hidden' : 'inherit';
