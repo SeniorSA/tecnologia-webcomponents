@@ -15,6 +15,7 @@
 | `initialValue` | `initial-value` |                                                 | `string`                                                                      | `''`                    |
 | `length`       | `length`        | Inputs quantity                                 | `number`                                                                      | `5`                     |
 | `placeholder`  | `placeholder`   |                                                 | `string`                                                                      | `''`                    |
+| `responsive`   | `responsive`    |                                                 | `boolean`                                                                     | `true`                  |
 | `theme`        | `theme`         |                                                 | `TecnologiaTheme.dark \| TecnologiaTheme.light`                               | `defaultTheme`          |
 | `type`         | `type`          | Type of inputs                                  | `"password" \| "text"`                                                        | `'text'`                |
 | `useMargin`    | `use-margin`    | Add margin between inputs                       | `boolean`                                                                     | `true`                  |
