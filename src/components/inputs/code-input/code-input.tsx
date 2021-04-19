@@ -45,6 +45,8 @@ export class CodeInput {
 
   @Prop({ reflect: true }) disabled?: boolean
 
+  @Prop({ reflect: true }) responsive: boolean = true
+
   /**
    * Auto focus on first input
    */
@@ -135,9 +137,14 @@ export class CodeInput {
       })
     }
 
+    const classList = {
+      'responsive': this.responsive,
+      'wrapper': true
+    }
+
     return (
       <Host value={this.value}>
-        <div class="wrapper">
+        <div class={classList}>
           <Inputs useMargin={this.useMargin} />
         </div>
       </Host >

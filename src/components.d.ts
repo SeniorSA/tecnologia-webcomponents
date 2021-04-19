@@ -85,6 +85,7 @@ export namespace Components {
          */
         "length": number;
         "placeholder"?: string;
+        "responsive": boolean;
         "theme": TecnologiaTheme;
         /**
           * Type of inputs
@@ -255,6 +256,7 @@ declare namespace LocalJSX {
         "onInputChange"?: (event: CustomEvent<CodeInputEvent<string>>) => void;
         "onInputFocus"?: (event: CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>) => void;
         "placeholder"?: string;
+        "responsive"?: boolean;
         "theme"?: TecnologiaTheme;
         /**
           * Type of inputs

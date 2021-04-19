@@ -8,9 +8,9 @@ describe('code-input', () => {
       html: '<tec-code-input></tec-code-input>'
     })
     expect(page.root).toEqualHtml(`
-      <tec-code-input autofocus="" length="5" placeholder="" theme="light" type="text" value="">
+      <tec-code-input autofocus="" length="5" placeholder="" responsive="" theme="light" type="text" value="">
         <mock:shadow-root>
-          <div class="wrapper">
+          <div class="responsive wrapper">
             <input autocapitalize="false" value=" " placeholder="" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="1" type="text">
             <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="1" type="text">
             <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="1" type="text">
@@ -20,6 +20,48 @@ describe('code-input', () => {
         </mock:shadow-root>
       </tec-code-input>
     `)
+  })
+
+  describe('responsive', () => {
+    it('should render with responsive class', async () => {
+      const page = await newSpecPage({
+        components: [CodeInput],
+        html: '<tec-code-input></tec-code-input>'
+      })
+      expect(page.root).toEqualHtml(`
+        <tec-code-input autofocus="" length="5" placeholder="" responsive="" theme="light" type="text" value="">
+          <mock:shadow-root>
+            <div class="responsive wrapper">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-3" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-4" maxlength="1" type="text">
+            </div>
+          </mock:shadow-root>
+        </tec-code-input>
+      `)
+    })
+
+    it('should not render with responsive class', async () => {
+      const page = await newSpecPage({
+        components: [CodeInput],
+        html: '<tec-code-input responsive="false"></tec-code-input>'
+      })
+      expect(page.root).toEqualHtml(`
+        <tec-code-input autofocus="" length="5" placeholder="" responsive="false" theme="light" type="text" value="">
+          <mock:shadow-root>
+            <div class="wrapper">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-3" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-4" maxlength="1" type="text">
+            </div>
+          </mock:shadow-root>
+        </tec-code-input>
+      `)
+    })
   })
 
   describe('methods', () => {

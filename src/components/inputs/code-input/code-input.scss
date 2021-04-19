@@ -60,3 +60,33 @@
     }
   }
 }
+
+@media (max-width: #{$breakpoint-base-lg}) {
+  .responsive {
+    input {
+      width: 6rem;
+      height: 8rem;
+      font-size: $font-size-8x1;
+    }
+  }
+}
+
+@media (max-width: #{$breakpoint-base-md}) {
+  .responsive {
+    input {
+      width: 5rem;
+      height: 7rem;
+      font-size: $font-size-7x1;
+    }
+  }
+}
+
+@media (max-width: #{$breakpoint-base-sm}) {
+  .responsive {
+    input {
+      width: 3.5rem;
+      height: 5rem;
+      font-size: $font-size-5x1;
+    }
+  }
+}

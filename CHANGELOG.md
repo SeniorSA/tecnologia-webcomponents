@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Feature
+
+- Add `responsive` property to `code-input` component.
+
 ## 0.6.1
 
 ### Fixes
