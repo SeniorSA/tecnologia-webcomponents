@@ -4,13 +4,13 @@
 
 ### Feature
 
-- Add `responsive` property to `code-input` component.
+- Added `responsive` property to `code-input` component.
 
 ## 0.6.1
 
 ### Fixes
 
-- Fix url to use package with `unpkg.com`.
+- Fixed url to use package with `unpkg.com`.
 - Prevent `bottom-bar` to force the page to add scroll. (Removed `block` from `:host`)
 
 ### Dependencies
