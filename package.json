@@ -6,7 +6,7 @@
     "email": "aplicativos-arquitetura@senior.com.br",
     "url": "https://senior.com.br/solucoes/performance-corporativa/bpm"
   },
-  "version": "0.6.1",
+  "version": "0.7.0",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
