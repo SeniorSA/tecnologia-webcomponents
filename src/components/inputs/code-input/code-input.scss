@@ -62,7 +62,7 @@
 }
 
 @media (max-width: #{$breakpoint-base-lg}) {
-  .responsive {
+  .responsive input {
     input {
       width: 6rem;
       height: 8rem;
