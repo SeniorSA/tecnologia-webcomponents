@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Fixes
+
+- Fixed code input when is mobile.
+
 ## 0.7.0
 
 ### Feature
