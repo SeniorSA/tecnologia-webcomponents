@@ -120,7 +120,7 @@ export class CodeInput {
             class={classList}
             autoComplete="false"
             autoCapitalize="false"
-            maxlength="1"
+            maxlength="2"
             id={`field-${index}`}
             type={this.type}
             placeholder={placeholder}
@@ -167,6 +167,7 @@ export class CodeInput {
 
   private inputInputHandler (event: InputEvent, index: number) {
     const currentInput = this.getInputByIndex(index)
+    currentInput.value = event.data
     this.inputChange.emit({ event, value: currentInput.value })
 
     if (currentInput) {
