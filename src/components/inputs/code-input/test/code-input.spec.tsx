@@ -11,11 +11,11 @@ describe('code-input', () => {
       <tec-code-input autofocus="" length="5" placeholder="" responsive="" theme="light" type="text" value="">
         <mock:shadow-root>
           <div class="responsive wrapper">
-            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="1" type="text">
-            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="1" type="text">
-            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="1" type="text">
-            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-3" maxlength="1" type="text">
-            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-4" maxlength="1" type="text">
+            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="2" type="text">
+            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="2" type="text">
+            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="2" type="text">
+            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-3" maxlength="2" type="text">
+            <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-4" maxlength="2" type="text">
           </div>
         </mock:shadow-root>
       </tec-code-input>
@@ -32,11 +32,11 @@ describe('code-input', () => {
         <tec-code-input autofocus="" length="5" placeholder="" responsive="" theme="light" type="text" value="">
           <mock:shadow-root>
             <div class="responsive wrapper">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="1" type="text">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="1" type="text">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="1" type="text">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-3" maxlength="1" type="text">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-4" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="2" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="2" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="2" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-3" maxlength="2" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-4" maxlength="2" type="text">
             </div>
           </mock:shadow-root>
         </tec-code-input>
@@ -52,11 +52,11 @@ describe('code-input', () => {
         <tec-code-input autofocus="" length="5" placeholder="" responsive="false" theme="light" type="text" value="">
           <mock:shadow-root>
             <div class="wrapper">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="1" type="text">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="1" type="text">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="1" type="text">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-3" maxlength="1" type="text">
-              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-4" maxlength="1" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" autofocus="" class="text-8x1 text-mono use-margin" id="field-0" maxlength="2" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-1" maxlength="2" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-2" maxlength="2" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-3" maxlength="2" type="text">
+              <input autocapitalize="false" value=" " placeholder="" autocomplete="false" class="text-8x1 text-mono use-margin" id="field-4" maxlength="2" type="text">
             </div>
           </mock:shadow-root>
         </tec-code-input>
