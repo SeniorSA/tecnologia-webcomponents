@@ -73,7 +73,7 @@
   .responsive input {
     width: 5rem;
     height: 7rem;
-    font-size: $font-size-7x1;
+    font-size: $font-size-5x1;
   }
 }
 
@@ -81,6 +81,7 @@
   .responsive input {
     width: 3.5rem;
     height: 5rem;
-    font-size: $font-size-5x1;
+    font-size: $font-size-3x1;
+    line-height: 0;
   }
 }
