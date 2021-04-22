@@ -120,7 +120,7 @@ export class CodeInput {
             class={classList}
             autoComplete="false"
             autoCapitalize="false"
-            maxlength="1"
+            maxlength="2"
             id={`field-${index}`}
             type={this.type}
             placeholder={placeholder}
@@ -167,6 +167,7 @@ export class CodeInput {
 
   private inputInputHandler (event: InputEvent, index: number) {
     const currentInput = this.getInputByIndex(index)
+    currentInput.value = event.data
     this.inputChange.emit({ event, value: currentInput.value })
 
     if (currentInput) {
@@ -180,8 +181,7 @@ export class CodeInput {
 
     if (event.data && index < (this.length - 1)) {
       // apply focus on next input
-      const nextInput = this.getInputByIndex(index + 1)
-      nextInput.focus()
+      this.focusOnNextInput(index)
     }
 
     this.handleCompletedEvent()
@@ -215,7 +215,7 @@ export class CodeInput {
       Backspace: () => {
         setTimeout(() => {
           this.focusOnPreviousInput(index)
-        }, 10)
+        }, 20)
       },
       ArrowLeft: () => {
         this.focusOnPreviousInput(index)
@@ -256,7 +256,7 @@ export class CodeInput {
       if (select) {
         setTimeout(() => {
           input.select()
-        }, 10)
+        }, 30)
       }
     }
     return input

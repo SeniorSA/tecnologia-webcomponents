@@ -1,5 +1,12 @@
 # Release notes
 
+## 0.7.1
+
+### Fixes
+
+- Fixed code input when is mobile.
+- Fixed code input value not changes when unselect input and the cursor is active.
+
 ## 0.7.0
 
 ### Feature
