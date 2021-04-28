@@ -286,7 +286,7 @@ describe('tec-modal', () => {
     expect(closeModalSpy).toHaveBeenCalledTimes(0)
   });
 
-  it('should not close modal when modal is closed', () => {
+  it('should not close modal when modal is closed and press escape', () => {
     const comp = new TecModal();
     const closeModalSpy = jest.spyOn(comp, 'closeModal').mockImplementation()
     comp.opened = false

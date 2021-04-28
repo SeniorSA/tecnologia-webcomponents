@@ -85,4 +85,95 @@ describe('tec-button', () => {
       </tec-button>
     `);
   });
+
+  it('should throw error', async () => {
+    const component = new TecButton();
+    component.onlyIcon = true;
+    component.icon = '';
+    try {
+      component.componentDidLoad()
+      expect(true).toBeFalsy()
+    } catch (error) {
+      expect(error.message).toBe('When \'onlyIcon\' property is enabled a \'icon\' should be passed!')
+    }
+  })
+
+  it('should not throw error', async () => {
+    const component = new TecButton();
+    component.onlyIcon = true;
+    component.icon = 'test';
+    try {
+      component.componentDidLoad()
+      expect(true).toBeTruthy()
+    } catch (error) {
+      expect(true).toBeFalsy()
+    }
+
+    component.onlyIcon = false;
+    component.icon = '';
+    try {
+      component.componentDidLoad()
+      expect(true).toBeTruthy()
+    } catch (error) {
+      expect(true).toBeFalsy()
+    }
+  })
+
+  it('should isDisabled be true', () => {
+    const component = new TecButton();
+    component.disabled = true
+
+    expect(component.isDisabled).toBeTruthy()
+  })
+
+  it('should isDisabled be true when is loading', () => {
+    const component = new TecButton();
+    component.disabled = false
+    component.loading = true
+
+    expect(component.isDisabled).toBeTruthy()
+  })
+
+  it('should isDisabled be false', () => {
+    const component = new TecButton();
+    component.disabled = false
+    component.loading = false
+
+    expect(component.isDisabled).toBeFalsy()
+  })
+
+  it('should emit event', () => {
+    const component = new TecButton();
+    const eventSpy = jest.spyOn(component.clicked, 'emit').mockImplementation();
+    component.disabled = false;
+    component.loading = false;
+
+    component.handleEventClick({} as MouseEvent)
+
+    expect(eventSpy).toHaveBeenCalled()
+  })
+
+  it('should not emit event', () => {
+    const component = new TecButton();
+    const eventSpy = jest.spyOn(component.clicked, 'emit').mockImplementation();
+    component.disabled = true;
+    component.loading = false;
+
+    component.handleEventClick({} as MouseEvent)
+
+    expect(eventSpy).not.toHaveBeenCalled()
+  })
+
+  it('should not emit event', () => {
+    const component = new TecButton();
+    const eventSpy = jest.spyOn(component.clicked, 'emit').mockImplementation();
+    component.disabled = false;
+    component.loading = true;
+
+    component.handleEventClick({} as MouseEvent)
+
+    expect(eventSpy).not.toHaveBeenCalled()
+  })
+
+
 });
