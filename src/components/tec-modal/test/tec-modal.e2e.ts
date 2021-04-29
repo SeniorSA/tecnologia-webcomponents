@@ -33,18 +33,38 @@ describe('tec-modal', () => {
         const page = await newE2EPage();
         await page.setContent('<tec-modal opened></tec-modal>');
 
-        const element = await page.find('tec-modal');
-        const modalDiv = element.shadowRoot.querySelector('.modal');
-        expect(modalDiv).toBeDefined();
+        const modal = await page.find('tec-modal >>> .modal');
+        const modalContent = await page.find('tec-modal >>> .modal-content');
+
+        expect(modal).toBeDefined();
+        expect(modal).toHaveClass('show-background')
+        expect(modal).not.toHaveClass('remove-background')
+        expect(modalContent).toBeDefined();
+        expect(modalContent).toHaveClass('open-animation')
+        expect(modalContent).not.toHaveClass('close-animation')
       });
 
       it('false', async () => {
         const page = await newE2EPage();
-        await page.setContent('<tec-modal opened="false"></tec-modal>');
+        await page.setContent('<tec-modal opened></tec-modal>');
 
         const element = await page.find('tec-modal');
-        const modalDiv = element.shadowRoot.querySelector('.modal');
-        expect(modalDiv).toBeNull();
+        const modal = await page.find('tec-modal >>> .modal');
+        const modalContent = await page.find('tec-modal >>> .modal-content');
+
+        expect(modal).toBeDefined();
+        expect(modal).toHaveClass('show-background')
+        expect(modal).not.toHaveClass('remove-background')
+        expect(modalContent).toBeDefined();
+        expect(modalContent).toHaveClass('open-animation')
+        expect(modalContent).not.toHaveClass('close-animation')
+
+        element.setProperty('opened', false)
+
+        await page.waitForChanges()
+
+        expect(modal).toHaveClass('remove-background')
+        expect(modalContent).toHaveClass('close-animation')
       });
     });
 
@@ -205,12 +225,28 @@ describe('tec-modal', () => {
     })
 
     it('has not footer', async() => {
-      const page = await newE2EPage();
+        const page = await newE2EPage();
         await page.setContent('<tec-modal opened></tec-modal>');
 
         const element = await page.find('tec-modal >>> .footer');
 
         expect(element).toBeNull()
+    })
+  })
+
+  describe('events', () => {
+    describe('modal-content click event', () => {
+      it('click', async() => {
+        const page = await newE2EPage();
+        await page.setContent('<tec-modal opened></tec-modal>');
+
+        const element = await page.find('tec-modal');
+        const modalContent = await page.find('tec-modal >>> .modal-content');
+
+        await modalContent.click()
+
+        expect(element.getProperty('clickWasInside')).toBeTruthy()
+    })
     })
   })
 

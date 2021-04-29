@@ -59,22 +59,20 @@ export class TecModal {
   @Watch('opened')
   watchOpened(newValue: boolean) {
     if (!newValue) {
-      setTimeout(() => {
-        this.openedAuxiliary = false;
-      }, 200);
+      setTimeout(() => this.openedAuxiliary = false, 200);
     } else {
       this.handleParentOverflow();
       this.openedAuxiliary = true;
     }
   }
 
-  handleClick(event) {
+  handleClick = (event) => {
     if (!this.clickWasInside && this.dismissOnBackdrop) this.closeModal(event);
 
     this.clickWasInside = false;
   }
 
-  closeModal(event?: MouseEvent) {
+  closeModal = (event?: MouseEvent) => {
     this.opened = false;
     this.handleParentOverflow();
     this.hidden.emit(event);
@@ -96,6 +94,10 @@ export class TecModal {
     this.hostElement.parentElement.style.overflow = property;
   }
 
+  setClickWasInside(wasInside: boolean) {
+    return () => this.clickWasInside = wasInside
+  }
+
   render() {
     return (
       this.openedAuxiliary && (
@@ -104,18 +106,18 @@ export class TecModal {
             class={`modal ${this.opened && 'show-background'} ${
               !this.opened && 'remove-background'
             }`}
-            onClick={event => this.handleClick(event)}
+            onClick={this.handleClick}
           >
             <div
               class={`modal-content ${this.fullWidth && 'full-width'} ${
                 this.opened && 'open-animation'
               } ${!this.opened && 'close-animation'} ${this.responsive && 'responsive'}`}
-              onClick={() => (this.clickWasInside = true)}
+              onClick={this.setClickWasInside(true)}
             >
               <div class="modal-title text-title">
                 <h1 class="text-2x1">{this.modalTitle}</h1>
                 {this.showCloseIcon && (
-                  <div class="close-container" onClick={event => this.closeModal(event)}>
+                  <div class="close-container" onClick={this.closeModal}>
                     <span class="close">
                       <span>&times;</span>
                     </span>

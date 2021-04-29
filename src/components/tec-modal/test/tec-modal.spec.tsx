@@ -205,12 +205,15 @@ describe('tec-modal', () => {
   });
 
   it('watchOpened when is false', () => {
+    jest.useFakeTimers()
     const comp = new TecModal();
     comp['openedAuxiliary'] = true;
 
     comp.watchOpened(false);
 
-    setTimeout(() => expect(comp['openedAuxiliary']).toBeFalsy(), 210);
+    jest.runOnlyPendingTimers()
+
+    expect(comp['openedAuxiliary']).toBeFalsy()
   });
 
   it('watchOpened when is true', () => {
@@ -296,5 +299,23 @@ describe('tec-modal', () => {
     comp.handleKeyDown({...event, key: 'Escape'})
 
     expect(closeModalSpy).toHaveBeenCalledTimes(0)
+  });
+
+  it('setClickWasInside true event', () => {
+    const comp = new TecModal();
+    comp['clickWasInside'] = false
+
+    comp.setClickWasInside(true)();
+
+    expect(comp['clickWasInside']).toBeTruthy()
+  });
+
+  it('setClickWasInside true event', () => {
+    const comp = new TecModal();
+    comp['clickWasInside'] = true
+
+    comp.setClickWasInside(false)();
+
+    expect(comp['clickWasInside']).toBeFalsy()
   });
 });

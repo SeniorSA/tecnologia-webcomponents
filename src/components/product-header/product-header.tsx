@@ -38,6 +38,10 @@ export class ProductHeader {
   @Event({ bubbles: true, composed: true, eventName: 'title-clicked' })
   titleClicked: EventEmitter<void>;
 
+  handleClick = () => {
+    if (this.titleCursorPointer) this.titleClicked.emit()
+  }
+
   render() {
     return (
       <Host>
@@ -45,7 +49,7 @@ export class ProductHeader {
           <div
             class="title"
             style={{ cursor: this.titleCursorPointer && 'pointer' }}
-            onClick={() => this.titleCursorPointer && this.titleClicked.emit()}
+            onClick={this.handleClick}
           >
             {this.titleProduct}
           </div>
