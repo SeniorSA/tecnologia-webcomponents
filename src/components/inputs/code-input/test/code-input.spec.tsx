@@ -231,17 +231,19 @@ describe('code-input', () => {
         const buildFinalValue = jest.spyOn(comp as any, 'buildFinalValue');
         const getInputSpy = jest
           .spyOn(comp as any, 'getInputByIndex')
-          .mockReturnValue({ value: '1' });
+          .mockReturnValue({ value: '1', focus: () => undefined  });
         const inputChangeSpy = jest.spyOn(comp.inputChange, 'emit').mockImplementation();
+        const focusOnNextInputSpy = jest.spyOn(comp as any, 'focusOnNextInput').mockImplementation()
 
-        comp['inputInputHandler']({} as InputEvent, 0);
+        comp['inputInputHandler']({ data: '1' } as InputEvent, 0);
 
-        expect(inputChangeSpy).toHaveBeenCalledWith({ event: {}, value: '1' });
+        expect(inputChangeSpy).toHaveBeenCalledWith({ event: { data: '1' }, value: '1' });
         expect(getInputSpy).toHaveBeenCalledWith(0);
         expect(comp['internalValue'][0]).toEqual('1');
         expect(comp.value).toEqual('1');
         expect(buildFinalValue).toHaveBeenCalled();
         expect(handleCompletedSpy).toHaveBeenCalled();
+        expect(focusOnNextInputSpy).toHaveBeenCalled()
       });
 
       it("should set value with ' '", () => {
@@ -256,16 +258,18 @@ describe('code-input', () => {
           .spyOn(comp as any, 'getInputByIndex')
           .mockReturnValue({ value: '' });
         const inputChangeSpy = jest.spyOn(comp.inputChange, 'emit').mockImplementation();
+        const focusOnNextInputSpy = jest.spyOn(comp as any, 'focusOnNextInput').mockImplementation()
 
-        comp['inputInputHandler']({} as InputEvent, 1);
+        comp['inputInputHandler']({ data: '' } as InputEvent, 1);
 
-        expect(inputChangeSpy).toHaveBeenCalledWith({ event: {}, value: '' });
+        expect(inputChangeSpy).toHaveBeenCalledWith({ event: { data: '' }, value: '' });
         expect(getInputSpy).toHaveBeenCalledWith(1);
         expect(comp['internalValue'][1]).toEqual(' ');
         expect(comp['internalValue'][0]).toEqual('1');
         expect(buildFinalValue).toHaveBeenCalled();
         expect(handleCompletedSpy).toHaveBeenCalled();
         expect(comp.value).toEqual('1 ');
+        expect(focusOnNextInputSpy).not.toHaveBeenCalled()
       });
 
       it('should set value with lowerCase', () => {
@@ -275,12 +279,14 @@ describe('code-input', () => {
           .spyOn(comp as any, 'handleCompletedEvent')
           .mockImplementation();
         comp.case = TecStringCase.LOWERCASE;
-        jest.spyOn(comp as any, 'getInputByIndex').mockReturnValue({ value: 'A' });
+        jest.spyOn(comp as any, 'getInputByIndex').mockReturnValue({ value: 'A', focus: () => undefined  });
+        const focusOnNextInputSpy = jest.spyOn(comp as any, 'focusOnNextInput').mockImplementation()
 
-        comp['inputInputHandler']({} as InputEvent, 0);
+        comp['inputInputHandler']({ data: 'A' } as InputEvent, 0);
 
         expect(comp['internalValue'][0]).toEqual('a');
         expect(handleCompletedSpy).toHaveBeenCalled();
+        expect(focusOnNextInputSpy).toHaveBeenCalled()
       });
 
       it('should set value with upperCase', () => {
@@ -290,12 +296,30 @@ describe('code-input', () => {
           .spyOn(comp as any, 'handleCompletedEvent')
           .mockImplementation();
         comp.case = TecStringCase.UPPERCASE;
-        jest.spyOn(comp as any, 'getInputByIndex').mockReturnValue({ value: 'a' });
+        jest.spyOn(comp as any, 'getInputByIndex').mockReturnValue({ value: 'a', focus: () => undefined });
+        const focusOnNextInputSpy = jest.spyOn(comp as any, 'focusOnNextInput').mockImplementation()
 
-        comp['inputInputHandler']({} as InputEvent, 0);
+        comp['inputInputHandler']({ data: 'a' } as InputEvent, 0);
 
         expect(comp['internalValue'][0]).toEqual('A');
         expect(handleCompletedSpy).toHaveBeenCalled();
+        expect(focusOnNextInputSpy).toHaveBeenCalled()
+      });
+
+      it('should change input value with event data value', () => {
+        const comp = new CodeInput();
+        comp['internalValue'] = [];
+        const handleCompletedSpy = jest
+          .spyOn(comp as any, 'handleCompletedEvent')
+          .mockImplementation();
+        jest.spyOn(comp as any, 'getInputByIndex').mockReturnValue({ value: 'ab', focus: () => undefined });
+        const focusOnNextInputSpy = jest.spyOn(comp as any, 'focusOnNextInput').mockImplementation()
+
+        comp['inputInputHandler']({ data: 'b' } as InputEvent, 0);
+
+        expect(comp['internalValue'][0]).toEqual('b');
+        expect(handleCompletedSpy).toHaveBeenCalled();
+        expect(focusOnNextInputSpy).toHaveBeenCalled()
       });
 
       describe('next input', () => {
@@ -307,14 +331,13 @@ describe('code-input', () => {
             .spyOn(comp as any, 'handleCompletedEvent')
             .mockImplementation();
           const event = { value: 'a', focus: () => undefined };
-          const focusSpy = jest.spyOn(event, 'focus');
+          const focusOnNextInputSpy = jest.spyOn(comp as any, 'focusOnNextInput').mockImplementation()
           const spy = jest.spyOn(comp as any, 'getInputByIndex').mockReturnValue(event);
 
           comp['inputInputHandler']({ data: {} } as InputEvent, 0);
 
-          expect(spy).toHaveBeenCalledTimes(2);
-          expect(spy).toHaveBeenCalledWith(1);
-          expect(focusSpy).toHaveBeenCalled();
+          expect(spy).toHaveBeenCalledWith(0);
+          expect(focusOnNextInputSpy).toHaveBeenCalled()
           expect(handleCompletedSpy).toHaveBeenCalled();
         });
 
@@ -326,14 +349,13 @@ describe('code-input', () => {
             .spyOn(comp as any, 'handleCompletedEvent')
             .mockImplementation();
           const event = { value: 'a', focus: () => undefined };
-          const focusSpy = jest.spyOn(event, 'focus');
+          const focusOnNextInputSpy = jest.spyOn(comp as any, 'focusOnNextInput').mockImplementation()
           const spy = jest.spyOn(comp as any, 'getInputByIndex').mockReturnValue(event);
 
           comp['inputInputHandler']({ data: {} } as InputEvent, 1);
 
           expect(spy).toHaveBeenCalledTimes(1);
-          expect(spy).not.toHaveBeenCalledWith(3);
-          expect(focusSpy).not.toHaveBeenCalled();
+          expect(focusOnNextInputSpy).not.toHaveBeenCalled();
           expect(handleCompletedSpy).toHaveBeenCalled();
         });
 
@@ -345,14 +367,13 @@ describe('code-input', () => {
             .spyOn(comp as any, 'handleCompletedEvent')
             .mockImplementation();
           const event = { value: 'a', focus: () => undefined };
-          const focusSpy = jest.spyOn(event, 'focus');
+          const focusOnNextInputSpy = jest.spyOn(comp as any, 'focusOnNextInput').mockImplementation()
           const spy = jest.spyOn(comp as any, 'getInputByIndex').mockReturnValue(event);
 
           comp['inputInputHandler']({} as InputEvent, 1);
 
           expect(spy).toHaveBeenCalledTimes(1);
-          expect(spy).not.toHaveBeenCalledWith(3);
-          expect(focusSpy).not.toHaveBeenCalled();
+          expect(focusOnNextInputSpy).not.toHaveBeenCalled();
           expect(handleCompletedSpy).toHaveBeenCalled();
         });
       });
@@ -440,7 +461,7 @@ describe('code-input', () => {
 
         comp['inputKeyDown']({ code: 'Backspace' } as KeyboardEvent, 0);
 
-        jest.runOnlyPendingTimers();
+        jest.runAllTimers();
 
         expect(spy).toHaveBeenCalledWith(0);
       });
