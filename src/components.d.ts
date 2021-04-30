@@ -48,6 +48,9 @@ export namespace Components {
           * Text to show inside button
          */
         "label": string;
+        /**
+          * Add a loading indicator to button You need add a manual control to remove loading
+         */
         "loading": boolean;
         /**
           * Mode of button (like square or rounded)
@@ -202,6 +205,9 @@ declare namespace LocalJSX {
           * Text to show inside button
          */
         "label": string;
+        /**
+          * Add a loading indicator to button You need add a manual control to remove loading
+         */
         "loading"?: boolean;
         /**
           * Mode of button (like square or rounded)

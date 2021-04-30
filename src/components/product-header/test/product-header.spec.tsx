@@ -44,4 +44,24 @@ describe('product-header', () => {
       </tec-product-header>
     `);
   });
+
+  it('should emit event when titleCursorPointer is true', () => {
+    const component = new ProductHeader();
+    const eventSpy = jest.spyOn(component.titleClicked, 'emit').mockImplementation()
+    component.titleCursorPointer = true;
+
+    component.handleClick()
+
+    expect(eventSpy).toHaveBeenCalled()
+  })
+
+  it('should not emit event when titleCursorPointer is false', () => {
+    const component = new ProductHeader();
+    const eventSpy = jest.spyOn(component.titleClicked, 'emit').mockImplementation()
+    component.titleCursorPointer = false;
+
+    component.handleClick()
+
+    expect(eventSpy).not.toHaveBeenCalled()
+  })
 });

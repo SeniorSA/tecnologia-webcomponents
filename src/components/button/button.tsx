@@ -97,6 +97,9 @@ export class TecButton {
    * You need add a manual control to remove loading
    */
 
+   @Prop({ mutable: true, reflect: true })
+   loading = false;
+
   componentDidLoad() {
     if (this.onlyIcon && !this.icon) {
       throw new Error(`When 'onlyIcon' property is enabled a 'icon' should be passed!`);
@@ -110,9 +113,6 @@ export class TecButton {
   get isDisabled(): boolean {
     return this.disabled || this.loading;
   }
-
-  @Prop({ mutable: true, reflect: true })
-  loading = false;
 
   render() {
     const classList = {

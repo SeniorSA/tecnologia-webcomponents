@@ -1,5 +1,11 @@
 # Release notes
 
+## 0.7.2
+
+### Quality
+
+- Implemented tests in all components.
+
 ## 0.7.1
 
 ### Fixes
