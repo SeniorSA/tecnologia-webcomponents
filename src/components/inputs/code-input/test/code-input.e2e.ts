@@ -152,6 +152,7 @@ describe('tec-code-input', () => {
     })
 
     describe('case', () => {
+      jest.useFakeTimers()
       describe('default case', () => {
         it('test 1', async () => {
           const page = await newE2EPage()
@@ -159,6 +160,8 @@ describe('tec-code-input', () => {
           const element = await page.find('tec-code-input')
 
           await element.type('A123B')
+          jest.runAllTimers()
+          jest.runOnlyPendingTimers()
           expect(element).toEqualAttribute('value', 'A123B')
         })
 
@@ -168,6 +171,8 @@ describe('tec-code-input', () => {
           const element = await page.find('tec-code-input')
 
           await element.type('a123b')
+          jest.runAllTimers()
+          jest.runOnlyPendingTimers()
           expect(element).toEqualAttribute('value', 'a123b')
         })
 
@@ -177,11 +182,14 @@ describe('tec-code-input', () => {
           const element = await page.find('tec-code-input')
 
           await element.type('A123b')
+          jest.runAllTimers()
+          jest.runOnlyPendingTimers()
           expect(element).toEqualAttribute('value', 'A123b')
         })
       })
 
       describe('lowercase', () => {
+        jest.useFakeTimers()
         it('test 1', async () => {
           const page = await newE2EPage()
           await page.setContent(
@@ -190,6 +198,8 @@ describe('tec-code-input', () => {
           const element = await page.find('tec-code-input')
 
           await element.type('A123B')
+          jest.runAllTimers()
+          jest.runOnlyPendingTimers()
           expect(element).toEqualAttribute('value', 'a123b')
         })
 
@@ -201,6 +211,8 @@ describe('tec-code-input', () => {
           const element = await page.find('tec-code-input')
 
           await element.type('a123b')
+          jest.runAllTimers()
+          jest.runOnlyPendingTimers()
           expect(element).toEqualAttribute('value', 'a123b')
         })
 
@@ -212,11 +224,14 @@ describe('tec-code-input', () => {
           const element = await page.find('tec-code-input')
 
           await element.type('A123b')
+          jest.runAllTimers()
+          jest.runOnlyPendingTimers()
           expect(element).toEqualAttribute('value', 'a123b')
         })
       })
 
       describe('uppercase', () => {
+        jest.useFakeTimers()
         it('test 1', async () => {
           const page = await newE2EPage()
           await page.setContent(
@@ -225,6 +240,8 @@ describe('tec-code-input', () => {
           const element = await page.find('tec-code-input')
 
           await element.type('A123B')
+          jest.runAllTimers()
+          jest.runOnlyPendingTimers()
           expect(element).toEqualAttribute('value', 'A123B')
         })
 
@@ -236,6 +253,8 @@ describe('tec-code-input', () => {
           const element = await page.find('tec-code-input')
 
           await element.type('a123b')
+          jest.runAllTimers()
+          jest.runOnlyPendingTimers()
           expect(element).toEqualAttribute('value', 'A123B')
         })
 
@@ -247,6 +266,8 @@ describe('tec-code-input', () => {
           const element = await page.find('tec-code-input')
 
           await element.type('A123b')
+          jest.runAllTimers()
+          jest.runOnlyPendingTimers()
           expect(element).toEqualAttribute('value', 'A123B')
         })
       })
