@@ -152,8 +152,8 @@ describe('tec-code-input', () => {
     })
 
     describe('case', () => {
-      jest.useFakeTimers()
       describe('default case', () => {
+        jest.useFakeTimers()
         it('test 1', async () => {
           const page = await newE2EPage()
           await page.setContent('<tec-code-input length="5"></tec-code-input>')
