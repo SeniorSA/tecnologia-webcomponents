@@ -1,5 +1,6 @@
 import { newSpecPage } from '@stencil/core/testing';
 import { BottomBar } from '../bottom-bar';
+import { ButtonPosition } from '../bottom-bar.model';
 
 describe('bottom-bar', () => {
   it('renders', async () => {
@@ -21,4 +22,18 @@ describe('bottom-bar', () => {
       </tec-bottom-bar>
     `);
   });
+
+  describe('handleButtonPositionStyle', () => {
+    it ('should return row-reverse', () => {
+      const component = new BottomBar();
+
+      expect(component['handleButtonPositionStyle'](ButtonPosition.left).flexDirection).toEqual('row-reverse')
+    })
+
+    it ('should return row', () => {
+      const component = new BottomBar();
+
+      expect(component['handleButtonPositionStyle'](ButtonPosition.right).flexDirection).toEqual('row')
+    })
+  })
 });

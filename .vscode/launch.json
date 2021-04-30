@@ -17,7 +17,8 @@
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true
+      "disableOptimisticBPs": true,
+      "autoAttachChildProcesses": false
     },
     {
       "type": "node",
