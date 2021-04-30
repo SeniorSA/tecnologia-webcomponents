@@ -34,7 +34,6 @@
 | `inputChange` |                                    | `CustomEvent<CodeInputEvent<string>>`                    |
 | `inputFocus`  |                                    | `CustomEvent<CodeInputEvent<CodeInputCustomEventValue>>` |
 
-
 ## Methods
 
 ### `clear() => Promise<void>`

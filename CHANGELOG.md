@@ -1,6 +1,6 @@
 # Release notes
 
-## Unreleased
+## 0.7.2
 
 ### Quality
 
