@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-### Development
+### Quality
 
 - Implemented tests in all components.
 
