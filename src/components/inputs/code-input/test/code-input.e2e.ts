@@ -153,15 +153,16 @@ describe('tec-code-input', () => {
 
     describe('case', () => {
       describe('default case', () => {
-        jest.useFakeTimers()
         it('test 1', async () => {
           const page = await newE2EPage()
           await page.setContent('<tec-code-input length="5"></tec-code-input>')
           const element = await page.find('tec-code-input')
 
-          await element.type('A123B')
-          jest.runAllTimers()
-          jest.runOnlyPendingTimers()
+          await element.type('A')
+          await element.type('1')
+          await element.type('2')
+          await element.type('3')
+          await element.type('B')
           expect(element).toEqualAttribute('value', 'A123B')
         })
 
@@ -170,9 +171,12 @@ describe('tec-code-input', () => {
           await page.setContent('<tec-code-input length="5"></tec-code-input>')
           const element = await page.find('tec-code-input')
 
-          await element.type('a123b')
-          jest.runAllTimers()
-          jest.runOnlyPendingTimers()
+          await element.type('a')
+          await element.type('1')
+          await element.type('2')
+          await element.type('3')
+          await element.type('b')
+
           expect(element).toEqualAttribute('value', 'a123b')
         })
 
@@ -181,15 +185,17 @@ describe('tec-code-input', () => {
           await page.setContent('<tec-code-input length="5"></tec-code-input>')
           const element = await page.find('tec-code-input')
 
-          await element.type('A123b')
-          jest.runAllTimers()
-          jest.runOnlyPendingTimers()
+          await element.type('A')
+          await element.type('1')
+          await element.type('2')
+          await element.type('3')
+          await element.type('b')
+
           expect(element).toEqualAttribute('value', 'A123b')
         })
       })
 
       describe('lowercase', () => {
-        jest.useFakeTimers()
         it('test 1', async () => {
           const page = await newE2EPage()
           await page.setContent(
@@ -197,9 +203,12 @@ describe('tec-code-input', () => {
           )
           const element = await page.find('tec-code-input')
 
-          await element.type('A123B')
-          jest.runAllTimers()
-          jest.runOnlyPendingTimers()
+          await element.type('A')
+          await element.type('1')
+          await element.type('2')
+          await element.type('3')
+          await element.type('B')
+
           expect(element).toEqualAttribute('value', 'a123b')
         })
 
@@ -210,9 +219,12 @@ describe('tec-code-input', () => {
           )
           const element = await page.find('tec-code-input')
 
-          await element.type('a123b')
-          jest.runAllTimers()
-          jest.runOnlyPendingTimers()
+          await element.type('a')
+          await element.type('1')
+          await element.type('2')
+          await element.type('3')
+          await element.type('b')
+
           expect(element).toEqualAttribute('value', 'a123b')
         })
 
@@ -223,15 +235,17 @@ describe('tec-code-input', () => {
           )
           const element = await page.find('tec-code-input')
 
-          await element.type('A123b')
-          jest.runAllTimers()
-          jest.runOnlyPendingTimers()
+          await element.type('A')
+          await element.type('1')
+          await element.type('2')
+          await element.type('3')
+          await element.type('b')
+
           expect(element).toEqualAttribute('value', 'a123b')
         })
       })
 
       describe('uppercase', () => {
-        jest.useFakeTimers()
         it('test 1', async () => {
           const page = await newE2EPage()
           await page.setContent(
@@ -239,9 +253,12 @@ describe('tec-code-input', () => {
           )
           const element = await page.find('tec-code-input')
 
-          await element.type('A123B')
-          jest.runAllTimers()
-          jest.runOnlyPendingTimers()
+          await element.type('A')
+          await element.type('1')
+          await element.type('2')
+          await element.type('3')
+          await element.type('B')
+
           expect(element).toEqualAttribute('value', 'A123B')
         })
 
@@ -252,9 +269,12 @@ describe('tec-code-input', () => {
           )
           const element = await page.find('tec-code-input')
 
-          await element.type('a123b')
-          jest.runAllTimers()
-          jest.runOnlyPendingTimers()
+          await element.type('a')
+          await element.type('1')
+          await element.type('2')
+          await element.type('3')
+          await element.type('b')
+
           expect(element).toEqualAttribute('value', 'A123B')
         })
 
@@ -265,9 +285,12 @@ describe('tec-code-input', () => {
           )
           const element = await page.find('tec-code-input')
 
-          await element.type('A123b')
-          jest.runAllTimers()
-          jest.runOnlyPendingTimers()
+          await element.type('A')
+          await element.type('1')
+          await element.type('2')
+          await element.type('3')
+          await element.type('b')
+
           expect(element).toEqualAttribute('value', 'A123B')
         })
       })
