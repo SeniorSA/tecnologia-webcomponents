@@ -103,6 +103,7 @@ export namespace Components {
         "blockBodyScroll": boolean;
         "closeOnEscape": boolean;
         "dismissOnBackdrop": boolean;
+        "footerAlign": TecAlign;
         "fullWidth": boolean;
         "modalTitle": string;
         "opened": boolean;
@@ -277,6 +278,7 @@ declare namespace LocalJSX {
         "blockBodyScroll"?: boolean;
         "closeOnEscape"?: boolean;
         "dismissOnBackdrop"?: boolean;
+        "footerAlign"?: TecAlign;
         "fullWidth"?: boolean;
         "modalTitle"?: string;
         "onHidden"?: (event: CustomEvent<UIEvent>) => void;

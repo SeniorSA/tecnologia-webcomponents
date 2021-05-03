@@ -10,6 +10,7 @@ import {
   State,
 } from '@stencil/core';
 import { defaultTheme } from '../../defaultTheme';
+import { TecAlign } from '../../models/align.model';
 import { TecSize } from '../../models/size.model';
 import { TecnologiaTheme } from '../interfaces';
 
@@ -55,6 +56,9 @@ export class TecModal {
 
   @Prop()
   responsive = true;
+
+  @Prop()
+  footerAlign = TecAlign.right
 
   @Watch('opened')
   watchOpened(newValue: boolean) {
@@ -130,7 +134,7 @@ export class TecModal {
               </div>
 
               {this.hasFooterContent && (
-                <div class="footer">
+                <div class={`footer ${this.footerAlign}`}>
                   <div class="footer-content">
                     <slot name="footer"></slot>
                   </div>

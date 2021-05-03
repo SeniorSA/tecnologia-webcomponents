@@ -212,6 +212,32 @@ describe('tec-modal', () => {
       });
     });
 
+    describe('footerAlign', () => {
+      it('right', async () => {
+        const page = await newE2EPage();
+        await page.setContent('<tec-modal opened><span slot="footer">Footer</span></tec-modal>');
+
+        const element = await page.find('tec-modal >>> .footer');
+        expect(element).toHaveClass('right')
+      })
+
+      it('center', async () => {
+        const page = await newE2EPage();
+        await page.setContent('<tec-modal opened footer-align="center"><span slot="footer">Footer</span></tec-modal>');
+
+        const element = await page.find('tec-modal >>> .footer');
+        expect(element).toHaveClass('center')
+      })
+
+      it('left', async () => {
+        const page = await newE2EPage();
+        await page.setContent('<tec-modal opened footer-align="left"><span slot="footer">Footer</span></tec-modal>');
+
+        const element = await page.find('tec-modal >>> .footer');
+        expect(element).toHaveClass('left')
+      })
+    })
+
   });
 
   describe('footer', () => {
