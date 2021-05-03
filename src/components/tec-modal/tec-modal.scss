@@ -152,28 +152,24 @@
     padding: 0.7rem 1rem;
     border-top: 1px solid #{$color-base-gray-300};
 
-    &.center {
+    &.center,
+    &.left,
+    &.right {
       display: flex;
+    }
+
+    &.center {
       align-items: center;
       justify-content: center;
     }
 
-    &.left {
-      display: flex;
-
-      .footer-content {
-        margin-right: auto;
-      }
+    &.left .footer-content {
+      margin-right: auto;
     }
 
-    &.right {
-      display: flex;
-
-      .footer-content {
-        margin-left: auto;
-      }
+    &.right .footer-content {
+      margin-left: auto;
     }
-
   }
 }
 

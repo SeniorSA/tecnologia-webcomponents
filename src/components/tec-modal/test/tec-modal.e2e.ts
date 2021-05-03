@@ -236,16 +236,6 @@ describe('tec-modal', () => {
         const element = await page.find('tec-modal >>> .footer');
         expect(element).toHaveClass('left')
       })
-
-      it('none', async () => {
-        const page = await newE2EPage();
-        await page.setContent('<tec-modal opened footer-align="none"><span slot="footer">Footer</span></tec-modal>');
-
-        const element = await page.find('tec-modal >>> .footer');
-        expect(element).not.toHaveClass('right')
-        expect(element).not.toHaveClass('center')
-        expect(element).not.toHaveClass('left')
-      })
     })
 
   });
