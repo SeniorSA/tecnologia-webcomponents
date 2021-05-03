@@ -148,7 +148,7 @@ describe('tec-modal', () => {
             </div>
             <div class="content"><slot name="content"></slot>
             </div>
-            <div class="footer">
+            <div class="footer right">
               <div class="footer-content">
                 <slot name="footer"></slot>
               </div>

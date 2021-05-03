@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Feature
+
+- Added `footerAlign` property to `tec-modal` component.
+
 ## 0.7.2
 
 ### Quality
