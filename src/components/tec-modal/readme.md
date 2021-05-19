@@ -12,7 +12,7 @@
 | `blockBodyScroll`   | `block-body-scroll`   |             | `boolean`                                                                           | `true`           |
 | `closeOnEscape`     | `close-on-escape`     |             | `boolean`                                                                           | `true`           |
 | `dismissOnBackdrop` | `dismiss-on-backdrop` |             | `boolean`                                                                           | `true`           |
-| `footerAlign`       | `footer-align`        |             | `TecAlign.center \| TecAlign.left \| TecAlign.none \| TecAlign.right`               | `TecAlign.right` |
+| `footerAlign`       | `footer-align`        |             | `TecAlign.center \| TecAlign.left \| TecAlign.right`                                | `TecAlign.right` |
 | `fullWidth`         | `full-width`          |             | `boolean`                                                                           | `false`          |
 | `modalTitle`        | `modal-title`         |             | `string`                                                                            | `undefined`      |
 | `opened`            | `opened`              |             | `boolean`                                                                           | `false`          |
