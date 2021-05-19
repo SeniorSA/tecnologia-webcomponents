@@ -46,8 +46,8 @@ export class ProductHeader {
     return (
       <Host>
         <header class={`text-title ${this.sticky && 'sticky'}`}>
-          <div class="before-text">
-            <slot name="before-text"></slot>
+          <div class="before-title">
+            <slot name="before-title"></slot>
           </div>
           <div
             class="title"

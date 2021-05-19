@@ -11,8 +11,8 @@ describe('product-header', () => {
       <tec-product-header sticky="" theme="light">
         <mock:shadow-root>
           <header class="sticky text-title">
-          <div class="before-text">
-             <slot name="before-text"></slot>
+          <div class="before-title">
+             <slot name="before-title"></slot>
           </div>
             <div class="title" style="cursor: pointer"></div>
 
@@ -36,8 +36,8 @@ describe('product-header', () => {
       <tec-product-header sticky="false" title-product="My product" theme="light">
          <mock:shadow-root>
            <header class="false text-title">
-            <div class="before-text">
-              <slot name="before-text"></slot>
+            <div class="before-title">
+              <slot name="before-title"></slot>
             </div>
              <div class="title" style="cursor: pointer;">
                My product
