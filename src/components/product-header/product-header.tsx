@@ -46,6 +46,9 @@ export class ProductHeader {
     return (
       <Host>
         <header class={`text-title ${this.sticky && 'sticky'}`}>
+          <div class="before-text">
+            <slot name="before-text"></slot>
+          </div>
           <div
             class="title"
             style={{ cursor: this.titleCursorPointer && 'pointer' }}

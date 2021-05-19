@@ -11,6 +11,9 @@ describe('product-header', () => {
       <tec-product-header sticky="" theme="light">
         <mock:shadow-root>
           <header class="sticky text-title">
+          <div class="before-text">
+             <slot name="before-text"></slot>
+          </div>
             <div class="title" style="cursor: pointer"></div>
 
             <div class="content">
@@ -33,6 +36,9 @@ describe('product-header', () => {
       <tec-product-header sticky="false" title-product="My product" theme="light">
          <mock:shadow-root>
            <header class="false text-title">
+            <div class="before-text">
+              <slot name="before-text"></slot>
+            </div>
              <div class="title" style="cursor: pointer;">
                My product
              </div>
@@ -47,21 +53,21 @@ describe('product-header', () => {
 
   it('should emit event when titleCursorPointer is true', () => {
     const component = new ProductHeader();
-    const eventSpy = jest.spyOn(component.titleClicked, 'emit').mockImplementation()
+    const eventSpy = jest.spyOn(component.titleClicked, 'emit').mockImplementation();
     component.titleCursorPointer = true;
 
-    component.handleClick()
+    component.handleClick();
 
-    expect(eventSpy).toHaveBeenCalled()
-  })
+    expect(eventSpy).toHaveBeenCalled();
+  });
 
   it('should not emit event when titleCursorPointer is false', () => {
     const component = new ProductHeader();
-    const eventSpy = jest.spyOn(component.titleClicked, 'emit').mockImplementation()
+    const eventSpy = jest.spyOn(component.titleClicked, 'emit').mockImplementation();
     component.titleCursorPointer = false;
 
-    component.handleClick()
+    component.handleClick();
 
-    expect(eventSpy).not.toHaveBeenCalled()
-  })
+    expect(eventSpy).not.toHaveBeenCalled();
+  });
 });
