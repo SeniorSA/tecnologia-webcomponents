@@ -1,6 +1,6 @@
 # Release notes
 
-## Unreleased
+## 0.9.0
 
 ### Feature
 
