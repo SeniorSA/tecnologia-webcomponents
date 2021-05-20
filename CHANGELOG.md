@@ -1,5 +1,11 @@
 # Release notes
 
+## 0.9.0
+
+### Feature
+
+- Added `slot` before the title on `product-header` component.
+
 ## 0.8.0
 
 ### Feature
