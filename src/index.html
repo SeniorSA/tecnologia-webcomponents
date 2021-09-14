@@ -20,26 +20,47 @@
     />
   </head>
 
-  <body style="height: 150vh;">
+  <body style="height: 150vh">
     <tec-product-header title-product="My product name"></tec-product-header>
 
     <tec-button buttonId="1" label="Confirm" mode="rounded" status="success"></tec-button>
 
+    <div style="padding-top: 1rem;">
+      <tec-status-badge badge-text="Using badge" status="info"></tec-status-badge>
+    </div>
+
     <div id="button">
-      <tec-button buttonId="2" label="Open modal" size="small" mode="rounded" status="success" style="padding: 1rem 0;"></tec-button>
+      <tec-button
+        buttonId="2"
+        label="Open modal"
+        size="small"
+        mode="rounded"
+        status="success"
+        style="padding: 1rem 0"
+      ></tec-button>
     </div>
 
     <tec-modal opened="false" modal-title="Modal title test">
       <div slot="content">
         <span
-          >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-          printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-          publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span
+          >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and scrambled it to make a type
+          specimen book. It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was popularised in
+          the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+          and more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.</span
         >
       </div>
       <div slot="footer">
-        <tec-button buttonId="1" label="Confirm" size="small" mode="rounded" status="success"></tec-button>
+        <tec-button
+          buttonId="1"
+          label="Confirm"
+          size="small"
+          mode="rounded"
+          status="success"
+        ></tec-button>
       </div>
     </tec-modal>
 
@@ -50,8 +71,6 @@
       <tec-button slot="button" label="Sign" size="medium"></tec-button>
     </tec-bottom-bar>
 
-
-
     <tec-code-input id="code-input" placeholder="12125"></tec-code-input>
 
     <!-- <tec-code-input
@@ -60,8 +79,7 @@
       id="code-input"
     ></tec-code-input> -->
 
-
-    <br>
+    <br />
     <tec-button
       slot="button"
       id="button-clear"
@@ -97,8 +115,11 @@
   </body>
 
   <script>
-      document.getElementById('button').querySelector('tec-button').addEventListener('clicked', () => {
-        document.querySelector('tec-modal').setAttribute('opened', 'true')
-      })
+    document
+      .getElementById('button')
+      .querySelector('tec-button')
+      .addEventListener('clicked', () => {
+        document.querySelector('tec-modal').setAttribute('opened', 'true');
+      });
   </script>
 </html>

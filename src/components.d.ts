@@ -130,6 +130,16 @@ export namespace Components {
          */
         "titleProduct": string;
     }
+    interface TecStatusBadge {
+        /**
+          * Text to show inside badge
+         */
+        "badgeText": string;
+        /**
+          * The status of badge (color)
+         */
+        "status": TecStatus;
+    }
 }
 declare global {
     interface HTMLTecBottomBarElement extends Components.TecBottomBar, HTMLStencilElement {
@@ -162,12 +172,19 @@ declare global {
         prototype: HTMLTecProductHeaderElement;
         new (): HTMLTecProductHeaderElement;
     };
+    interface HTMLTecStatusBadgeElement extends Components.TecStatusBadge, HTMLStencilElement {
+    }
+    var HTMLTecStatusBadgeElement: {
+        prototype: HTMLTecStatusBadgeElement;
+        new (): HTMLTecStatusBadgeElement;
+    };
     interface HTMLElementTagNameMap {
         "tec-bottom-bar": HTMLTecBottomBarElement;
         "tec-button": HTMLTecButtonElement;
         "tec-code-input": HTMLTecCodeInputElement;
         "tec-modal": HTMLTecModalElement;
         "tec-product-header": HTMLTecProductHeaderElement;
+        "tec-status-badge": HTMLTecStatusBadgeElement;
     }
 }
 declare namespace LocalJSX {
@@ -311,12 +328,23 @@ declare namespace LocalJSX {
          */
         "titleProduct"?: string;
     }
+    interface TecStatusBadge {
+        /**
+          * Text to show inside badge
+         */
+        "badgeText"?: string;
+        /**
+          * The status of badge (color)
+         */
+        "status"?: TecStatus;
+    }
     interface IntrinsicElements {
         "tec-bottom-bar": TecBottomBar;
         "tec-button": TecButton;
         "tec-code-input": TecCodeInput;
         "tec-modal": TecModal;
         "tec-product-header": TecProductHeader;
+        "tec-status-badge": TecStatusBadge;
     }
 }
 export { LocalJSX as JSX };
@@ -328,6 +356,7 @@ declare module "@stencil/core" {
             "tec-code-input": LocalJSX.TecCodeInput & JSXBase.HTMLAttributes<HTMLTecCodeInputElement>;
             "tec-modal": LocalJSX.TecModal & JSXBase.HTMLAttributes<HTMLTecModalElement>;
             "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;
+            "tec-status-badge": LocalJSX.TecStatusBadge & JSXBase.HTMLAttributes<HTMLTecStatusBadgeElement>;
         }
     }
 }

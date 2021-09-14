@@ -1,5 +1,11 @@
 # Release notes
 
+## Unreleased
+
+### Feature
+
+- Created `status-badge` component.
+
 ## 0.9.0
 
 ### Feature
