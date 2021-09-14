@@ -1,0 +1,43 @@
+@import '../../scss/includes/components';
+
+:host {
+  display: block;
+}
+
+.badge {
+  .badge-value {
+    background: $color-base-sky-blue-100;
+    color: $color-base-sky-blue-700;
+    font-size: 0.9375rem;
+    padding: 0.6rem 1.0667rem;
+    border-radius: 15rem;
+    line-height: 2rem;
+    white-space: pre-wrap;
+    box-decoration-break: clone;
+
+    &.primary {
+      background: $color-base-green-100;
+      color: $color-base-green-500;
+    }
+    &.secondary {
+      background: $color-base-gray-100;
+      color: $color-base-gray-700;
+    }
+    &.success {
+      background: $color-base-green-100;
+      color: $color-base-green-700;
+    }
+    &.danger {
+      background: $color-base-magenta-100;
+      color: $color-base-magenta-800;
+    }
+    &.warn {
+      background-color: $color-base-orange-100;
+      color: $color-base-orange-400;
+    }
+    &.info {
+      background: $color-base-sky-blue-100;
+      color: $color-base-sky-blue-700;
+    }
+  }
+}
