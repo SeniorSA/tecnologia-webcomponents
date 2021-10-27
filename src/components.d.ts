@@ -70,6 +70,16 @@ export namespace Components {
         "status": TecStatus;
         "theme": TecnologiaTheme;
     }
+    interface TecCardMessage {
+        /**
+          * Message passed to show in the card
+         */
+        "message": string;
+        /**
+          * Options to custom the css
+         */
+        "options": string;
+    }
     interface TecCodeInput {
         /**
           * Auto focus on first input
@@ -154,6 +164,12 @@ declare global {
         prototype: HTMLTecButtonElement;
         new (): HTMLTecButtonElement;
     };
+    interface HTMLTecCardMessageElement extends Components.TecCardMessage, HTMLStencilElement {
+    }
+    var HTMLTecCardMessageElement: {
+        prototype: HTMLTecCardMessageElement;
+        new (): HTMLTecCardMessageElement;
+    };
     interface HTMLTecCodeInputElement extends Components.TecCodeInput, HTMLStencilElement {
     }
     var HTMLTecCodeInputElement: {
@@ -181,6 +197,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "tec-bottom-bar": HTMLTecBottomBarElement;
         "tec-button": HTMLTecButtonElement;
+        "tec-card-message": HTMLTecCardMessageElement;
         "tec-code-input": HTMLTecCodeInputElement;
         "tec-modal": HTMLTecModalElement;
         "tec-product-header": HTMLTecProductHeaderElement;
@@ -248,6 +265,16 @@ declare namespace LocalJSX {
          */
         "status"?: TecStatus;
         "theme"?: TecnologiaTheme;
+    }
+    interface TecCardMessage {
+        /**
+          * Message passed to show in the card
+         */
+        "message"?: string;
+        /**
+          * Options to custom the css
+         */
+        "options"?: string;
     }
     interface TecCodeInput {
         /**
@@ -341,6 +368,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "tec-bottom-bar": TecBottomBar;
         "tec-button": TecButton;
+        "tec-card-message": TecCardMessage;
         "tec-code-input": TecCodeInput;
         "tec-modal": TecModal;
         "tec-product-header": TecProductHeader;
@@ -353,6 +381,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "tec-bottom-bar": LocalJSX.TecBottomBar & JSXBase.HTMLAttributes<HTMLTecBottomBarElement>;
             "tec-button": LocalJSX.TecButton & JSXBase.HTMLAttributes<HTMLTecButtonElement>;
+            "tec-card-message": LocalJSX.TecCardMessage & JSXBase.HTMLAttributes<HTMLTecCardMessageElement>;
             "tec-code-input": LocalJSX.TecCodeInput & JSXBase.HTMLAttributes<HTMLTecCodeInputElement>;
             "tec-modal": LocalJSX.TecModal & JSXBase.HTMLAttributes<HTMLTecModalElement>;
             "tec-product-header": LocalJSX.TecProductHeader & JSXBase.HTMLAttributes<HTMLTecProductHeaderElement>;

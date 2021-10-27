@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.card-message {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  min-height: 200px;
+  color: #333333;
+  background: #e5e5e5;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  & .card-icon {
+    font-size: 40px;
+  }
+}
+
+
